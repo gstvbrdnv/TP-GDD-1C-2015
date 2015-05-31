@@ -1,0 +1,3 @@
+F:\Mis documentos\UTN\GDD\TP\Aplicacion Desktop\PagoElectronico\WindowsFormsApplication3\obj\Debug\ResolveAssemblyReference.cache
+F:\Mis documentos\UTN\GDD\TP\Aplicacion Desktop\PagoElectronico\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.Properties.Resources.resources
+F:\Mis documentos\UTN\GDD\TP\Aplicacion Desktop\PagoElectronico\WindowsFormsApplication3\obj\Debug\PagoElectronico.Comun.csproj.GenerateResource.Cache

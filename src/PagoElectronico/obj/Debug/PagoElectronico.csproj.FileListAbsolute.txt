@@ -1,0 +1,12 @@
+C:\Users\Public\Documents\UTN\GDD\TP\Aplicacion Desktop\PagoElectronico\PagoElectronico\bin\Debug\PagoElectronico.exe.config
+F:\Mis documentos\UTN\GDD\TP\Aplicacion Desktop\PagoElectronico\PagoElectronico\bin\Debug\PagoElectronico.exe.config
+F:\Mis documentos\UTN\GDD\TP\Aplicacion Desktop\PagoElectronico\PagoElectronico\bin\Debug\PagoElectronico.exe
+F:\Mis documentos\UTN\GDD\TP\Aplicacion Desktop\PagoElectronico\PagoElectronico\bin\Debug\PagoElectronico.pdb
+F:\Mis documentos\UTN\GDD\TP\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\ResolveAssemblyReference.cache
+F:\Mis documentos\UTN\GDD\TP\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.Properties.Resources.resources
+F:\Mis documentos\UTN\GDD\TP\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.csproj.GenerateResource.Cache
+F:\Mis documentos\UTN\GDD\TP\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.exe
+F:\Mis documentos\UTN\GDD\TP\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.pdb
+F:\Mis documentos\UTN\GDD\TP\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.ABM_Rol.Form1.resources
+F:\Mis documentos\UTN\GDD\TP\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.ABM_Rol.AgregarModificarForm.resources
+F:\Mis documentos\UTN\GDD\TP\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.ABM_Rol.RolesForm.resources
