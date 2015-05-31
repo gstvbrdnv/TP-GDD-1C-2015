@@ -7,9 +7,9 @@ namespace PagoElectronico.Comun
 {
     public class Rol
     {
-        public int ID { get; set; }
-        public string Nombre { get; set; }
-        public Perfil Perfil { get; set; }
+        public int id_rol { get; set; }
+        public string descripcion { get; set; }
+        public Boolean estado { get; set; }
 
         public List<Functionalities> Functionalities { get; set; }
 
@@ -19,17 +19,17 @@ namespace PagoElectronico.Comun
         public override bool Equals(object obj)
         {
             if (!(obj is Rol)) return false;
-            return ((Rol)obj).ID == this.ID;
+            return ((Rol)obj).id_rol == this.id_rol;
         }
 
         public override int GetHashCode()
         {
-            return ID.GetHashCode();
+            return id_rol.GetHashCode();
         }
 
         public override string ToString()
         {
-            return Nombre + " (Perfil: " + Perfil + ")";
+            return descripcion + " (Perfil: " + estado + ")";
         }
     }
 }

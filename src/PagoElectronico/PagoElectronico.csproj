@@ -66,11 +66,11 @@
     <Compile Include="ABM de Usuario\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABM Rol\AgregarModificarForm.cs">
+    <Compile Include="ABM Rol\AgregarRolForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABM Rol\AgregarModificarForm.Designer.cs">
-      <DependentUpon>AgregarModificarForm.cs</DependentUpon>
+    <Compile Include="ABM Rol\AgregarRolForm.Designer.cs">
+      <DependentUpon>AgregarRolForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ABM Rol\AMBRol.cs" />
     <Compile Include="ABM Rol\RolesForm.cs">
@@ -85,6 +85,7 @@
     <Compile Include="Consulta Saldos\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Core\AtributoPermisosRequeridos.cs" />
     <Compile Include="Depositos\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,8 +118,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="ABM Rol\AgregarModificarForm.resx">
-      <DependentUpon>AgregarModificarForm.cs</DependentUpon>
+    <EmbeddedResource Include="ABM Rol\AgregarRolForm.resx">
+      <DependentUpon>AgregarRolForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ABM Rol\RolesForm.resx">
       <DependentUpon>RolesForm.cs</DependentUpon>

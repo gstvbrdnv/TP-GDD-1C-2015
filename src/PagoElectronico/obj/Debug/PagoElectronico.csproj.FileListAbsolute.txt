@@ -10,3 +10,12 @@ F:\Mis documentos\UTN\GDD\TP\Aplicacion Desktop\PagoElectronico\PagoElectronico\
 F:\Mis documentos\UTN\GDD\TP\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.ABM_Rol.Form1.resources
 F:\Mis documentos\UTN\GDD\TP\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.ABM_Rol.AgregarModificarForm.resources
 F:\Mis documentos\UTN\GDD\TP\Aplicacion Desktop\PagoElectronico\PagoElectronico\obj\Debug\PagoElectronico.ABM_Rol.RolesForm.resources
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\bin\Debug\PagoElectronico.exe.config
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Debug\PagoElectronico.exe
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Debug\PagoElectronico.pdb
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Debug\PagoElectronico.ABM_Rol.AgregarRolForm.resources
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Debug\PagoElectronico.ABM_Rol.RolesForm.resources
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Debug\PagoElectronico.Main.resources
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Debug\PagoElectronico.Properties.Resources.resources
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Debug\PagoElectronico.csproj.GenerateResource.Cache

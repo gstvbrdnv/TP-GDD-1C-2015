@@ -1,3 +1,6 @@
 F:\Mis documentos\UTN\GDD\TP\Aplicacion Desktop\PagoElectronico\WindowsFormsApplication2\obj\Debug\ResolveAssemblyReference.cache
 F:\Mis documentos\UTN\GDD\TP\Aplicacion Desktop\PagoElectronico\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.Properties.Resources.resources
 F:\Mis documentos\UTN\GDD\TP\Aplicacion Desktop\PagoElectronico\WindowsFormsApplication2\obj\Debug\PagoElectronico.Data.csproj.GenerateResource.Cache
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\WindowsFormsApplication2\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.Properties.Resources.resources
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\WindowsFormsApplication2\obj\Debug\PagoElectronico.Data.csproj.GenerateResource.Cache
