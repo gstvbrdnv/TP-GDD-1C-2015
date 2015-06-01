@@ -53,6 +53,7 @@
     <Compile Include="Cuenta.cs" />
     <Compile Include="Depositos.cs" />
     <Compile Include="Facturacion.cs" />
+    <Compile Include="Functionalities.cs" />
     <Compile Include="Listados.cs" />
     <Compile Include="Login.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -78,6 +79,12 @@
     <Compile Include="Rol.cs" />
     <Compile Include="Transferencias.cs" />
     <Compile Include="Usuario.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WindowsFormsApplication1\PagoElectronico.Negocio.csproj">
+      <Project>{3C7E14BF-5338-4CAF-8655-33FBB21FDF0A}</Project>
+      <Name>PagoElectronico.Negocio</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -15,7 +15,7 @@ namespace PagoElectronico.ABM_Rol
 {
     public partial class RolesForm : Form
     {
-        [PermissionRequired(Functionalities.AdministrarRoles)]
+        //[PermissionRequired(Functionalities.AdministrarRoles)]
         public RolesForm()
         {
             InitializeComponent();

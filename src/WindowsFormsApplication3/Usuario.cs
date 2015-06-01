@@ -7,5 +7,6 @@ namespace WindowsFormsApplication3
 {
     class Usuario
     {
+        
     }
 }

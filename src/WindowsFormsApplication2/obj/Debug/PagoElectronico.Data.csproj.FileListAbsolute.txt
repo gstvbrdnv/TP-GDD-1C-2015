@@ -4,3 +4,10 @@ F:\Mis documentos\UTN\GDD\TP\Aplicacion Desktop\PagoElectronico\WindowsFormsAppl
 C:\Users\USER\GitHub\TP-GDD-1C-2015\src\WindowsFormsApplication2\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\USER\GitHub\TP-GDD-1C-2015\src\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.Properties.Resources.resources
 C:\Users\USER\GitHub\TP-GDD-1C-2015\src\WindowsFormsApplication2\obj\Debug\PagoElectronico.Data.csproj.GenerateResource.Cache
+C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\WindowsFormsApplication2\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.Properties.Resources.resources
+C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\WindowsFormsApplication2\obj\Debug\PagoElectronico.Data.csproj.GenerateResource.Cache
+C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\WindowsFormsApplication2\bin\Debug\WindowsFormsApplication2.exe
+C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\WindowsFormsApplication2\bin\Debug\WindowsFormsApplication2.pdb
+C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.exe
+C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.pdb
