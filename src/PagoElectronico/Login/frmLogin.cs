@@ -19,21 +19,26 @@ namespace PagoElectronico.Login
         public frmLogin()
         {
             InitializeComponent();
+            this.MaximizeBox = false;
         }
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
+
+
             if (txtUsuario.Text == "" || txtPassword.Text == "")
             {
                 MessageBox.Show("Falta completar datos");
                 return;
             }
 
-            var encryptedPassword = ComputeHash(txtPassword.Text, new SHA1Managed());
+            string encryptedPassword = ComputeHash(txtPassword.Text, new SHA256Managed());
+
+            MessageBox.Show(encryptedPassword.ToString());
             //Entra a la BD, se fija si el usuario y contraseña de la base matchea con lo ingresado:
             DataTable dataTableLogin = DataBase.ExecuteReader("SELECT * FROM NOLARECURSO.Usuario WHERE username = '" +
                 txtUsuario.Text + "' " + "AND password = '" + encryptedPassword + "'");
-            MessageBox.Show(dataTableLogin.Rows.Count.ToString());
+            MessageBox.Show("cant row login: " + dataTableLogin.Rows.Count.ToString());
             
             //Si la contraseña es incorrecta o el usuario no existe la consulta devuelve 0 filas, entonces:
             if (dataTableLogin.Rows.Count == 0)
@@ -42,33 +47,38 @@ namespace PagoElectronico.Login
                 DataTable dataTable2 = DataBase.ExecuteReader("Select * From NOLARECURSO.Usuario WHERE username = '" +
                     txtUsuario.Text + "' ");
 
-                string estadoUsuario2 = "0";
+                string estadoUsuario2 = "False";
                 //Obtenemos el estado del usuario
                 foreach (DataRow dataRow in dataTable2.Rows)
                 {
                     estadoUsuario2 = dataRow["estado"].ToString();
                 }
-
-                // 1 está activo. 0 está bloqueado.
-                if (estadoUsuario2 == "1")
+                //MessageBox.Show("cant rows username en tabla usuario: " + dataTable2.Rows.Count.ToString());
+                //MessageBox.Show("estado usuario: " + estadoUsuario2);
+                // True está activo. False está bloqueado.
+                if (estadoUsuario2 == "True")
                 {
                     if (dataTable2.Rows.Count != 0)
                     {
                         DataTable dataTableAuditoria = DataBase.ExecuteReader("Select * From NOLARECURSO.Auditoria_Login " +
                             "WHERE username = '" + txtUsuario.Text + "' ");
-                        
                         //Si el usuario no tiene registro en la tabla de auditoria, lo crea
                         if (dataTableAuditoria.Rows.Count == 0)
                         {
-                            int idLogin = DB.DataBase.ExecuteCardinal("Select * From NOLARECURSO.Auditoria_Login Order By 1 DESC");
-                            int crearRegistro = DB.DataBase.ExecuteNonQuery("Insert Into NOLARECURSO.Auditoria_Login" +
-                                "(id_login, username, fec_intento, intento_correcto) values" +
-                                "('" + idLogin + 1 + ",'" + txtUsuario.Text + "','" + DateTime.Now.ToString() + "','" + 1 + "')");
+                            // TODO arreglar el generador de PK_username para la tabla de auditoria
+                            DataTable auditoriaIdLogin = DB.DataBase.ExecuteReader("Select count(*) From NOLARECURSO.Auditoria_Login");
+                            //MessageBox.Show("cant row audit: " + auditoriaIdLogin.Rows.Count.ToString());
+                            int idLogin = 159 - auditoriaIdLogin.Rows.Count;
+                            //MessageBox.Show("idLogin: " + idLogin.ToString());
+                            //MessageBox.Show(DateTime.Now.ToString("yyyy/MM/dd"));
+                            int crearRegistroAuditoria = DB.DataBase.ExecuteNonQuery("SET IDENTITY_INSERT NOLARECURSO.Auditoria_Login ON; Insert Into NOLARECURSO.Auditoria_Login " +
+                                "(id_login, username, fec_intento, intento_correcto) Values " +
+                                "('" + idLogin + "', '" + txtUsuario.Text + "', '" + DateTime.Now.ToString("yyyy-MM-dd") + "', '" + 1 + "')");
                         }
                         else //Actualiza cantidad de intentos en tabla de auditoria
                         {
                             int updateIntentos = DataBase.ExecuteNonQuery("Update NOLARECURSO.Auditoria_Login " +
-                                "SET intento_correcto = intento_correcto + 1 where username = '" + txtUsuario.Text + "'");
+                                "SET intento_correcto = intento_correcto + 1 WHERE username = '" + txtUsuario.Text + "'");
 
                         }
                         //Devuelve cantidad de intentos del usuario
@@ -79,26 +89,25 @@ namespace PagoElectronico.Login
                         if (intentos > 2)
                         {
                             int updateEstadoUsuario = DataBase.ExecuteNonQuery("Update NOLARECURSO.Usuario SET estado = 0" + 
-                                "WHERE usuario = '" + txtUsuario.Text + "'");
+                                "WHERE username = '" + txtUsuario.Text + "'");
+                            int updateIntentos2 = DataBase.ExecuteNonQuery("Update NOLARECURSO.Auditoria_Login SET intento_correcto = 0" +
+                                "WHERE username = '" + txtUsuario.Text + "'");
                             MessageBox.Show("El usuario ingresado ha sido bloqueado, por favor contacte al administrador del sistema.");
                             return;
                         }
 
-                        MessageBox.Show("La contraseña es incorrecta");
+                        MessageBox.Show("La contraseña ingresada es incorrecta.");
                         return;
                     }
-
-                MessageBox.Show("El usuario no existe.");
-                return;
                 }
 
                 if (dataTable2.Rows.Count != 0)
                 {
-                    MessageBox.Show("1El usuario ingresado está bloqueado, por favor contacte al administrador del sistema.");
+                    MessageBox.Show("El usuario ingresado está bloqueado, por favor contacte al administrador del sistema.");
                     return;
                 }
 
-                MessageBox.Show("El usuario es no existe.");
+                MessageBox.Show("El usuario no existe.");
                 return;
             }
 
@@ -115,7 +124,7 @@ namespace PagoElectronico.Login
                 return;
             }
 
-            int updateIntentos2 = DataBase.ExecuteNonQuery("Update NOLARECURSO.Auditoria_Login SET intento_correcto = 0" + 
+            int updateIntentos3 = DataBase.ExecuteNonQuery("Update NOLARECURSO.Auditoria_Login SET intento_correcto = 0" + 
                 "WHERE username = '" + txtUsuario.Text + "'");
             
             nombreUsuario = txtUsuario.Text;
