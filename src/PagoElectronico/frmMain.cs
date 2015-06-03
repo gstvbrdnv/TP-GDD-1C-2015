@@ -18,7 +18,17 @@ namespace PagoElectronico
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            
+            this.MaximizeBox = false;
+        }
+
+        private void aBMRolToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void aBMRolToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

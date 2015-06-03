@@ -190,7 +190,10 @@ namespace PagoElectronico.Login
 
         public void iniciarSesion(string loginUsername)
         {
-            MessageBox.Show("CANT ROLES = 1");
+            //MessageBox.Show("CANT ROLES = 1");
+            this.Hide();
+            frmMain nuevaSesion = new frmMain();
+            nuevaSesion.Show();
         }
 
         public string ComputeHash(string input, HashAlgorithm algorithm)
