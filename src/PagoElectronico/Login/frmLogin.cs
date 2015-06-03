@@ -9,17 +9,22 @@ using System.Windows.Forms;
 using PagoElectronico.Login;
 using PagoElectronico.DB;
 using System.Security.Cryptography;
+using PagoElectronico.Comun;
 
 namespace PagoElectronico.Login
 {
     public partial class frmLogin : Form
     {
-        public string nombreUsuario;
+        public string loginUsername;
+        public bool resultadoLogin = false;
+        public static Rol rol;
+        public string rolElegido;
 
         public frmLogin()
         {
             InitializeComponent();
             this.MaximizeBox = false;
+            this.Size = new Size(238, 184);
         }
 
         private void btnIngresar_Click(object sender, EventArgs e)
@@ -28,17 +33,17 @@ namespace PagoElectronico.Login
 
             if (txtUsuario.Text == "" || txtPassword.Text == "")
             {
-                MessageBox.Show("Falta completar datos");
+                MessageBox.Show("Falta completar datos.");
                 return;
             }
 
             string encryptedPassword = ComputeHash(txtPassword.Text, new SHA256Managed());
 
-            MessageBox.Show(encryptedPassword.ToString());
+            //MessageBox.Show(encryptedPassword.ToString());
             //Entra a la BD, se fija si el usuario y contraseña de la base matchea con lo ingresado:
             DataTable dataTableLogin = DataBase.ExecuteReader("SELECT * FROM NOLARECURSO.Usuario WHERE username = '" +
                 txtUsuario.Text + "' " + "AND password = '" + encryptedPassword + "'");
-            MessageBox.Show("cant row login: " + dataTableLogin.Rows.Count.ToString());
+            //MessageBox.Show("cant row login: " + dataTableLogin.Rows.Count.ToString());
             
             //Si la contraseña es incorrecta o el usuario no existe la consulta devuelve 0 filas, entonces:
             if (dataTableLogin.Rows.Count == 0)
@@ -127,9 +132,65 @@ namespace PagoElectronico.Login
             int updateIntentos3 = DataBase.ExecuteNonQuery("Update NOLARECURSO.Auditoria_Login SET intento_correcto = 0" + 
                 "WHERE username = '" + txtUsuario.Text + "'");
             
-            nombreUsuario = txtUsuario.Text;
-            DialogResult = DialogResult.OK;
+            resultadoLogin = true;
+            if (resultadoLogin != true)
+            {
+                this.Close();
+            }
+            else
+            {
+                elegirRol(loginUsername);
+            }
+        }
 
+        public void elegirRol(string loginUsername)
+        {
+            loginUsername = txtUsuario.Text;
+            int cantidadRoles = 0;
+
+            //Cargamos roles activos del usuario
+            DataTable rolesUsuario = DataBase.ExecuteReader("SELECT rol.id_rol , rol.descripcion, rol.estado FROM NOLARECURSO.Rol_Usuario" +
+                " rol_usuario JOIN NOLARECURSO.Rol rol ON rol.id_rol = rol_usuario.id_rol WHERE rol_usuario.username = '" + loginUsername +
+                "' AND rol.estado = 1");
+
+            //Calculamos cantidad de roles que tiene asignado el usuario
+            foreach (DataRow dataRow in rolesUsuario.Rows)
+            { cantidadRoles++; }
+
+            switch (cantidadRoles)
+            {
+                case (0):
+                    MessageBox.Show("El usuario no tiene roles asignados, por favor contacte al administrador del sistema.");
+                    break;
+                case (1):
+                    iniciarSesion(loginUsername);
+                    break;
+                default:
+                    //Modificamos estado de los objetos del formulario
+                    this.Size = new Size(238, 285);
+                    txtUsuario.Enabled = false;
+                    txtPassword.Enabled = false;
+                    btnIngresar.Enabled = false;
+                    comboRoles.Enabled = true;
+                    comboRoles.DropDownStyle = ComboBoxStyle.DropDownList;
+
+                    //Cargamos roles en el comboBox
+                    foreach (DataRow dataRow in rolesUsuario.Rows)
+                    {
+                        rol = new Rol();
+                        rol.id_rol =  dataRow["id_rol"].ToString();
+                        rol.descripcion = dataRow["descripcion"].ToString();
+                        rol.estado = dataRow["estado"].ToString();
+
+                        comboRoles.Items.Add(rol.descripcion.ToString());
+                    }
+                    break;
+            }
+        }
+
+        public void iniciarSesion(string loginUsername)
+        {
+            MessageBox.Show("CANT ROLES = 1");
         }
 
         public string ComputeHash(string input, HashAlgorithm algorithm)
@@ -165,5 +226,17 @@ namespace PagoElectronico.Login
         {
 
         }
+
+        private void btnAceptarRol_Click(object sender, EventArgs e)
+        {
+            if (comboRoles.SelectedItem != null)
+            {
+                rolElegido = comboRoles.SelectedItem.ToString();
+                iniciarSesion(loginUsername);
+            }
+            else
+                MessageBox.Show("Debe seleccionar un rol primero.");
+        }
+
     }
 }

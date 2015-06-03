@@ -35,15 +35,17 @@
             this.lblRol = new System.Windows.Forms.Label();
             this.btnIngresar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboRoles = new System.Windows.Forms.ComboBox();
+            this.btnAceptarRol = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuario.Location = new System.Drawing.Point(15, 21);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(43, 13);
+            this.lblUsuario.Size = new System.Drawing.Size(55, 16);
             this.lblUsuario.TabIndex = 0;
             this.lblUsuario.Text = "Usuario";
             // 
@@ -58,32 +60,36 @@
             // 
             this.txtPassword.Location = new System.Drawing.Point(18, 76);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(196, 20);
             this.txtPassword.TabIndex = 2;
             // 
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
+            this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPassword.Location = new System.Drawing.Point(15, 60);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(61, 13);
+            this.lblPassword.Size = new System.Drawing.Size(77, 16);
             this.lblPassword.TabIndex = 3;
             this.lblPassword.Text = "Contraseña";
             // 
             // lblRol
             // 
             this.lblRol.AutoSize = true;
-            this.lblRol.Location = new System.Drawing.Point(15, 167);
+            this.lblRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRol.Location = new System.Drawing.Point(9, 164);
             this.lblRol.Name = "lblRol";
-            this.lblRol.Size = new System.Drawing.Size(199, 13);
+            this.lblRol.Size = new System.Drawing.Size(176, 16);
             this.lblRol.TabIndex = 4;
-            this.lblRol.Text = "¿Con que Rol desea ingresar al sistema?";
+            this.lblRol.Text = "Seleccione el perfil a utilizar:";
             // 
             // btnIngresar
             // 
+            this.btnIngresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIngresar.Location = new System.Drawing.Point(18, 114);
             this.btnIngresar.Name = "btnIngresar";
-            this.btnIngresar.Size = new System.Drawing.Size(89, 24);
+            this.btnIngresar.Size = new System.Drawing.Size(89, 29);
             this.btnIngresar.TabIndex = 5;
             this.btnIngresar.Text = "Ingresar";
             this.btnIngresar.UseVisualStyleBackColor = true;
@@ -91,29 +97,42 @@
             // 
             // btnSalir
             // 
+            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.Location = new System.Drawing.Point(125, 114);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(89, 24);
+            this.btnSalir.Size = new System.Drawing.Size(89, 29);
             this.btnSalir.TabIndex = 6;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // comboBox1
+            // comboRoles
             // 
-            this.comboBox1.Enabled = false;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(12, 183);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(202, 21);
-            this.comboBox1.TabIndex = 7;
+            this.comboRoles.Enabled = false;
+            this.comboRoles.FormattingEnabled = true;
+            this.comboRoles.Location = new System.Drawing.Point(12, 183);
+            this.comboRoles.Name = "comboRoles";
+            this.comboRoles.Size = new System.Drawing.Size(202, 21);
+            this.comboRoles.TabIndex = 7;
+            // 
+            // btnAceptarRol
+            // 
+            this.btnAceptarRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAceptarRol.Location = new System.Drawing.Point(125, 216);
+            this.btnAceptarRol.Name = "btnAceptarRol";
+            this.btnAceptarRol.Size = new System.Drawing.Size(89, 29);
+            this.btnAceptarRol.TabIndex = 8;
+            this.btnAceptarRol.Text = "Aceptar";
+            this.btnAceptarRol.UseVisualStyleBackColor = true;
+            this.btnAceptarRol.Click += new System.EventHandler(this.btnAceptarRol_Click);
             // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(232, 225);
-            this.Controls.Add(this.comboBox1);
+            this.ClientSize = new System.Drawing.Size(232, 257);
+            this.Controls.Add(this.btnAceptarRol);
+            this.Controls.Add(this.comboRoles);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnIngresar);
             this.Controls.Add(this.lblRol);
@@ -141,6 +160,7 @@
         private System.Windows.Forms.Label lblRol;
         private System.Windows.Forms.Button btnIngresar;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboRoles;
+        private System.Windows.Forms.Button btnAceptarRol;
     }
 }
