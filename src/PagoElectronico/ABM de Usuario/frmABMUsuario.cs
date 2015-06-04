@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace PagoElectronico.Consulta_Saldos
+namespace PagoElectronico.ABM_de_Usuario
 {
-    public partial class Form1 : Form
+    public partial class frmABMUsuario : Form
     {
-        public Form1()
+        public frmABMUsuario()
         {
             InitializeComponent();
         }

@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace PagoElectronico.ABM_Cliente
+namespace PagoElectronico.Retiros
 {
-    public partial class Form1 : Form
+    public partial class frmRetiros : Form
     {
-        public Form1()
+        public frmRetiros()
         {
             InitializeComponent();
         }

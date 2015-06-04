@@ -63,6 +63,7 @@
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(196, 20);
             this.txtPassword.TabIndex = 2;
+            this.txtPassword.Text = "GestionDeDatos2015";
             // 
             // lblPassword
             // 
@@ -114,6 +115,7 @@
             this.comboRoles.Name = "comboRoles";
             this.comboRoles.Size = new System.Drawing.Size(202, 21);
             this.comboRoles.TabIndex = 7;
+            this.comboRoles.SelectedIndexChanged += new System.EventHandler(this.comboRoles_SelectedIndexChanged);
             // 
             // btnAceptarRol
             // 

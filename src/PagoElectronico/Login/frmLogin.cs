@@ -15,10 +15,10 @@ namespace PagoElectronico.Login
 {
     public partial class frmLogin : Form
     {
-        public string loginUsername;
+        public static string loginUsername;
         public bool resultadoLogin = false;
         public static Rol rol;
-        public string rolElegido;
+        public static string rolElegido;
 
         public frmLogin()
         {
@@ -29,8 +29,6 @@ namespace PagoElectronico.Login
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-
-
             if (txtUsuario.Text == "" || txtPassword.Text == "")
             {
                 MessageBox.Show("Falta completar datos.");
@@ -139,18 +137,18 @@ namespace PagoElectronico.Login
             }
             else
             {
+                loginUsername = txtUsuario.Text;
                 elegirRol(loginUsername);
             }
         }
 
-        public void elegirRol(string loginUsername)
+        public void elegirRol(string user)
         {
-            loginUsername = txtUsuario.Text;
             int cantidadRoles = 0;
 
             //Cargamos roles activos del usuario
             DataTable rolesUsuario = DataBase.ExecuteReader("SELECT rol.id_rol , rol.descripcion, rol.estado FROM NOLARECURSO.Rol_Usuario" +
-                " rol_usuario JOIN NOLARECURSO.Rol rol ON rol.id_rol = rol_usuario.id_rol WHERE rol_usuario.username = '" + loginUsername +
+                " rol_usuario JOIN NOLARECURSO.Rol rol ON rol.id_rol = rol_usuario.id_rol WHERE rol_usuario.username = '" + user +
                 "' AND rol.estado = 1");
 
             //Calculamos cantidad de roles que tiene asignado el usuario
@@ -163,7 +161,11 @@ namespace PagoElectronico.Login
                     MessageBox.Show("El usuario no tiene roles asignados, por favor contacte al administrador del sistema.");
                     break;
                 case (1):
-                    iniciarSesion(loginUsername);
+                    foreach (DataRow dataRow in rolesUsuario.Rows)
+                    {
+                        rolElegido = dataRow["id_rol"].ToString();
+                    }
+                    iniciarSesion(loginUsername, rolElegido);
                     break;
                 default:
                     //Modificamos estado de los objetos del formulario
@@ -188,7 +190,7 @@ namespace PagoElectronico.Login
             }
         }
 
-        public void iniciarSesion(string loginUsername)
+        public void iniciarSesion(string user, string rol)
         {
             //MessageBox.Show("CANT ROLES = 1");
             this.Hide();
@@ -234,11 +236,21 @@ namespace PagoElectronico.Login
         {
             if (comboRoles.SelectedItem != null)
             {
-                rolElegido = comboRoles.SelectedItem.ToString();
-                iniciarSesion(loginUsername);
+                DataTable idRol = DataBase.ExecuteReader("SELECT id_rol FROM NOLARECURSO.Rol" +
+                    " WHERE descripcion = '" + comboRoles.SelectedItem.ToString() + "'");
+                foreach (DataRow dataRow in idRol.Rows)
+                {
+                    rolElegido = dataRow["id_rol"].ToString();
+                }
+                iniciarSesion(loginUsername, rolElegido);
             }
             else
                 MessageBox.Show("Debe seleccionar un rol primero.");
+        }
+
+        private void comboRoles_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
     }

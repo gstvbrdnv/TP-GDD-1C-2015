@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace PagoElectronico.Listados
+namespace PagoElectronico.Consulta_Saldos
 {
-    public partial class Form1 : Form
+    public partial class frmConsultaSaldo : Form
     {
-        public Form1()
+        public frmConsultaSaldo()
         {
             InitializeComponent();
         }

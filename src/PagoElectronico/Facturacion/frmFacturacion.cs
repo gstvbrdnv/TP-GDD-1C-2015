@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace PagoElectronico.ABM_de_Usuario
+namespace PagoElectronico.Facturacion
 {
-    public partial class Form1 : Form
+    public partial class frmFacturacion : Form
     {
-        public Form1()
+        public frmFacturacion()
         {
             InitializeComponent();
         }

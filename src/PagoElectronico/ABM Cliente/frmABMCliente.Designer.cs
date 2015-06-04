@@ -1,6 +1,6 @@
-﻿namespace PagoElectronico.ABM_Cuenta
+﻿namespace PagoElectronico.ABM_Cliente
 {
-    partial class Form1
+    partial class frmABMCliente
     {
         /// <summary>
         /// Required designer variable.
@@ -28,9 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // frmABMCliente
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.Name = "frmABMCliente";
+            this.Text = "Clientes";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
