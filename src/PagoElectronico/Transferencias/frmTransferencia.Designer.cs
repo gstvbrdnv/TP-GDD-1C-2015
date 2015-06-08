@@ -132,7 +132,6 @@
             this.txtDestino.Size = new System.Drawing.Size(138, 20);
             this.txtDestino.TabIndex = 2;
             this.txtDestino.Tag = "Cuenta destino";
-            this.txtDestino.Text = "1111111111111111";
             // 
             // frmTransferencia
             // 
