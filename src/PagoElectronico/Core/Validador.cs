@@ -47,6 +47,17 @@ namespace PagoElectronico.Core
 
         }
 
+        public void esDecimal(TextBox textBox)
+        {
+            string numero = textBox.Text;
+            decimal d;
+            if (!(decimal.TryParse(numero, out d)))
+            {
+                errores.Add("El campo <" + textBox.Tag + "> no es decimal.");
+                return; 
+            }
+        }
+
         public void esAlfabetico(TextBox textBox)
         {
             String text = textBox.Text;
@@ -68,7 +79,7 @@ namespace PagoElectronico.Core
             {
                 if (this.esNumerico(text))
                 {
-                    int value = Convert.ToInt16(text);
+                    int value = Convert.ToInt32(text);
                     if (!(value > 0))
                     {
                         errores.Add("El valor del campo <" + textBox.Tag + "> debe ser mayor a 0 (Cero).");
@@ -111,7 +122,6 @@ namespace PagoElectronico.Core
 
                     int estadoCuenta = DataBase.ExecuteCardinal("SELECT estado FROM NOLARECURSO.Cuenta " +
                         "WHERE nro_cuenta = '" + cuenta + "'");
-                    //MessageBox.Show(estadoCuenta.ToString());
                     switch (estadoCuenta)
                     {
                         case 3:

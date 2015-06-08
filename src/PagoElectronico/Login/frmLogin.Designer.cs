@@ -55,6 +55,7 @@
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(196, 20);
             this.txtUsuario.TabIndex = 1;
+            this.txtUsuario.Text = "andina_olivera@gmail.com";
             // 
             // txtPassword
             // 

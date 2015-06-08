@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using PagoElectronico;
+using System.Globalization;
+using System.Threading;
 
 namespace PagoElectronico
 {
@@ -16,7 +18,7 @@ namespace PagoElectronico
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            
+            Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("en-US");
             Application.Run(new PagoElectronico.Login.frmLogin());
         }
     }

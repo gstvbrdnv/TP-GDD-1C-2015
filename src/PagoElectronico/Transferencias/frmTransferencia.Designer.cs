@@ -81,10 +81,13 @@
             // txtMonto
             // 
             this.txtMonto.Location = new System.Drawing.Point(15, 113);
+            this.txtMonto.MaxLength = 7;
             this.txtMonto.Name = "txtMonto";
             this.txtMonto.Size = new System.Drawing.Size(138, 20);
-            this.txtMonto.TabIndex = 5;
+            this.txtMonto.TabIndex = 3;
             this.txtMonto.Tag = "Monto";
+            this.txtMonto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtMonto.TextChanged += new System.EventHandler(this.txtMonto_TextChanged);
             // 
             // btnTransferir
             // 
@@ -92,7 +95,7 @@
             this.btnTransferir.Location = new System.Drawing.Point(175, 94);
             this.btnTransferir.Name = "btnTransferir";
             this.btnTransferir.Size = new System.Drawing.Size(110, 32);
-            this.btnTransferir.TabIndex = 6;
+            this.btnTransferir.TabIndex = 5;
             this.btnTransferir.Text = "Aceptar";
             this.btnTransferir.UseVisualStyleBackColor = true;
             this.btnTransferir.Click += new System.EventHandler(this.btnTransferir_Click);
@@ -104,6 +107,7 @@
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(86, 24);
             this.btnVolver.TabIndex = 11;
+            this.btnVolver.TabStop = false;
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = true;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
@@ -115,6 +119,7 @@
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(86, 24);
             this.btnLimpiar.TabIndex = 12;
+            this.btnLimpiar.TabStop = false;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
@@ -122,10 +127,12 @@
             // txtDestino
             // 
             this.txtDestino.Location = new System.Drawing.Point(15, 71);
+            this.txtDestino.MaxLength = 16;
             this.txtDestino.Name = "txtDestino";
             this.txtDestino.Size = new System.Drawing.Size(138, 20);
-            this.txtDestino.TabIndex = 13;
+            this.txtDestino.TabIndex = 2;
             this.txtDestino.Tag = "Cuenta destino";
+            this.txtDestino.Text = "1111111111111111";
             // 
             // frmTransferencia
             // 

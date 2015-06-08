@@ -11,6 +11,9 @@ using PagoElectronico.DB;
 using System.Security.Cryptography;
 using PagoElectronico.Comun;
 using PagoElectronico.Core;
+using System.Globalization;
+using System.Threading;
+using System.Configuration;
 
 namespace PagoElectronico.Transferencias
 {
@@ -20,6 +23,7 @@ namespace PagoElectronico.Transferencias
         public static string sessionRol;
         public static Cuenta cuenta;
         int idCliente; 
+        Validador validador = Validador.Instance;
 
         public frmTransferencia()
         {
@@ -67,15 +71,14 @@ namespace PagoElectronico.Transferencias
             Close();
         }
 
-        //Valida datos de los campos
+        //Validar datos de los campos
         private void validarDatos()
         {
-            Validador validador = Validador.Instance;
-
             foreach (Control control in Controls)
             { if (control is TextBox) validador.estaVacioOEsNulo((TextBox)control); }
             validador.esNumerico(txtDestino);
-            validador.esNumerico(txtMonto);
+            validador.esDecimal(txtMonto);
+            //validador.esNumerico(txtMontoDecimal);
             validador.hayUnoSeleccionado("Cuenta origen", comboOrigen);
             // Existe la cuenta destino?
             validador.existeLaCuenta(txtDestino.Text);
@@ -95,21 +98,97 @@ namespace PagoElectronico.Transferencias
                 Validador.Instance.mostrarErrores();
                 return;
             }
-            // Si no hay errores, chequear
-            // Fecha transferencia del dia (inmediata)
-            // Es cuenta propia o de tercero?
+
+            string monto = txtMonto.Text;
+            monto = monto.Replace(",", ".");
+            decimal montoDecimal = decimal.Parse(monto, CultureInfo.InvariantCulture);
+
+            var saldoTable = DataBase.ExecuteReader("SELECT saldo FROM NOLARECURSO.Cuenta " +
+                "where nro_cuenta = '" + comboOrigen.SelectedItem.ToString() + "'");
+            string saldoStr = "0";
+            foreach (DataRow dataRow in saldoTable.Rows)
+            { saldoStr = dataRow["saldo"].ToString(); }
+            saldoStr = saldoStr.Replace(",", ".");
+
+            decimal saldoDecimal = decimal.Parse(saldoStr, CultureInfo.InvariantCulture);
+
+            // Validar si la cuenta destino es propia o de tercero:
             if (esCuentaPropia(txtDestino.Text))
             {
-                // Si es propia, costo transferencia = 0
-                MessageBox.Show("Es cuenta propia");
-
+                // Si es propia, costo de transferencia = 0
+                if (saldoDecimal < montoDecimal)
+                {
+                    validador.agregarError("El monto a transferir '" + monto + "' excede el saldo de la cuenta origen '" +
+                        comboOrigen.SelectedItem.ToString() + "'. Saldo: '" + saldoDecimal + "'.");
+                    if (Validador.Instance.hayErrores())
+                    {
+                        Validador.Instance.mostrarErrores();
+                        return;
+                    }
+                }
+                else
+                {
+                    // Realizar transferencia
+                    // Descontar monto a la cuenta origen
+                    int debitarMonto = DataBase.ExecuteNonQuery("UPDATE NOLARECURSO.Cuenta SET saldo = saldo - " + montoDecimal.ToString() +
+                        "WHERE nro_cuenta = '" + comboOrigen.SelectedItem.ToString() + "'");
+                    // Acreditar monto a la cuenta destino
+                    int acreditarMonto = DataBase.ExecuteNonQuery("UPDATE NOLARECURSO.Cuenta SET saldo = saldo + " + montoDecimal.ToString() +
+                        "WHERE nro_cuenta = '" + txtDestino.Text.ToString() + "'");
+                    // Generar transferencia
+                    string fecha = Convert.ToDateTime(ConfigurationManager.AppSettings["FechaSistema"]).ToString();
+                    DataTable insertTransferencia = DataBase.ExecuteReader("INSERT INTO NOLARECURSO.Transferencia " +
+                        "(cta_origen, cta_destino, importe, fecha, costo) VALUES " +
+                        "('" + comboOrigen.SelectedItem.ToString() + "', '" + txtDestino.Text.ToString() + "', '" +
+                        montoDecimal.ToString() + "', '" + fecha + "', 0.00)");
+                }
             }
-            else
+            else // es de tercero
             {
-                // Si es de tercero, el costo se cobra a la cuenta origen y dependiendo del tipo de cuenta
-                MessageBox.Show("Es cuenta de tercero");
+                // Si es de tercero, el costo se cobra a la cuenta origen dependiendo del tipo de cuenta
+                // Calcular costo de transferencia
+                decimal costoFijo;
+                var idTipoCuenta = DataBase.ExecuteCardinal("SELECT id_tipo_cta FROM NOLARECURSO.Cuenta " +
+                    "WHERE nro_cuenta = '" + comboOrigen.SelectedItem.ToString() + "'");
+                
+                switch (idTipoCuenta)
+                {
+                    case (4):
+                        costoFijo = 0.02m;
+                        break;
+                    default:
+                        costoFijo = 0.01m;
+                        break;
+                }
 
+                if (saldoDecimal < montoDecimal)
+                {
+                    validador.agregarError("El monto a transferir '" + monto + "' excede el saldo de la cuenta origen '" +
+                        comboOrigen.SelectedItem.ToString() + "'. Saldo disponible: '" + saldoDecimal + "'.");
+                    if (Validador.Instance.hayErrores())
+                    {
+                        Validador.Instance.mostrarErrores();
+                        return;
+                    }
+                }
+                else
+                {
+                    // Realizar transferencia
+                    // Descontar monto a la cuenta origen
+                    decimal montoFinal = montoDecimal + costoFijo;
+                    int debitarMonto = DataBase.ExecuteNonQuery("UPDATE NOLARECURSO.Cuenta SET saldo = saldo - " + montoFinal.ToString() +
+                        "WHERE nro_cuenta = '" + comboOrigen.SelectedItem.ToString() + "'");
+                    // Acreditar monto a la cuenta destino
+                    int acreditarMonto = DataBase.ExecuteNonQuery("UPDATE NOLARECURSO.Cuenta SET saldo = saldo + " + montoDecimal.ToString() +
+                        "WHERE nro_cuenta = '" + txtDestino.Text.ToString() + "'");
+                    // Generar transferencia
+                    string fecha = Convert.ToDateTime(ConfigurationManager.AppSettings["FechaSistema"]).ToString();
+                    DataTable insertTransferencia = DataBase.ExecuteReader("INSERT INTO NOLARECURSO.Transferencia " +
+                        "(cta_origen, cta_destino, importe, fecha, costo) VALUES " +
+                        "('" + comboOrigen.SelectedItem.ToString() + "', '" + txtDestino.Text.ToString() + "', '" +
+                        montoDecimal.ToString() + "', '" + fecha + "', '" + costoFijo + "')");
 
+                }
             }
         }
 
@@ -133,6 +212,11 @@ namespace PagoElectronico.Transferencias
         {
             txtDestino.Text = "";
             txtMonto.Text = "";
+        }
+
+        private void txtMonto_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
     }
