@@ -31,6 +31,10 @@ namespace PagoElectronico.Transferencias
             frmMain main = new frmMain();
             sessionUsername = frmMain.sessionUsername;
             sessionRol = frmMain.sessionRol;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(313, 188);
+            this.MinimumSize = new System.Drawing.Size(313, 188);
+            this.ControlBox = false;
         }
 
         private void frmTransferencia_Load(object sender, EventArgs e)
@@ -119,7 +123,7 @@ namespace PagoElectronico.Transferencias
                 if (saldoDecimal < montoDecimal)
                 {
                     validador.agregarError("El monto a transferir '" + monto + "' excede el saldo de la cuenta origen '" +
-                        comboOrigen.SelectedItem.ToString() + "'. Saldo: '" + saldoDecimal + "'.");
+                        comboOrigen.SelectedItem.ToString() + "'.\n\nSaldo disponible: '" + saldoDecimal + "'.");
                     if (Validador.Instance.hayErrores())
                     {
                         Validador.Instance.mostrarErrores();
@@ -141,6 +145,12 @@ namespace PagoElectronico.Transferencias
                         "(cta_origen, cta_destino, importe, fecha, costo) VALUES " +
                         "('" + comboOrigen.SelectedItem.ToString() + "', '" + txtDestino.Text.ToString() + "', '" +
                         montoDecimal.ToString() + "', '" + fecha + "', 0.00)");
+                    // Imprimir mensaje
+                    MessageBox.Show("La transferencia ha sido realizada satisfactoriamente.\n\n" +
+                        "Importe: U$S" + montoDecimal.ToString() + "\n" +
+                        "Cuenta origen: " + comboOrigen.SelectedItem.ToString() + "\n" +
+                        "Cuenta destino: " + txtDestino.Text.ToString(), "", MessageBoxButtons.OK);
+                    this.Close();
                 }
             }
             else // es de tercero
@@ -164,7 +174,7 @@ namespace PagoElectronico.Transferencias
                 if (saldoDecimal < montoDecimal)
                 {
                     validador.agregarError("El monto a transferir '" + monto + "' excede el saldo de la cuenta origen '" +
-                        comboOrigen.SelectedItem.ToString() + "'. Saldo disponible: '" + saldoDecimal + "'.");
+                        comboOrigen.SelectedItem.ToString() + "'.\n\nSaldo disponible: '" + saldoDecimal + "'.");
                     if (Validador.Instance.hayErrores())
                     {
                         Validador.Instance.mostrarErrores();
@@ -187,7 +197,13 @@ namespace PagoElectronico.Transferencias
                         "(cta_origen, cta_destino, importe, fecha, costo) VALUES " +
                         "('" + comboOrigen.SelectedItem.ToString() + "', '" + txtDestino.Text.ToString() + "', '" +
                         montoDecimal.ToString() + "', '" + fecha + "', '" + costoFijo + "')");
-
+                    // Imprimir mensaje
+                    MessageBox.Show("La transferencia ha sido realizada satisfactoriamente.\n\n" +
+                        "Importe: U$S" + montoDecimal.ToString() + "\n" +
+                        "Cuenta origen: " + comboOrigen.SelectedItem.ToString() + "\n" +
+                        "Cuenta destino: " + txtDestino.Text.ToString() + "\n" +
+                        "Costo fijo: U$S" + costoFijo.ToString(), "", MessageBoxButtons.OK);
+                    this.Close();
                 }
             }
         }

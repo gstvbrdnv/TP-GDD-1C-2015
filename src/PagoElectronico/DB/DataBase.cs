@@ -56,7 +56,7 @@ namespace PagoElectronico.DB
         static public int ExecuteCardinal(string command)
         {
             SqlDataReader reader = null;
-            int temp;
+            Int32 temp;
 
             try
             {
@@ -67,6 +67,34 @@ namespace PagoElectronico.DB
 
                 //--Es convert porque hay veces que trae Decimal y el getInt no entiende nada :)
                 temp = Convert.ToInt32(reader[0]);
+
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+
+                sqlCon.Close();
+            }
+            return temp;
+        }
+
+        static public Int64 ExecuteCardinal64(string command)
+        {
+            SqlDataReader reader = null;
+            Int64 temp;
+
+            try
+            {
+                sqlCon.Open();
+
+                reader = (new SqlCommand(command, sqlCon)).ExecuteReader();
+                reader.Read();
+
+                //--Es convert porque hay veces que trae Decimal y el getInt no entiende nada :)
+                temp = Convert.ToInt64(reader[0]);
 
             }
             catch

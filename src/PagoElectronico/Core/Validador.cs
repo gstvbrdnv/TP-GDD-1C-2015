@@ -109,6 +109,24 @@ namespace PagoElectronico.Core
             else return false;
         }
 
+        public void validarNumDoc(string numero, string cliente)
+        {
+            if (String.IsNullOrEmpty(numero))
+            {
+                errores.Add("No se seleccionó ninguna cuenta.");
+            }
+            else
+            {
+                var numDocumentoCliente = DataBase.ExecuteCardinal("SELECT nro_documento FROM NOLARECURSO.Cliente " +
+                    "WHERE id_cli = '" + cliente + "'");
+                if (!(numero.Equals(numDocumentoCliente.ToString())))
+                {
+                    errores.Add("El número de documento ingresado no coincide con el del cliente.");
+                    return;
+                }
+            }
+        }
+
         public void esCuentaCerradaOPendiente(string cuenta)
         {
             if (String.IsNullOrEmpty(cuenta))
