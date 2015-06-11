@@ -149,7 +149,8 @@ namespace PagoElectronico.Transferencias
                     MessageBox.Show("La transferencia ha sido realizada satisfactoriamente.\n\n" +
                         "Importe: U$S" + montoDecimal.ToString() + "\n" +
                         "Cuenta origen: " + comboOrigen.SelectedItem.ToString() + "\n" +
-                        "Cuenta destino: " + txtDestino.Text.ToString(), "", MessageBoxButtons.OK);
+                        "Cuenta destino: " + txtDestino.Text.ToString() + "\n\n" +
+                        "Fecha: " + fecha, "", MessageBoxButtons.OK);
                     this.Close();
                 }
             }
@@ -202,7 +203,8 @@ namespace PagoElectronico.Transferencias
                         "Importe: U$S" + montoDecimal.ToString() + "\n" +
                         "Cuenta origen: " + comboOrigen.SelectedItem.ToString() + "\n" +
                         "Cuenta destino: " + txtDestino.Text.ToString() + "\n" +
-                        "Costo fijo: U$S" + costoFijo.ToString(), "", MessageBoxButtons.OK);
+                        "Costo fijo: U$S" + costoFijo.ToString() + "\n\n" +
+                        "Fecha: " + fecha, "", MessageBoxButtons.OK);
                     this.Close();
                 }
             }

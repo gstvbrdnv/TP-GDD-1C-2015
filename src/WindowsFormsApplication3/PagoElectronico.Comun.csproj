@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Banco.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="ConsultaSaldos.cs" />
     <Compile Include="Cuenta.cs" />
@@ -77,6 +78,7 @@
     </Compile>
     <Compile Include="Retiros.cs" />
     <Compile Include="Rol.cs" />
+    <Compile Include="Tarjeta.cs" />
     <Compile Include="Transferencias.cs" />
     <Compile Include="Usuario.cs" />
   </ItemGroup>

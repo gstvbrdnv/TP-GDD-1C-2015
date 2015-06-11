@@ -23,6 +23,7 @@ namespace PagoElectronico.Retiros
         public static string sessionRol;
         Validador validador = Validador.Instance;
         public static Cuenta cuenta;
+        public static Banco banco;
         int idCliente;
 
         public frmRetiros()
@@ -32,17 +33,18 @@ namespace PagoElectronico.Retiros
             sessionUsername = frmMain.sessionUsername;
             sessionRol = frmMain.sessionRol;
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(410, 209);
-            this.MinimumSize = new System.Drawing.Size(410, 209);
+            this.MaximumSize = new System.Drawing.Size(410, 260);
+            this.MinimumSize = new System.Drawing.Size(410, 260);
             this.ControlBox = false;
         }
 
         private void cargarControles()
         {
             comboCuenta.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBanco.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
-        private void cargarCuentasOrigen()
+        private void cargarCuentas()
         {
             //MessageBox.Show(sessionUsername);
             //Obtener cuentas
@@ -58,7 +60,19 @@ namespace PagoElectronico.Retiros
             {
                 cuenta = new Cuenta();
                 cuenta.nro_cuenta = dataRow["nro_cuenta"].ToString();
-                comboCuenta.Items.Add(cuenta.nro_cuenta.ToString());
+                comboCuenta.Items.Add(cuenta.nro_cuenta);
+            }
+        }
+
+        private void cargarBancos()
+        {
+            var bancos = DataBase.ExecuteReader("SELECT * from NOLARECURSO.Banco");
+
+            foreach (DataRow dataRow in bancos.Rows)
+            {
+                string idBco = dataRow["id_banco"].ToString();
+                string desc = dataRow["descripcion"].ToString();
+                comboBanco.Items.Add(new Banco(idBco, desc));
             }
         }
 
@@ -68,6 +82,7 @@ namespace PagoElectronico.Retiros
             { if (control is TextBox) validador.estaVacioOEsNulo((TextBox)control); }
             validador.esDecimal(txtMonto);
             validador.hayUnoSeleccionado("Cuenta", comboCuenta);
+            validador.hayUnoSeleccionado("Banco", comboBanco);
             validador.esCero(txtMonto);
             validador.validarNumDoc(txtDocumento.Text, idCliente.ToString());
         }
@@ -117,29 +132,44 @@ namespace PagoElectronico.Retiros
                 // Descontar monto a la cuenta
                 int debitarMonto = DataBase.ExecuteNonQuery("UPDATE NOLARECURSO.Cuenta SET saldo = saldo - " + montoDecimal.ToString() +
                     "WHERE nro_cuenta = '" + comboCuenta.SelectedItem.ToString() + "'");
-                // Generar extracción
+
                 string fecha = Convert.ToDateTime(ConfigurationManager.AppSettings["FechaSistema"]).ToString();
-                // 1. Crear cheque
+                string idBanco = ((Banco)comboBanco.SelectedItem).IDBanco;
+                //MessageBox.Show(idBanco);
+                
+                // Generar extracción
+                // 1. Cargar cheque
                 Int64 nroCheque = DataBase.ExecuteCardinal64("SELECT * from NOLARECURSO.Cheque order BY 1 DESC") + 1;
-                MessageBox.Show(nroCheque.ToString());
+                
                 DataTable insertCheque = DataBase.ExecuteReader("INSERT INTO NOLARECURSO.Cheque " +
                     "(nro_cheque, importe, fec_emision) VALUES ('" +
                     nroCheque + "', '" + montoDecimal.ToString() + "', '" + fecha + "')");
+                
+                /*DataTable insertCheque = DataBase.ExecuteReader("INSERT INTO NOLARECURSO.Cheque " +
+                    "(nro_cheque, id_bco, importe, fec_emision) VALUES ('" +
+                    nroCheque + "', '" + idBanco + "', '" + montoDecimal.ToString() + "', '" + fecha + "')");*/
+                
                 // 2. Cargar retiro
                 Int64 idRetiro = DataBase.ExecuteCardinal64("SELECT * from NOLARECURSO.Retiro_efectivo order BY 1 DESC") + 1;
-                MessageBox.Show(idRetiro.ToString());
+
                 DataTable insertRetiro = DataBase.ExecuteReader("INSERT INTO NOLARECURSO.Retiro_efectivo " +
                     "(id_retiro, importe, fec_retiro, nro_cheque, id_bco, nro_cuenta) VALUES " +
+                     "('" + idRetiro + "', '" + montoDecimal.ToString() + "', '" + fecha + "', '" +
+                    nroCheque + "', '" + idBanco + "', '" + comboCuenta.SelectedItem.ToString() + "')");
+                
+                /*DataTable insertRetiro = DataBase.ExecuteReader("INSERT INTO NOLARECURSO.Retiro_efectivo " +
+                    "(id_retiro, importe, fec_retiro, nro_cheque, nro_cuenta) VALUES " +
                     "('" + idRetiro + "', '" + montoDecimal.ToString() + "', '" + fecha + "', '" +
-                    nroCheque + "', '" +
-                    // arreglar banco
-                    "10002" +
-                    "', '" + comboCuenta.SelectedItem.ToString() + "')");
-                // Imprimir mensaje
+                    nroCheque + "', '" + comboCuenta.SelectedItem.ToString() + "')");*/
+                
+                // 3. Imprimir mensaje
                 MessageBox.Show("La extracción ha sido realizada satisfactoriamente.\n\n" +
                     "Cuenta: " + comboCuenta.SelectedItem.ToString() + "\n" +
+                    "Número de documento: " + txtDocumento.Text + "\n" +
                     "Importe: U$S" + montoDecimal.ToString() + "\n" +
-                    "Cheque: " + nroCheque, "", MessageBoxButtons.OK);
+                    "Cheque: " + nroCheque + "\n" +
+                    "Banco: " + idBanco + "\n\n" +
+                    "Fecha: " + fecha, "", MessageBoxButtons.OK);
                 this.Close();
             }
         }
@@ -153,7 +183,8 @@ namespace PagoElectronico.Retiros
         private void frmRetiros_Load(object sender, EventArgs e)
         {
             cargarControles();
-            cargarCuentasOrigen();
+            cargarCuentas();
+            cargarBancos();
         }
 
         private void btnVolver_Click(object sender, EventArgs e)

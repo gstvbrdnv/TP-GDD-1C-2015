@@ -89,6 +89,35 @@ namespace PagoElectronico.Core
             }
         }
 
+        public bool esDecimalString(string numero)
+        {
+            decimal d;
+            if (!(decimal.TryParse(numero, out d)))
+            {
+                errores.Add("El campo importe no es decimal.");
+                return false;
+            }
+            return true;
+        }
+
+        public void esMayorA1(TextBox textBox)
+        {
+            string text = textBox.Text;
+            text = text.Replace(",", ".");
+            if (!(String.IsNullOrEmpty(text)))
+            {
+                if (this.esDecimalString(text))
+                {
+                    decimal value = Convert.ToDecimal(text);
+                    if (value < 1)
+                    {
+                        errores.Add("El valor del campo <" + textBox.Tag + "> debe ser mayor o igual a 1.");
+                        return;
+                    }
+                }
+            }
+        }
+
         public bool existeLaCuenta(string cuenta)
         {
             if (!(String.IsNullOrEmpty(cuenta)))

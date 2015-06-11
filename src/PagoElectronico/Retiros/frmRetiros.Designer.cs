@@ -37,6 +37,8 @@
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnVolver = new System.Windows.Forms.Button();
             this.btnExtraer = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBanco = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lblCuenta
@@ -71,6 +73,7 @@
             // txtDocumento
             // 
             this.txtDocumento.Location = new System.Drawing.Point(20, 85);
+            this.txtDocumento.MaxLength = 18;
             this.txtDocumento.Name = "txtDocumento";
             this.txtDocumento.Size = new System.Drawing.Size(220, 20);
             this.txtDocumento.TabIndex = 2;
@@ -88,7 +91,8 @@
             // 
             // txtMonto
             // 
-            this.txtMonto.Location = new System.Drawing.Point(22, 135);
+            this.txtMonto.Location = new System.Drawing.Point(20, 135);
+            this.txtMonto.MaxLength = 10;
             this.txtMonto.Name = "txtMonto";
             this.txtMonto.Size = new System.Drawing.Size(218, 20);
             this.txtMonto.TabIndex = 3;
@@ -121,19 +125,40 @@
             // btnExtraer
             // 
             this.btnExtraer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExtraer.Location = new System.Drawing.Point(272, 123);
+            this.btnExtraer.Location = new System.Drawing.Point(272, 175);
             this.btnExtraer.Name = "btnExtraer";
             this.btnExtraer.Size = new System.Drawing.Size(110, 32);
-            this.btnExtraer.TabIndex = 4;
+            this.btnExtraer.TabIndex = 5;
             this.btnExtraer.Text = "Extraer";
             this.btnExtraer.UseVisualStyleBackColor = true;
             this.btnExtraer.Click += new System.EventHandler(this.btnExtraer_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(19, 167);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(189, 16);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Expedir el cheque a la entidad";
+            // 
+            // comboBanco
+            // 
+            this.comboBanco.FormattingEnabled = true;
+            this.comboBanco.Location = new System.Drawing.Point(20, 186);
+            this.comboBanco.Name = "comboBanco";
+            this.comboBanco.Size = new System.Drawing.Size(218, 21);
+            this.comboBanco.TabIndex = 4;
+            this.comboBanco.Tag = "Banco";
             // 
             // frmRetiros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(394, 171);
+            this.ClientSize = new System.Drawing.Size(394, 222);
+            this.Controls.Add(this.comboBanco);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnExtraer);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnLimpiar);
@@ -163,5 +188,7 @@
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.Button btnExtraer;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBanco;
     }
 }
