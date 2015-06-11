@@ -152,7 +152,7 @@ namespace PagoElectronico.Depositos
                 "(id_deposito, importe, tipo_moneda, fec_deposito, nro_cuenta) VALUES ('" +
                 idDeposito + "', '" + montoDecimal.ToString() + "', '1', '" + fecha + "', '" + comboCuenta.SelectedItem.ToString() +
                 "')");
-
+            // TODO Agregar nro_tarjeta al deposito
             /*DataTable insertDeposito = DataBase.ExecuteReader("INSERT INTO NOLARECURSO.Deposito " +
                 "(id_deposito, importe, tipo_moneda, fec_deposito, nro_cuenta, nro_tarjeta) VALUES ('" +
                 idDeposito + "', '" + txtMonto.Text + "', '1', '" + fecha + "', '" + comboCuenta.SelectedItem.ToString() +

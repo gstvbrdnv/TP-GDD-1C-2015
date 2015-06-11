@@ -145,6 +145,7 @@ namespace PagoElectronico.Retiros
                     "(nro_cheque, importe, fec_emision) VALUES ('" +
                     nroCheque + "', '" + montoDecimal.ToString() + "', '" + fecha + "')");
                 
+                // TODO Agregar id_banco al cheque
                 /*DataTable insertCheque = DataBase.ExecuteReader("INSERT INTO NOLARECURSO.Cheque " +
                     "(nro_cheque, id_bco, importe, fec_emision) VALUES ('" +
                     nroCheque + "', '" + idBanco + "', '" + montoDecimal.ToString() + "', '" + fecha + "')");*/
@@ -157,6 +158,7 @@ namespace PagoElectronico.Retiros
                      "('" + idRetiro + "', '" + montoDecimal.ToString() + "', '" + fecha + "', '" +
                     nroCheque + "', '" + idBanco + "', '" + comboCuenta.SelectedItem.ToString() + "')");
                 
+                // TODO Sacar id_banco del retiro
                 /*DataTable insertRetiro = DataBase.ExecuteReader("INSERT INTO NOLARECURSO.Retiro_efectivo " +
                     "(id_retiro, importe, fec_retiro, nro_cheque, nro_cuenta) VALUES " +
                     "('" + idRetiro + "', '" + montoDecimal.ToString() + "', '" + fecha + "', '" +
