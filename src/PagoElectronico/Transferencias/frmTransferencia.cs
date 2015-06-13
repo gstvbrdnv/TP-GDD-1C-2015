@@ -51,7 +51,7 @@ namespace PagoElectronico.Transferencias
             //MessageBox.Show(idCliente.ToString());
             var cuentasUsuario = DataBase.ExecuteReader("Select nro_cuenta from NOLARECURSO.Cuenta " + 
                 "where id_cli = '" + idCliente +
-                "' and estado = 1" +
+                "' and id_estado = 1" +
                 " and saldo>0");
 
             // Carga solo las cuentas habilitadas y con saldo mayor a cero:
@@ -213,7 +213,7 @@ namespace PagoElectronico.Transferencias
         public bool esCuentaPropia(string cuentaDestino)
         {
             int idClienteDestino = DataBase.ExecuteCardinal("Select id_cli from NOLARECURSO.Cuenta " +
-                "where nro_cuenta = '" + txtDestino.Text + "' and (estado = 1 or estado = 2)");
+                "where nro_cuenta = '" + txtDestino.Text + "' and (id_estado = 1 or id_estado = 2)");
             //MessageBox.Show(idClienteDestino.ToString());
             if (idCliente == idClienteDestino)
                 return true;

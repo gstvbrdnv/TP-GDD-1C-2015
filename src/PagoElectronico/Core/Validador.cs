@@ -167,7 +167,7 @@ namespace PagoElectronico.Core
                 if ((this.esNumerico(cuenta)) && (this.existeLaCuenta(cuenta)))
                 {
 
-                    int estadoCuenta = DataBase.ExecuteCardinal("SELECT estado FROM NOLARECURSO.Cuenta " +
+                    int estadoCuenta = DataBase.ExecuteCardinal("SELECT id_estado FROM NOLARECURSO.Cuenta " +
                         "WHERE nro_cuenta = '" + cuenta + "'");
                     switch (estadoCuenta)
                     {

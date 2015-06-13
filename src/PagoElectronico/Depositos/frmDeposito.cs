@@ -68,7 +68,7 @@ namespace PagoElectronico.Depositos
             
             var cuentasUsuario = DataBase.ExecuteReader("Select nro_cuenta from NOLARECURSO.Cuenta " +
                 "where id_cli = '" + idCliente +
-                "' and estado = 1");
+                "' and id_estado = 1");
 
             // Carga solo las cuentas habilitadas:
             foreach (DataRow dataRow in cuentasUsuario.Rows)
@@ -149,14 +149,9 @@ namespace PagoElectronico.Depositos
             Int64 idDeposito = DataBase.ExecuteCardinal64("SELECT * from NOLARECURSO.Deposito order BY 1 DESC") + 1;
 
             DataTable insertDeposito = DataBase.ExecuteReader("INSERT INTO NOLARECURSO.Deposito " +
-                "(id_deposito, importe, tipo_moneda, fec_deposito, nro_cuenta) VALUES ('" +
-                idDeposito + "', '" + montoDecimal.ToString() + "', '1', '" + fecha + "', '" + comboCuenta.SelectedItem.ToString() +
-                "')");
-            // TODO Agregar nro_tarjeta al deposito
-            /*DataTable insertDeposito = DataBase.ExecuteReader("INSERT INTO NOLARECURSO.Deposito " +
                 "(id_deposito, importe, tipo_moneda, fec_deposito, nro_cuenta, nro_tarjeta) VALUES ('" +
                 idDeposito + "', '" + txtMonto.Text + "', '1', '" + fecha + "', '" + comboCuenta.SelectedItem.ToString() +
-                "', '" + comboTarjeta.SelectedItem.ToString() + "'");*/
+                "', '" + comboTarjeta.SelectedItem.ToString() + "')");
 
             // 3. Imprimir mensaje
             MessageBox.Show("El depósito ha sido realizado satisfactoriamente.\n\n" +

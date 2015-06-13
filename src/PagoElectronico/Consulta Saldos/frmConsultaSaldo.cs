@@ -144,7 +144,7 @@ namespace PagoElectronico.Consulta_Saldos
         private void cargarSaldo(string cuenta)
         {
 
-            var datosCuenta = DataBase.ExecuteReader("select nro_cuenta, nombre, apellido, saldo, estado " +
+            var datosCuenta = DataBase.ExecuteReader("select nro_cuenta, nombre, apellido, saldo, id_estado " +
                 "from NOLARECURSO.Cliente cl, NOLARECURSO.Cuenta cu " +
                 "where nro_cuenta = '" + cuenta + "' and cu.id_cli = cl.id_cli");
 
@@ -154,7 +154,7 @@ namespace PagoElectronico.Consulta_Saldos
                 lblTitular.Text = "Titular: " + dataRow["apellido"].ToString() + ", " + dataRow["nombre"].ToString();
                 lblSaldo.Text = "Saldo: U$S " + dataRow["saldo"].ToString();
 
-                switch(dataRow["estado"].ToString())
+                switch(dataRow["id_estado"].ToString())
                 {
                     case "1":
                         lblEstado.Text = "Estado: Habilitada";
@@ -175,9 +175,9 @@ namespace PagoElectronico.Consulta_Saldos
         private void cargarRetiros(string cuenta)
         {
             //Obtener retiros en efectivo
-            var depositos = DataBase.ExecuteReader("select top 5 fec_retiro, id_retiro, nro_cheque, descripcion, importe " +
-            "from NOLARECURSO.Retiro_efectivo r, NOLARECURSO.Banco b " +
-            "where r.nro_cuenta = '" + cuenta + "' and b.id_banco = r.id_bco " +
+            var depositos = DataBase.ExecuteReader("select top 5 fec_retiro, id_retiro, r.nro_cheque, descripcion, r.importe " +
+            "from NOLARECURSO.Retiro_efectivo r, NOLARECURSO.Banco b, NOLARECURSO.Cheque c " +
+            "where r.nro_cuenta = '" + cuenta + "' and r.nro_cheque = c.nro_cheque and b.id_banco = c.id_banco " +
             "order by 2 desc");
 
             // Cargar los retiros a la grilla

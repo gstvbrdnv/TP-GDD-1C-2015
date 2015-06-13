@@ -52,7 +52,7 @@ namespace PagoElectronico.Retiros
             //MessageBox.Show(idCliente.ToString());
             var cuentasUsuario = DataBase.ExecuteReader("Select nro_cuenta from NOLARECURSO.Cuenta " +
                 "where id_cli = '" + idCliente +
-                "' and estado = 1" +
+                "' and id_estado = 1" +
                 " and saldo>0");
 
             // Carga solo las cuentas habilitadas y con saldo mayor a cero:
@@ -140,29 +140,18 @@ namespace PagoElectronico.Retiros
                 // Generar extracción
                 // 1. Cargar cheque
                 Int64 nroCheque = DataBase.ExecuteCardinal64("SELECT * from NOLARECURSO.Cheque order BY 1 DESC") + 1;
-                
+
                 DataTable insertCheque = DataBase.ExecuteReader("INSERT INTO NOLARECURSO.Cheque " +
-                    "(nro_cheque, importe, fec_emision) VALUES ('" +
-                    nroCheque + "', '" + montoDecimal.ToString() + "', '" + fecha + "')");
-                
-                // TODO Agregar id_banco al cheque
-                /*DataTable insertCheque = DataBase.ExecuteReader("INSERT INTO NOLARECURSO.Cheque " +
-                    "(nro_cheque, id_bco, importe, fec_emision) VALUES ('" +
-                    nroCheque + "', '" + idBanco + "', '" + montoDecimal.ToString() + "', '" + fecha + "')");*/
+                    "(nro_cheque, importe, fec_emision, id_banco) VALUES ('" +
+                    nroCheque + "', '" + montoDecimal.ToString() + "', '" + fecha + "', '" + idBanco + "')");
                 
                 // 2. Cargar retiro
                 Int64 idRetiro = DataBase.ExecuteCardinal64("SELECT * from NOLARECURSO.Retiro_efectivo order BY 1 DESC") + 1;
 
                 DataTable insertRetiro = DataBase.ExecuteReader("INSERT INTO NOLARECURSO.Retiro_efectivo " +
-                    "(id_retiro, importe, fec_retiro, nro_cheque, id_bco, nro_cuenta) VALUES " +
-                     "('" + idRetiro + "', '" + montoDecimal.ToString() + "', '" + fecha + "', '" +
-                    nroCheque + "', '" + idBanco + "', '" + comboCuenta.SelectedItem.ToString() + "')");
-                
-                // TODO Sacar id_banco del retiro
-                /*DataTable insertRetiro = DataBase.ExecuteReader("INSERT INTO NOLARECURSO.Retiro_efectivo " +
                     "(id_retiro, importe, fec_retiro, nro_cheque, nro_cuenta) VALUES " +
                     "('" + idRetiro + "', '" + montoDecimal.ToString() + "', '" + fecha + "', '" +
-                    nroCheque + "', '" + comboCuenta.SelectedItem.ToString() + "')");*/
+                    nroCheque + "', '" + comboCuenta.SelectedItem.ToString() + "')");
                 
                 // 3. Imprimir mensaje
                 MessageBox.Show("La extracción ha sido realizada satisfactoriamente.\n\n" +

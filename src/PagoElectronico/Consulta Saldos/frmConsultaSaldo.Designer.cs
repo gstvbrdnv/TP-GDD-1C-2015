@@ -313,9 +313,9 @@
             this.lblDeposito.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDeposito.Location = new System.Drawing.Point(13, 119);
             this.lblDeposito.Name = "lblDeposito";
-            this.lblDeposito.Size = new System.Drawing.Size(104, 18);
+            this.lblDeposito.Size = new System.Drawing.Size(196, 18);
             this.lblDeposito.TabIndex = 22;
-            this.lblDeposito.Text = "DEPÓSITOS";
+            this.lblDeposito.Text = "ÚLTIMOS 5 DEPÓSITOS";
             // 
             // label1
             // 
@@ -323,9 +323,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(388, 120);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 18);
+            this.label1.Size = new System.Drawing.Size(173, 18);
             this.label1.TabIndex = 23;
-            this.label1.Text = "RETIROS";
+            this.label1.Text = "ÚLTIMOS 5 RETIROS";
             // 
             // gridTransferencias
             // 
@@ -400,9 +400,9 @@
             this.lblTransferencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTransferencia.Location = new System.Drawing.Point(30, 296);
             this.lblTransferencia.Name = "lblTransferencia";
-            this.lblTransferencia.Size = new System.Drawing.Size(156, 18);
+            this.lblTransferencia.Size = new System.Drawing.Size(254, 18);
             this.lblTransferencia.TabIndex = 25;
-            this.lblTransferencia.Text = "TRANSFERENCIAS";
+            this.lblTransferencia.Text = "ÚLTIMAS 10 TRANSFERENCIAS";
             // 
             // frmConsultaSaldo
             // 

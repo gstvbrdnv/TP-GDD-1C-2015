@@ -32,18 +32,30 @@ namespace PagoElectronico
         {
             InitializeComponent();
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(432, 499);
-            this.MinimumSize = new System.Drawing.Size(432, 499);
+            this.MaximumSize = new System.Drawing.Size(387, 499);
+            this.MinimumSize = new System.Drawing.Size(387, 499);
             this.ControlBox = false;
             frmLogin login = new frmLogin();
             sessionUsername = frmLogin.loginUsername;
             sessionRol = frmLogin.rolElegido;
+            menuAdmin.Visible = false;
+            menuCliente.Visible = false;
 
         }
 
         private void frmMain_Load(object sender, EventArgs e)
         {
            //MessageBox.Show("Usuario: " + sessionUsername + ", Rol: " + sessionRol);          
+            if (sessionRol == "1")
+            {
+                menuAdmin.Visible = true;
+                menuCliente.Visible = true;
+            }
+            else
+            {
+                menuCliente.Visible = true;
+                menuAdmin.Visible = false;
+            }
         }
 
         private void consultarSaldoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -116,9 +128,27 @@ namespace PagoElectronico
             (new frmABMUsuario()).Show();
         }
 
-        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        private void menuSalir_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void menuCerrarSesion_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("¿Está seguro de que desea finalizar la sesión?",
+                "Confirmar cierre de sesión", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.Hide();
+                frmLogin newLogin = new frmLogin();
+                newLogin.Show();
+                sessionUsername = "";
+                sessionRol = "";
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                
+            }
         }
     }
 }

@@ -223,7 +223,7 @@ namespace PagoElectronico.Login
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            Close();
+            Application.Exit();
         }
 
         private void frmLogin_Load(object sender, EventArgs e)

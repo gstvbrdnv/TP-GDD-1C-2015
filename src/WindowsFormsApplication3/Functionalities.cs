@@ -7,6 +7,16 @@ namespace PagoElectronico.Comun
 {
     public enum Functionalities
     {
-
+        AbmUsuarios,
+        AbmClientes,
+        AbmCuentas,
+        AbmRoles,
+        ConsultarSaldo,
+        FacturarCostos,
+        ListarEstadisticas,
+        AdministrarTarjetas,
+        RealizarExtraccion,
+        RealizarDeposito,
+        RealizarTransferencia
     }
 }

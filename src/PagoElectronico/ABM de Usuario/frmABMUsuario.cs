@@ -14,6 +14,20 @@ namespace PagoElectronico.ABM_de_Usuario
         public frmABMUsuario()
         {
             InitializeComponent();
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(300, 300);
+            this.MinimumSize = new System.Drawing.Size(300, 300);
+            this.ControlBox = false;
+        }
+
+        private void frmABMUsuario_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

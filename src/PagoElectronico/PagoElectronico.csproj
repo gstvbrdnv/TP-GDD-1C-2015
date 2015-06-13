@@ -164,6 +164,9 @@
     <EmbeddedResource Include="Retiros\frmRetiros.resx">
       <DependentUpon>frmRetiros.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Tarjetas\frmTarjetas.resx">
+      <DependentUpon>frmTarjetas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Transferencias\frmTransferencia.resx">
       <DependentUpon>frmTransferencia.cs</DependentUpon>
     </EmbeddedResource>
@@ -186,6 +189,12 @@
     </Compile>
     <Compile Include="Retiros\frmRetiros.Designer.cs">
       <DependentUpon>frmRetiros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tarjetas\frmTarjetas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tarjetas\frmTarjetas.Designer.cs">
+      <DependentUpon>frmTarjetas.cs</DependentUpon>
     </Compile>
     <Compile Include="Transferencias\frmTransferencia.cs">
       <SubType>Form</SubType>
