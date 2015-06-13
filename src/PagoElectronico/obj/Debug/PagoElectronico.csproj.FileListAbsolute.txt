@@ -46,3 +46,7 @@ C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\Pag
 C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\PagoElectronico\obj\Debug\PagoElectronico.Facturacion.frmFacturacion.resources
 C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\PagoElectronico\obj\Debug\PagoElectronico.Listados.frmEstadisticas.resources
 C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\PagoElectronico\obj\Debug\PagoElectronico.Retiros.frmRetiros.resources
+C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\PagoElectronico\obj\Debug\PagoElectronico.Tarjetas.frmTarjetas.resources
+C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\PagoElectronico\obj\Debug\PagoElectronico.Tarjetas.frmAsociar.resources
+C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\PagoElectronico\obj\Debug\PagoElectronico.Tarjetas.frmDesasociar.resources
+C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\PagoElectronico\obj\Debug\PagoElectronico.Tarjetas.frmModificar.resources

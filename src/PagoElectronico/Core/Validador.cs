@@ -29,6 +29,24 @@ namespace PagoElectronico.Core
             }
         }
 
+        public void esCodigoSeguridadCorrecto(TextBox textBox)
+        {
+            if (textBox.Text.Length != 3)
+            {
+                errores.Add("El campo <" + textBox.Tag + "> no posee el formato correcto (3 dígitos).");
+                return;
+            }
+        }
+
+        public void esNumeroTarjetaCorrecta(TextBox textBox)
+        {
+            if (textBox.Text.Length != 16)
+            {
+                errores.Add("El campo <" + textBox.Tag + "> no posee el formato correcto (16 dígitos).");
+                return;
+            }
+        }
+
         public void estaVacioOEsNulo(TextBox textBox)
         {
             if (String.IsNullOrEmpty(textBox.Text.Replace(" ", "")))
@@ -116,6 +134,37 @@ namespace PagoElectronico.Core
                     }
                 }
             }
+        }
+
+        public void esFechaMenor(DateTimePicker fechaEmision, DateTimePicker fechaVencimiento)
+        {
+            if (fechaVencimiento.Value < fechaEmision.Value)
+            {
+                errores.Add("La fecha de emisión es mayor a la fecha de vencimiento.");
+                return;
+            }
+        }
+
+        public void yaExisteLaTarjeta(TextBox textBox)
+        {
+            string tarjeta = textBox.Text;
+
+            if (!(String.IsNullOrEmpty(tarjeta)))
+            {
+                if (this.esNumerico(tarjeta))
+                {
+                    DataTable resultado = DataBase.ExecuteReader("SELECT * FROM NOLARECURSO.Tarjeta " +
+                        "WHERE nro_tarjeta = '" + tarjeta + "'");
+                    if (resultado.Rows.Count != 0)
+                    {
+                        errores.Add("La tarjeta '" + tarjeta + "' ya existe o está asociada a otra cuenta.");
+                        return;
+                    }
+                    
+                }
+                
+            }
+            
         }
 
         public bool existeLaCuenta(string cuenta)

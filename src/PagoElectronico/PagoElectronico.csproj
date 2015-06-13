@@ -164,6 +164,15 @@
     <EmbeddedResource Include="Retiros\frmRetiros.resx">
       <DependentUpon>frmRetiros.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Tarjetas\frmAsociar.resx">
+      <DependentUpon>frmAsociar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tarjetas\frmDesasociar.resx">
+      <DependentUpon>frmDesasociar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tarjetas\frmModificar.resx">
+      <DependentUpon>frmModificar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Tarjetas\frmTarjetas.resx">
       <DependentUpon>frmTarjetas.cs</DependentUpon>
     </EmbeddedResource>
@@ -189,6 +198,24 @@
     </Compile>
     <Compile Include="Retiros\frmRetiros.Designer.cs">
       <DependentUpon>frmRetiros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tarjetas\frmAsociar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tarjetas\frmAsociar.Designer.cs">
+      <DependentUpon>frmAsociar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tarjetas\frmDesasociar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tarjetas\frmDesasociar.Designer.cs">
+      <DependentUpon>frmDesasociar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tarjetas\frmModificar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tarjetas\frmModificar.Designer.cs">
+      <DependentUpon>frmModificar.cs</DependentUpon>
     </Compile>
     <Compile Include="Tarjetas\frmTarjetas.cs">
       <SubType>Form</SubType>

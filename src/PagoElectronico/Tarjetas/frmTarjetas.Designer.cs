@@ -28,104 +28,85 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblTarjeta = new System.Windows.Forms.Label();
-            this.comboTarjeta = new System.Windows.Forms.ComboBox();
-            this.btnSeleccionar = new System.Windows.Forms.Button();
-            this.lblNumTarjeta = new System.Windows.Forms.Label();
-            this.lblEmisor = new System.Windows.Forms.Label();
-            this.lblFechaEmision = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblOpcion = new System.Windows.Forms.Label();
+            this.btnAsociarTarjeta = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnDesasociar = new System.Windows.Forms.Button();
+            this.btnVolver = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // lblTarjeta
+            // lblOpcion
             // 
-            this.lblTarjeta.AutoSize = true;
-            this.lblTarjeta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTarjeta.Location = new System.Drawing.Point(25, 16);
-            this.lblTarjeta.Name = "lblTarjeta";
-            this.lblTarjeta.Size = new System.Drawing.Size(282, 16);
-            this.lblTarjeta.TabIndex = 0;
-            this.lblTarjeta.Text = "Elegir una tarjeta para modificar o desasociar:";
+            this.lblOpcion.AutoSize = true;
+            this.lblOpcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOpcion.Location = new System.Drawing.Point(12, 9);
+            this.lblOpcion.Name = "lblOpcion";
+            this.lblOpcion.Size = new System.Drawing.Size(189, 20);
+            this.lblOpcion.TabIndex = 0;
+            this.lblOpcion.Text = "Por favor, elija una opción";
             // 
-            // comboTarjeta
+            // btnAsociarTarjeta
             // 
-            this.comboTarjeta.FormattingEnabled = true;
-            this.comboTarjeta.Location = new System.Drawing.Point(28, 35);
-            this.comboTarjeta.Name = "comboTarjeta";
-            this.comboTarjeta.Size = new System.Drawing.Size(272, 21);
-            this.comboTarjeta.TabIndex = 1;
+            this.btnAsociarTarjeta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAsociarTarjeta.Location = new System.Drawing.Point(12, 37);
+            this.btnAsociarTarjeta.Name = "btnAsociarTarjeta";
+            this.btnAsociarTarjeta.Size = new System.Drawing.Size(224, 40);
+            this.btnAsociarTarjeta.TabIndex = 12;
+            this.btnAsociarTarjeta.TabStop = false;
+            this.btnAsociarTarjeta.Text = "Asociar una tarjeta nueva";
+            this.btnAsociarTarjeta.UseVisualStyleBackColor = true;
+            this.btnAsociarTarjeta.Click += new System.EventHandler(this.btnAsociarTarjeta_Click);
             // 
-            // btnSeleccionar
+            // btnModificar
             // 
-            this.btnSeleccionar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSeleccionar.Location = new System.Drawing.Point(190, 62);
-            this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.Size = new System.Drawing.Size(110, 32);
-            this.btnSeleccionar.TabIndex = 6;
-            this.btnSeleccionar.Text = "Seleccionar";
-            this.btnSeleccionar.UseVisualStyleBackColor = true;
+            this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificar.Location = new System.Drawing.Point(12, 83);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(224, 40);
+            this.btnModificar.TabIndex = 13;
+            this.btnModificar.TabStop = false;
+            this.btnModificar.Text = "Modificar una tarjeta ya asociada";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
-            // lblNumTarjeta
+            // btnDesasociar
             // 
-            this.lblNumTarjeta.AutoSize = true;
-            this.lblNumTarjeta.Location = new System.Drawing.Point(36, 129);
-            this.lblNumTarjeta.Name = "lblNumTarjeta";
-            this.lblNumTarjeta.Size = new System.Drawing.Size(44, 13);
-            this.lblNumTarjeta.TabIndex = 7;
-            this.lblNumTarjeta.Text = "Número";
+            this.btnDesasociar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDesasociar.Location = new System.Drawing.Point(12, 129);
+            this.btnDesasociar.Name = "btnDesasociar";
+            this.btnDesasociar.Size = new System.Drawing.Size(224, 40);
+            this.btnDesasociar.TabIndex = 14;
+            this.btnDesasociar.TabStop = false;
+            this.btnDesasociar.Text = "Desasociar una tarjeta";
+            this.btnDesasociar.UseVisualStyleBackColor = true;
+            this.btnDesasociar.Click += new System.EventHandler(this.btnDesasociar_Click);
             // 
-            // lblEmisor
+            // btnVolver
             // 
-            this.lblEmisor.AutoSize = true;
-            this.lblEmisor.Location = new System.Drawing.Point(38, 160);
-            this.lblEmisor.Name = "lblEmisor";
-            this.lblEmisor.Size = new System.Drawing.Size(38, 13);
-            this.lblEmisor.TabIndex = 8;
-            this.lblEmisor.Text = "Emisor";
-            // 
-            // lblFechaEmision
-            // 
-            this.lblFechaEmision.AutoSize = true;
-            this.lblFechaEmision.Location = new System.Drawing.Point(37, 190);
-            this.lblFechaEmision.Name = "lblFechaEmision";
-            this.lblFechaEmision.Size = new System.Drawing.Size(90, 13);
-            this.lblFechaEmision.TabIndex = 9;
-            this.lblFechaEmision.Text = "Fecha de emisión";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(38, 214);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(112, 13);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Fecha de vencimiento";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(37, 241);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(104, 13);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Código de seguridad";
+            this.btnVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVolver.Location = new System.Drawing.Point(150, 188);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(86, 24);
+            this.btnVolver.TabIndex = 15;
+            this.btnVolver.TabStop = false;
+            this.btnVolver.Text = "Volver";
+            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // frmTarjetas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(735, 438);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.lblFechaEmision);
-            this.Controls.Add(this.lblEmisor);
-            this.Controls.Add(this.lblNumTarjeta);
-            this.Controls.Add(this.btnSeleccionar);
-            this.Controls.Add(this.comboTarjeta);
-            this.Controls.Add(this.lblTarjeta);
+            this.ClientSize = new System.Drawing.Size(248, 224);
+            this.Controls.Add(this.btnVolver);
+            this.Controls.Add(this.btnDesasociar);
+            this.Controls.Add(this.btnModificar);
+            this.Controls.Add(this.btnAsociarTarjeta);
+            this.Controls.Add(this.lblOpcion);
             this.Name = "frmTarjetas";
-            this.Text = "frmTarjetas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Administrar tarjetas";
+            this.Load += new System.EventHandler(this.frmTarjetas_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -133,13 +114,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblTarjeta;
-        private System.Windows.Forms.ComboBox comboTarjeta;
-        private System.Windows.Forms.Button btnSeleccionar;
-        private System.Windows.Forms.Label lblNumTarjeta;
-        private System.Windows.Forms.Label lblEmisor;
-        private System.Windows.Forms.Label lblFechaEmision;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblOpcion;
+        private System.Windows.Forms.Button btnAsociarTarjeta;
+        private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnDesasociar;
+        private System.Windows.Forms.Button btnVolver;
     }
 }

@@ -53,6 +53,7 @@
     <Compile Include="ConsultaSaldos.cs" />
     <Compile Include="Cuenta.cs" />
     <Compile Include="Depositos.cs" />
+    <Compile Include="Emisor.cs" />
     <Compile Include="Facturacion.cs" />
     <Compile Include="Functionalities.cs" />
     <Compile Include="Listados.cs" />

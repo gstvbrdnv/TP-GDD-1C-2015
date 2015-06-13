@@ -15,8 +15,8 @@ namespace PagoElectronico.ABM_de_Usuario
         {
             InitializeComponent();
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(300, 300);
-            this.MinimumSize = new System.Drawing.Size(300, 300);
+            this.MaximumSize = new System.Drawing.Size(300, 228);
+            this.MinimumSize = new System.Drawing.Size(300, 228);
             this.ControlBox = false;
         }
 

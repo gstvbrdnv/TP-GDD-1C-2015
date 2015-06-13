@@ -20,6 +20,7 @@ using PagoElectronico.Login;
 using PagoElectronico.Retiros;
 using PagoElectronico.Transferencias;
 using PagoElectronico.Comun;
+using PagoElectronico.Tarjetas;
 
 namespace PagoElectronico
 {
@@ -95,7 +96,7 @@ namespace PagoElectronico
 
         private void asociarModificarODesaociarUnaTarjetaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //falta
+            (new frmTarjetas()).Show();
         }
 
         private void realizarDepósitoToolStripMenuItem_Click(object sender, EventArgs e)
