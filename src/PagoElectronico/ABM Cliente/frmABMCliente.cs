@@ -50,11 +50,38 @@ namespace PagoElectronico.ABM_Cliente
             foreach (DataRow dataRow in clientes.Rows)
             {
                 cliente = new Cliente();
-                cliente.id_cliente = dataRow["id_cli"].ToString();
-                comboId.Items.Add(documentos);
+                cliente.nombre = dataRow["id_cli"].ToString();
+                cliente.apellido = dataRow["id_cli"].ToString();
+                comboTipo.Items.Add(documentos);
             }
         }
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            lblNombre.Text = "Nombre: ";
+            lblApellido.Text = "Apellido: ";
+            lblEmail.Text = "Email: ";
+            lblTipo.Text = "Tipo Identificacion: ";
+            lblNroId.Text = "Nro. Identificacion";
+            gridCliente.Rows.Clear();
+        }
+       
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+
+            string nombre = txtNombre.Text;
+            cargarClientes();
+        }
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gridCliente_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void txtApellido_Click(object sender, EventArgs e)
         {
 
         }
