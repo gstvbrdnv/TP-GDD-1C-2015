@@ -250,5 +250,10 @@ namespace PagoElectronico.Consulta_Saldos
             }
             gridTransferencias.Rows.AddRange(filas.ToArray());
         }
+
+        private void gridDeposito_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

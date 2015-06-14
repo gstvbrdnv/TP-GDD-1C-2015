@@ -170,6 +170,7 @@
             this.gridDeposito.ReadOnly = true;
             this.gridDeposito.Size = new System.Drawing.Size(371, 146);
             this.gridDeposito.TabIndex = 18;
+            this.gridDeposito.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridDeposito_CellContentClick);
             // 
             // fec_deposito
             // 

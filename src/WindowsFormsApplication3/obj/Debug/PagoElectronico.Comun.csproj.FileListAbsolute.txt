@@ -13,3 +13,4 @@ C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\Win
 C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.pdb
 C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\WindowsFormsApplication3\bin\Debug\WindowsFormsApplication1.exe
 C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\WindowsFormsApplication3\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\WindowsFormsApplication3\obj\Debug\WindowsFormsApplication3.exe

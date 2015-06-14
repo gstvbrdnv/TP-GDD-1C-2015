@@ -7,3 +7,23 @@ C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\Pag
 C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\PagoElectronico\obj\Release\PagoElectronico.Properties.Resources.resources
 C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\PagoElectronico\obj\Release\PagoElectronico.csproj.GenerateResource.Cache
 C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\PagoElectronico\bin\Release\PagoElectronico.exe.config
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Release\ResolveAssemblyReference.cache
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Release\PagoElectronico.ABM_Cliente.frmABMCliente.resources
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Release\PagoElectronico.ABM_Cuenta.frmABMCuenta.resources
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Release\PagoElectronico.ABM_de_Usuario.frmABMUsuario.resources
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Release\PagoElectronico.ABM_Rol.AgregarRolForm.resources
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Release\PagoElectronico.ABM_Rol.RolesForm.resources
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Release\PagoElectronico.Consulta_Saldos.frmConsultaSaldo.resources
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Release\PagoElectronico.Depositos.frmDeposito.resources
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Release\PagoElectronico.Facturacion.frmFacturacion.resources
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Release\PagoElectronico.Listados.frmEstadisticas.resources
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Release\PagoElectronico.Login.frmLogin.resources
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Release\PagoElectronico.frmMain.resources
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Release\PagoElectronico.Properties.Resources.resources
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Release\PagoElectronico.Retiros.frmRetiros.resources
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Release\PagoElectronico.Tarjetas.frmAsociar.resources
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Release\PagoElectronico.Tarjetas.frmDesasociar.resources
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Release\PagoElectronico.Tarjetas.frmModificar.resources
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Release\PagoElectronico.Tarjetas.frmTarjetas.resources
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Release\PagoElectronico.Transferencias.frmTransferencia.resources
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Release\PagoElectronico.csproj.GenerateResource.Cache

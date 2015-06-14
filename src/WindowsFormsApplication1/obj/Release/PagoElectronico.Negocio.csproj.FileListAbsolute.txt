@@ -1,3 +1,10 @@
 C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\WindowsFormsApplication1\obj\Release\ResolveAssemblyReference.cache
 C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.Properties.Resources.resources
 C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\WindowsFormsApplication1\obj\Release\PagoElectronico.Negocio.csproj.GenerateResource.Cache
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\WindowsFormsApplication1\bin\Release\WindowsFormsApplication1.exe
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\WindowsFormsApplication1\bin\Release\WindowsFormsApplication1.pdb
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\WindowsFormsApplication1\obj\Release\ResolveAssemblyReference.cache
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\WindowsFormsApplication1\obj\Release\PagoElectronico.Negocio.csproj.GenerateResource.Cache
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.exe
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.pdb

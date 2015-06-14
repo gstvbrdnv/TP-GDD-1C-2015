@@ -3,19 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace WindowsFormsApplication3
+namespace PagoElectronico.Comun
 {
-    static class Program
+    public class Cliente
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
-        [STAThread]
-        static void Main()
+        public int id_cliente { get; set; }
+        public int email { get; set; }
+        public string nombre { get; set; }
+        public string apellido { get; set; }
+
+        public List<Functionalities> Functionalities { get; set; }
+
+        public Cliente()
+        { }
+
+        
+
+        /*
+        public override string ToString()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form());
-        }
+            return estado + " (Perfil: " + estado + ")";
+        }*/
+ 
     }
 }

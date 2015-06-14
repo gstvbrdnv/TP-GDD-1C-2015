@@ -16,7 +16,6 @@ C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Debug\PagoElectronic
 C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Debug\PagoElectronico.ABM_Rol.AgregarRolForm.resources
 C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Debug\PagoElectronico.ABM_Rol.RolesForm.resources
-C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Debug\PagoElectronico.Main.resources
 C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Debug\PagoElectronico.Properties.Resources.resources
 C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Debug\PagoElectronico.csproj.GenerateResource.Cache
 C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\PagoElectronico\bin\Debug\PagoElectronico.exe.config
@@ -50,3 +49,26 @@ C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\Pag
 C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\PagoElectronico\obj\Debug\PagoElectronico.Tarjetas.frmAsociar.resources
 C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\PagoElectronico\obj\Debug\PagoElectronico.Tarjetas.frmDesasociar.resources
 C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\PagoElectronico\obj\Debug\PagoElectronico.Tarjetas.frmModificar.resources
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\bin\Debug\PagoElectronico.exe
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\bin\Debug\PagoElectronico.pdb
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\bin\Debug\WindowsFormsApplication2.exe
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\bin\Debug\WindowsFormsApplication3.exe
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\bin\Debug\WindowsFormsApplication2.pdb
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\bin\Debug\WindowsFormsApplication3.pdb
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Debug\PagoElectronico.ABM_Cliente.frmABMCliente.resources
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Debug\PagoElectronico.ABM_Cuenta.frmABMCuenta.resources
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Debug\PagoElectronico.ABM_de_Usuario.frmABMUsuario.resources
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Debug\PagoElectronico.Consulta_Saldos.frmConsultaSaldo.resources
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Debug\PagoElectronico.Depositos.frmDeposito.resources
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Debug\PagoElectronico.Facturacion.frmFacturacion.resources
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Debug\PagoElectronico.Listados.frmEstadisticas.resources
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Debug\PagoElectronico.Login.frmLogin.resources
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Debug\PagoElectronico.frmMain.resources
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Debug\PagoElectronico.Retiros.frmRetiros.resources
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Debug\PagoElectronico.Tarjetas.frmAsociar.resources
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Debug\PagoElectronico.Tarjetas.frmDesasociar.resources
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Debug\PagoElectronico.Tarjetas.frmModificar.resources
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Debug\PagoElectronico.Tarjetas.frmTarjetas.resources
+C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Debug\PagoElectronico.Transferencias.frmTransferencia.resources
