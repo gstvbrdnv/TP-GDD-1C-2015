@@ -23,8 +23,6 @@ namespace PagoElectronico.ABM_Cliente
         public static string sessionRol;
         public static Cliente cliente;
         int idCliente;
-        Validador validador1 = Validador.Instance;
-        Validador validador2 = Validador.Instance;
 
         public frmABMCliente()
         {
@@ -43,10 +41,10 @@ namespace PagoElectronico.ABM_Cliente
             //Obtener clientes
             idCliente = DataBase.ExecuteCardinal("Select id_cli from NOLARECURSO.Usuario");
             //MessageBox.Show(idCliente.ToString());
-            var clientes = DataBase.ExecuteReader("Select id_cli from NOLARECURSO.Cliente ");
+            var clientes = DataBase.ExecuteReader("Select * from NOLARECURSO.Cliente");
             var documentos = DataBase.ExecuteReader("Select descripcion from NOLARECURSO.Tipo_documento");
 
-            // Carga todas las cuentas del cliente
+            // Carga todos los clientes
             foreach (DataRow dataRow in clientes.Rows)
             {
                 cliente = new Cliente();
@@ -69,8 +67,34 @@ namespace PagoElectronico.ABM_Cliente
         {
 
             string nombre = txtNombre.Text;
-            cargarClientes();
+            string apellido = txtApellido.Text;
+            string email = txtEmail.Text;
+            cargarClientes(idCliente);
         }
+        private void cargarClientes(int idCliente)
+        {
+            //Obtener retiros en efectivo
+            var clientes = DataBase.ExecuteReader("select nombre, apellido, email" + "from NOLARECURSO.cliente" +
+            "where nombre = '" + txtNombre + "' and apellido = '" + txtApellido + "and email = '" + txtEmail +
+            "order by 2 asc");
+
+            // Cargar los clientes a la grilla
+            gridCliente.Rows.Clear();
+            List<DataGridViewRow> filas = new List<DataGridViewRow>();
+            Object[] columnas = new Object[4];
+
+            foreach (DataRow row in clientes.Rows)
+            {
+                columnas[0] = row["nombre"];
+                columnas[1] = row["apellido"];
+                columnas[2] = row["email"];
+
+                filas.Add(new DataGridViewRow());
+                filas[filas.Count - 1].CreateCells(gridCliente, columnas);
+            }
+            gridCliente.Rows.AddRange(filas.ToArray());
+        }
+
         private void label1_Click(object sender, EventArgs e)
         {
 
