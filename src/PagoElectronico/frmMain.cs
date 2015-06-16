@@ -140,9 +140,13 @@ namespace PagoElectronico
                 "Confirmar cierre de sesión", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                this.Hide();
                 frmLogin newLogin = new frmLogin();
                 newLogin.Show();
+                for (int i = Application.OpenForms.Count - 1; i >= 0; i--)
+                {
+                    if (Application.OpenForms[i].Name != "frmLogin")
+                        Application.OpenForms[i].Close();
+                }
                 sessionUsername = "";
                 sessionRol = "";
             }

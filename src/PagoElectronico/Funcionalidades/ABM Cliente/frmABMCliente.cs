@@ -14,6 +14,7 @@ using PagoElectronico.Core;
 using System.Globalization;
 using System.Threading;
 using System.Configuration;
+using PagoElectronico.Funcionalidades.ABM_Cliente;
 
 namespace PagoElectronico.ABM_Cliente
 {
@@ -31,8 +32,8 @@ namespace PagoElectronico.ABM_Cliente
             sessionUsername = frmMain.sessionUsername;
             sessionRol = frmMain.sessionRol;
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(967, 642);
-            this.MinimumSize = new System.Drawing.Size(967, 642);
+            this.MaximumSize = new System.Drawing.Size(557, 498);
+            this.MinimumSize = new System.Drawing.Size(557, 498);
             this.ControlBox = false;
         }
 
@@ -50,19 +51,10 @@ namespace PagoElectronico.ABM_Cliente
                 cliente = new Cliente();
                 cliente.nombre = dataRow["id_cli"].ToString();
                 cliente.apellido = dataRow["id_cli"].ToString();
-                comboTipo.Items.Add(documentos);
+                //comboTipo.Items.Add(documentos);
             }
         }
-        private void btnLimpiar_Click(object sender, EventArgs e)
-        {
-            lblNombre.Text = "Nombre: ";
-            lblApellido.Text = "Apellido: ";
-            lblEmail.Text = "Email: ";
-            lblTipo.Text = "Tipo Identificacion: ";
-            lblNroId.Text = "Nro. Identificacion";
-            gridCliente.Rows.Clear();
-        }
-       
+
         private void btnBuscar_Click(object sender, EventArgs e)
         {
 
@@ -113,6 +105,23 @@ namespace PagoElectronico.ABM_Cliente
         private void frmABMCliente_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmCrearCliente newCliente = new frmCrearCliente();
+            newCliente.Show();
+        }
+
+        private void btnLimpiar_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

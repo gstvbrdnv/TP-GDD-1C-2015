@@ -167,6 +167,22 @@ namespace PagoElectronico.Core
             
         }
 
+        public void yaExisteMail(TextBox textBox)
+        {
+            string mail = textBox.Text;
+
+            if (!(String.IsNullOrEmpty(mail)))
+            {
+                DataTable resultado = DataBase.ExecuteReader("SELECT mail FROM NOLARECURSO.Cliente " +
+                    "WHERE mail = '" + mail + "'");
+                if (resultado.Rows.Count != 0)
+                {
+                    errores.Add("El mail " + mail + " ya existe.");
+                    return;
+                }
+            }
+        }
+
         public bool existeLaCuenta(string cuenta)
         {
             if (!(String.IsNullOrEmpty(cuenta)))
@@ -296,6 +312,28 @@ namespace PagoElectronico.Core
                 }
             }
             return true;
+        }
+
+        public void esMail(TextBox textBox)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(textBox.Text);
+            }
+            catch
+            {
+                errores.Add("El campo <" + textBox.Tag + "> no es un mail.");
+                return;
+            }
+        }
+
+        public void hayUnaFechaSeleccionada(DateTimePicker dateTimePicker)
+        {
+            if (dateTimePicker.Value.ToString().Equals(""))
+            {
+                errores.Add("Por favor ingrese una fecha.");
+                return;
+            }
         }
 
         public void esElementoFechaValida(TextBox textBox, int limiteInferior, int limiteSuperior)

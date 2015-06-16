@@ -70,3 +70,4 @@ C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\Pag
 C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\PagoElectronico\bin\Debug\PagoElectronico.Modelos.pdb
 C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\PagoElectronico\bin\Debug\PagoElectronico.Data.dll
 C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\PagoElectronico\bin\Debug\PagoElectronico.Data.pdb
+C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\PagoElectronico\obj\Debug\PagoElectronico.Funcionalidades.ABM_Cliente.frmCrearCliente.resources

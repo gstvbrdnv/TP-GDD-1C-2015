@@ -211,7 +211,7 @@
             // 
             this.pcbxLogo.Enabled = false;
             this.pcbxLogo.Image = global::PagoElectronico.Properties.Resources.NLRlogo;
-            this.pcbxLogo.Location = new System.Drawing.Point(29, 47);
+            this.pcbxLogo.Location = new System.Drawing.Point(30, 47);
             this.pcbxLogo.Name = "pcbxLogo";
             this.pcbxLogo.Size = new System.Drawing.Size(316, 290);
             this.pcbxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;

@@ -56,6 +56,12 @@
     <Compile Include="Funcionalidades\ABM Cliente\frmABMCliente.Designer.cs">
       <DependentUpon>frmABMCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Funcionalidades\ABM Cliente\frmCrearCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Funcionalidades\ABM Cliente\frmCrearCliente.Designer.cs">
+      <DependentUpon>frmCrearCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Funcionalidades\ABM Cuenta\frmABMCuenta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +129,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Funcionalidades\ABM Cliente\frmABMCliente.resx">
       <DependentUpon>frmABMCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Funcionalidades\ABM Cliente\frmCrearCliente.resx">
+      <DependentUpon>frmCrearCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Funcionalidades\ABM Cuenta\frmABMCuenta.resx">
       <DependentUpon>frmABMCuenta.cs</DependentUpon>
