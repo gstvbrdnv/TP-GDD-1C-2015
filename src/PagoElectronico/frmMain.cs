@@ -33,8 +33,8 @@ namespace PagoElectronico
         {
             InitializeComponent();
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(387, 499);
-            this.MinimumSize = new System.Drawing.Size(387, 499);
+            this.MaximumSize = new System.Drawing.Size(391, 387);
+            this.MinimumSize = new System.Drawing.Size(391, 387);
             this.ControlBox = false;
             frmLogin login = new frmLogin();
             sessionUsername = frmLogin.loginUsername;

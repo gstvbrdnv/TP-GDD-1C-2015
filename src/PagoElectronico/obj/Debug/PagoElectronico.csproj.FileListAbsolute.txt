@@ -30,12 +30,6 @@ C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\Pag
 C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\PagoElectronico\obj\Debug\PagoElectronico.frmMain.resources
 C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\PagoElectronico\bin\Debug\PagoElectronico.exe
 C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\PagoElectronico\bin\Debug\PagoElectronico.pdb
-C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\PagoElectronico\bin\Debug\WindowsFormsApplication1.exe
-C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\PagoElectronico\bin\Debug\WindowsFormsApplication2.exe
-C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\PagoElectronico\bin\Debug\WindowsFormsApplication3.exe
-C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\PagoElectronico\bin\Debug\WindowsFormsApplication2.pdb
-C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\PagoElectronico\bin\Debug\WindowsFormsApplication3.pdb
-C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\PagoElectronico\bin\Debug\WindowsFormsApplication1.pdb
 C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\PagoElectronico\obj\Debug\PagoElectronico.Depositos.frmDeposito.resources
 C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\PagoElectronico\obj\Debug\PagoElectronico.Transferencias.frmTransferencia.resources
 C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\PagoElectronico\obj\Debug\PagoElectronico.ABM_Cliente.frmABMCliente.resources
@@ -72,3 +66,7 @@ C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Debug\PagoElectronic
 C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Debug\PagoElectronico.Tarjetas.frmModificar.resources
 C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Debug\PagoElectronico.Tarjetas.frmTarjetas.resources
 C:\Users\USER\GitHub\TP-GDD-1C-2015\src\PagoElectronico\obj\Debug\PagoElectronico.Transferencias.frmTransferencia.resources
+C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\PagoElectronico\bin\Debug\PagoElectronico.Data.dll
+C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\PagoElectronico\bin\Debug\PagoElectronico.Data.pdb
+C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\PagoElectronico\bin\Debug\PagoElectronico.Modelos.dll
+C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\PagoElectronico\bin\Debug\PagoElectronico.Modelos.pdb

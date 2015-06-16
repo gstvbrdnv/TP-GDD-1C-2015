@@ -1,29 +1,49 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Windows.Forms;
+using System.Text;
 
 namespace PagoElectronico.Comun
 {
     public class Cliente
     {
-        public int idCliente { get; set; }
-        public string email { get; set; }
-        public string nombre { get; set; }
-        public string apellido { get; set; }
+        public string idCliente;
+        public string email;
+        public string nombre;
+        public string apellido;
 
-        public List<Functionalities> Functionalities { get; set; }
+        public Cliente() { }
 
-        public Cliente()
-        { }
+        public Cliente(string idCliente, string email, string nombre, string apellido)
+        {
+            this.idCliente = idCliente;
+            this.email = email;
+            this.nombre = nombre;
+            this.apellido = apellido;
+        }
 
-        
+        public string IDCliente
+        {
+            get
+            {
+                return idCliente;
+            }
+        }
 
-        /*
         public override string ToString()
         {
-            return estado + " (Perfil: " + estado + ")";
-        }*/
- 
+            return apellido + ", " + nombre;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (!(obj.GetType().IsSubclassOf(typeof(Cliente)))) return false;
+            return ((Cliente)obj).idCliente == idCliente;
+        }
+
+        public override int GetHashCode()
+        {
+            return idCliente.GetHashCode();
+        }
     }
 }

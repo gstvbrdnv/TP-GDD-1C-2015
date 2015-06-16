@@ -50,57 +50,55 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ABM Cliente\frmABMCliente.cs">
+    <Compile Include="Funcionalidades\ABM Cliente\frmABMCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABM Cliente\frmABMCliente.Designer.cs">
+    <Compile Include="Funcionalidades\ABM Cliente\frmABMCliente.Designer.cs">
       <DependentUpon>frmABMCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABM Cuenta\frmABMCuenta.cs">
+    <Compile Include="Funcionalidades\ABM Cuenta\frmABMCuenta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABM Cuenta\frmABMCuenta.Designer.cs">
+    <Compile Include="Funcionalidades\ABM Cuenta\frmABMCuenta.Designer.cs">
       <DependentUpon>frmABMCuenta.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABM de Usuario\frmABMUsuario.cs">
+    <Compile Include="Funcionalidades\ABM Usuario\frmABMUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABM de Usuario\frmABMUsuario.Designer.cs">
+    <Compile Include="Funcionalidades\ABM Usuario\frmABMUsuario.Designer.cs">
       <DependentUpon>frmABMUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABM Rol\AgregarRolForm.cs">
+    <Compile Include="Funcionalidades\ABM Rol\AgregarRolForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABM Rol\AgregarRolForm.Designer.cs">
+    <Compile Include="Funcionalidades\ABM Rol\AgregarRolForm.Designer.cs">
       <DependentUpon>AgregarRolForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ABM Rol\ABMRol.cs" />
-    <Compile Include="ABM Rol\RolesForm.cs">
+    <Compile Include="Funcionalidades\ABM Rol\ABMRol.cs" />
+    <Compile Include="Funcionalidades\ABM Rol\RolesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ABM Rol\RolesForm.Designer.cs">
+    <Compile Include="Funcionalidades\ABM Rol\RolesForm.Designer.cs">
       <DependentUpon>RolesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Consulta Saldos\frmConsultaSaldo.cs">
+    <Compile Include="Funcionalidades\Consulta Saldos\frmConsultaSaldo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Consulta Saldos\frmConsultaSaldo.Designer.cs">
+    <Compile Include="Funcionalidades\Consulta Saldos\frmConsultaSaldo.Designer.cs">
       <DependentUpon>frmConsultaSaldo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Core\AtributoPermisosRequeridos.cs" />
-    <Compile Include="Core\PermissionRequired.cs" />
     <Compile Include="Core\Validador.cs" />
-    <Compile Include="DB\DataBase.cs" />
-    <Compile Include="Depositos\frmDeposito.cs">
+    <Compile Include="Core\DataBase.cs" />
+    <Compile Include="Funcionalidades\Depositos\frmDeposito.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Depositos\frmDeposito.Designer.cs">
+    <Compile Include="Funcionalidades\Depositos\frmDeposito.Designer.cs">
       <DependentUpon>frmDeposito.cs</DependentUpon>
     </Compile>
-    <Compile Include="Facturacion\frmFacturacion.cs">
+    <Compile Include="Funcionalidades\Facturacion\frmFacturacion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Facturacion\frmFacturacion.Designer.cs">
+    <Compile Include="Funcionalidades\Facturacion\frmFacturacion.Designer.cs">
       <DependentUpon>frmFacturacion.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMain.cs">
@@ -109,10 +107,10 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Listados\frmEstadisticas.cs">
+    <Compile Include="Funcionalidades\Listados estadisticos\frmEstadisticas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Listados\frmEstadisticas.Designer.cs">
+    <Compile Include="Funcionalidades\Listados estadisticos\frmEstadisticas.Designer.cs">
       <DependentUpon>frmEstadisticas.cs</DependentUpon>
     </Compile>
     <Compile Include="Login\frmLogin.cs">
@@ -123,31 +121,31 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="ABM Cliente\frmABMCliente.resx">
+    <EmbeddedResource Include="Funcionalidades\ABM Cliente\frmABMCliente.resx">
       <DependentUpon>frmABMCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ABM Cuenta\frmABMCuenta.resx">
+    <EmbeddedResource Include="Funcionalidades\ABM Cuenta\frmABMCuenta.resx">
       <DependentUpon>frmABMCuenta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ABM de Usuario\frmABMUsuario.resx">
+    <EmbeddedResource Include="Funcionalidades\ABM Usuario\frmABMUsuario.resx">
       <DependentUpon>frmABMUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ABM Rol\AgregarRolForm.resx">
+    <EmbeddedResource Include="Funcionalidades\ABM Rol\AgregarRolForm.resx">
       <DependentUpon>AgregarRolForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ABM Rol\RolesForm.resx">
+    <EmbeddedResource Include="Funcionalidades\ABM Rol\RolesForm.resx">
       <DependentUpon>RolesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Consulta Saldos\frmConsultaSaldo.resx">
+    <EmbeddedResource Include="Funcionalidades\Consulta Saldos\frmConsultaSaldo.resx">
       <DependentUpon>frmConsultaSaldo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Depositos\frmDeposito.resx">
+    <EmbeddedResource Include="Funcionalidades\Depositos\frmDeposito.resx">
       <DependentUpon>frmDeposito.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Facturacion\frmFacturacion.resx">
+    <EmbeddedResource Include="Funcionalidades\Facturacion\frmFacturacion.resx">
       <DependentUpon>frmFacturacion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Listados\frmEstadisticas.resx">
+    <EmbeddedResource Include="Funcionalidades\Listados estadisticos\frmEstadisticas.resx">
       <DependentUpon>frmEstadisticas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\frmLogin.resx">
@@ -161,27 +159,28 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Retiros\frmRetiros.resx">
+    <EmbeddedResource Include="Funcionalidades\Retiros\frmRetiros.resx">
       <DependentUpon>frmRetiros.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Tarjetas\frmAsociar.resx">
+    <EmbeddedResource Include="Funcionalidades\Administrar tarjetas\frmAsociar.resx">
       <DependentUpon>frmAsociar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Tarjetas\frmDesasociar.resx">
+    <EmbeddedResource Include="Funcionalidades\Administrar tarjetas\frmDesasociar.resx">
       <DependentUpon>frmDesasociar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Tarjetas\frmModificar.resx">
+    <EmbeddedResource Include="Funcionalidades\Administrar tarjetas\frmModificar.resx">
       <DependentUpon>frmModificar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Tarjetas\frmTarjetas.resx">
+    <EmbeddedResource Include="Funcionalidades\Administrar tarjetas\frmTarjetas.resx">
       <DependentUpon>frmTarjetas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Transferencias\frmTransferencia.resx">
+    <EmbeddedResource Include="Funcionalidades\Transferencias\frmTransferencia.resx">
       <DependentUpon>frmTransferencia.cs</DependentUpon>
     </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
@@ -193,40 +192,40 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Retiros\frmRetiros.cs">
+    <Compile Include="Funcionalidades\Retiros\frmRetiros.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Retiros\frmRetiros.Designer.cs">
+    <Compile Include="Funcionalidades\Retiros\frmRetiros.Designer.cs">
       <DependentUpon>frmRetiros.cs</DependentUpon>
     </Compile>
-    <Compile Include="Tarjetas\frmAsociar.cs">
+    <Compile Include="Funcionalidades\Administrar tarjetas\frmAsociar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Tarjetas\frmAsociar.Designer.cs">
+    <Compile Include="Funcionalidades\Administrar tarjetas\frmAsociar.Designer.cs">
       <DependentUpon>frmAsociar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Tarjetas\frmDesasociar.cs">
+    <Compile Include="Funcionalidades\Administrar tarjetas\frmDesasociar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Tarjetas\frmDesasociar.Designer.cs">
+    <Compile Include="Funcionalidades\Administrar tarjetas\frmDesasociar.Designer.cs">
       <DependentUpon>frmDesasociar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Tarjetas\frmModificar.cs">
+    <Compile Include="Funcionalidades\Administrar tarjetas\frmModificar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Tarjetas\frmModificar.Designer.cs">
+    <Compile Include="Funcionalidades\Administrar tarjetas\frmModificar.Designer.cs">
       <DependentUpon>frmModificar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Tarjetas\frmTarjetas.cs">
+    <Compile Include="Funcionalidades\Administrar tarjetas\frmTarjetas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Tarjetas\frmTarjetas.Designer.cs">
+    <Compile Include="Funcionalidades\Administrar tarjetas\frmTarjetas.Designer.cs">
       <DependentUpon>frmTarjetas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Transferencias\frmTransferencia.cs">
+    <Compile Include="Funcionalidades\Transferencias\frmTransferencia.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Transferencias\frmTransferencia.Designer.cs">
+    <Compile Include="Funcionalidades\Transferencias\frmTransferencia.Designer.cs">
       <DependentUpon>frmTransferencia.cs</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -234,18 +233,17 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WindowsFormsApplication1\PagoElectronico.Negocio.csproj">
-      <Project>{3C7E14BF-5338-4CAF-8655-33FBB21FDF0A}</Project>
-      <Name>PagoElectronico.Negocio</Name>
-    </ProjectReference>
     <ProjectReference Include="..\WindowsFormsApplication2\PagoElectronico.Data.csproj">
       <Project>{E783D721-F950-4485-B77D-60DA41EEE9A1}</Project>
       <Name>PagoElectronico.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\WindowsFormsApplication3\PagoElectronico.Comun.csproj">
+    <ProjectReference Include="..\WindowsFormsApplication3\PagoElectronico.Modelos.csproj">
       <Project>{4B08CD03-3B88-438F-8FEA-8C1837DD0123}</Project>
-      <Name>PagoElectronico.Comun</Name>
+      <Name>PagoElectronico.Modelos</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NLRlogo.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

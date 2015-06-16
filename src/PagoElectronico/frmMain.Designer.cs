@@ -47,7 +47,9 @@
             this.consultarSaldoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCerrarSesion = new System.Windows.Forms.ToolStripMenuItem();
             this.menuSalir = new System.Windows.Forms.ToolStripMenuItem();
+            this.pcbxLogo = new System.Windows.Forms.PictureBox();
             this.barraMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbxLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // barraMenu
@@ -61,7 +63,7 @@
             this.menuSalir});
             this.barraMenu.Location = new System.Drawing.Point(0, 0);
             this.barraMenu.Name = "barraMenu";
-            this.barraMenu.Size = new System.Drawing.Size(371, 27);
+            this.barraMenu.Size = new System.Drawing.Size(375, 27);
             this.barraMenu.TabIndex = 0;
             this.barraMenu.Text = "mainMenu";
             // 
@@ -159,35 +161,35 @@
             // realizarDepósitoToolStripMenuItem
             // 
             this.realizarDepósitoToolStripMenuItem.Name = "realizarDepósitoToolStripMenuItem";
-            this.realizarDepósitoToolStripMenuItem.Size = new System.Drawing.Size(379, 24);
+            this.realizarDepósitoToolStripMenuItem.Size = new System.Drawing.Size(270, 24);
             this.realizarDepósitoToolStripMenuItem.Text = "Realizar depósito de dinero";
             this.realizarDepósitoToolStripMenuItem.Click += new System.EventHandler(this.realizarDepósitoToolStripMenuItem_Click);
             // 
             // realizarUnaExtracciónToolStripMenuItem
             // 
             this.realizarUnaExtracciónToolStripMenuItem.Name = "realizarUnaExtracciónToolStripMenuItem";
-            this.realizarUnaExtracciónToolStripMenuItem.Size = new System.Drawing.Size(379, 24);
+            this.realizarUnaExtracciónToolStripMenuItem.Size = new System.Drawing.Size(270, 24);
             this.realizarUnaExtracciónToolStripMenuItem.Text = "Realizar una extracción";
             this.realizarUnaExtracciónToolStripMenuItem.Click += new System.EventHandler(this.realizarUnaExtracciónToolStripMenuItem_Click);
             // 
             // transferenciaToolStripMenuItem
             // 
             this.transferenciaToolStripMenuItem.Name = "transferenciaToolStripMenuItem";
-            this.transferenciaToolStripMenuItem.Size = new System.Drawing.Size(379, 24);
+            this.transferenciaToolStripMenuItem.Size = new System.Drawing.Size(270, 24);
             this.transferenciaToolStripMenuItem.Text = "Realizar una transferencia";
             this.transferenciaToolStripMenuItem.Click += new System.EventHandler(this.transferenciaToolStripMenuItem_Click);
             // 
             // facturaciónDeCostosToolStripMenuItem
             // 
             this.facturaciónDeCostosToolStripMenuItem.Name = "facturaciónDeCostosToolStripMenuItem";
-            this.facturaciónDeCostosToolStripMenuItem.Size = new System.Drawing.Size(379, 24);
+            this.facturaciónDeCostosToolStripMenuItem.Size = new System.Drawing.Size(270, 24);
             this.facturaciónDeCostosToolStripMenuItem.Text = "Facturación de costos";
             this.facturaciónDeCostosToolStripMenuItem.Click += new System.EventHandler(this.facturaciónDeCostosToolStripMenuItem_Click);
             // 
             // consultarSaldoToolStripMenuItem1
             // 
             this.consultarSaldoToolStripMenuItem1.Name = "consultarSaldoToolStripMenuItem1";
-            this.consultarSaldoToolStripMenuItem1.Size = new System.Drawing.Size(379, 24);
+            this.consultarSaldoToolStripMenuItem1.Size = new System.Drawing.Size(270, 24);
             this.consultarSaldoToolStripMenuItem1.Text = "Consultar saldo";
             this.consultarSaldoToolStripMenuItem1.Click += new System.EventHandler(this.consultarSaldoToolStripMenuItem1_Click);
             // 
@@ -205,19 +207,33 @@
             this.menuSalir.Text = "Salir";
             this.menuSalir.Click += new System.EventHandler(this.menuSalir_Click);
             // 
+            // pcbxLogo
+            // 
+            this.pcbxLogo.Enabled = false;
+            this.pcbxLogo.Image = global::PagoElectronico.Properties.Resources.NLRlogo;
+            this.pcbxLogo.Location = new System.Drawing.Point(29, 47);
+            this.pcbxLogo.Name = "pcbxLogo";
+            this.pcbxLogo.Size = new System.Drawing.Size(316, 290);
+            this.pcbxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pcbxLogo.TabIndex = 1;
+            this.pcbxLogo.TabStop = false;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(371, 461);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(375, 349);
+            this.Controls.Add(this.pcbxLogo);
             this.Controls.Add(this.barraMenu);
             this.MainMenuStrip = this.barraMenu;
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Pago Electrónico";
+            this.Text = "Bienvenido";
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.barraMenu.ResumeLayout(false);
             this.barraMenu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbxLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -244,6 +260,7 @@
         private System.Windows.Forms.ToolStripMenuItem consultarSaldoToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem menuCerrarSesion;
         private System.Windows.Forms.ToolStripMenuItem menuSalir;
+        private System.Windows.Forms.PictureBox pcbxLogo;
     }
 }
 
