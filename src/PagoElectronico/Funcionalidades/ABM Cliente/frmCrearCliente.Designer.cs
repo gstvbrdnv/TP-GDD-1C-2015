@@ -375,7 +375,7 @@
             this.Controls.Add(this.lblNombre);
             this.Name = "frmCrearCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Registrar nuevo cliente";
+            this.Text = "Cliente";
             this.Load += new System.EventHandler(this.frmCrearCliente_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

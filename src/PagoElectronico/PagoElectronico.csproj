@@ -74,18 +74,17 @@
     <Compile Include="Funcionalidades\ABM Usuario\frmABMUsuario.Designer.cs">
       <DependentUpon>frmABMUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Funcionalidades\ABM Rol\AgregarRolForm.cs">
+    <Compile Include="Funcionalidades\ABM Rol\frmNuevoRol.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Funcionalidades\ABM Rol\AgregarRolForm.Designer.cs">
-      <DependentUpon>AgregarRolForm.cs</DependentUpon>
+    <Compile Include="Funcionalidades\ABM Rol\frmNuevoRol.Designer.cs">
+      <DependentUpon>frmNuevoRol.cs</DependentUpon>
     </Compile>
-    <Compile Include="Funcionalidades\ABM Rol\ABMRol.cs" />
-    <Compile Include="Funcionalidades\ABM Rol\RolesForm.cs">
+    <Compile Include="Funcionalidades\ABM Rol\frmABMRol.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Funcionalidades\ABM Rol\RolesForm.Designer.cs">
-      <DependentUpon>RolesForm.cs</DependentUpon>
+    <Compile Include="Funcionalidades\ABM Rol\frmABMRol.Designer.cs">
+      <DependentUpon>frmABMRol.cs</DependentUpon>
     </Compile>
     <Compile Include="Funcionalidades\Consulta Saldos\frmConsultaSaldo.cs">
       <SubType>Form</SubType>
@@ -139,11 +138,11 @@
     <EmbeddedResource Include="Funcionalidades\ABM Usuario\frmABMUsuario.resx">
       <DependentUpon>frmABMUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Funcionalidades\ABM Rol\AgregarRolForm.resx">
-      <DependentUpon>AgregarRolForm.cs</DependentUpon>
+    <EmbeddedResource Include="Funcionalidades\ABM Rol\frmNuevoRol.resx">
+      <DependentUpon>frmNuevoRol.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Funcionalidades\ABM Rol\RolesForm.resx">
-      <DependentUpon>RolesForm.cs</DependentUpon>
+    <EmbeddedResource Include="Funcionalidades\ABM Rol\frmABMRol.resx">
+      <DependentUpon>frmABMRol.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Funcionalidades\Consulta Saldos\frmConsultaSaldo.resx">
       <DependentUpon>frmConsultaSaldo.cs</DependentUpon>

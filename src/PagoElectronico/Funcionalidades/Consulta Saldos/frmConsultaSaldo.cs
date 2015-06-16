@@ -66,7 +66,7 @@ namespace PagoElectronico.Consulta_Saldos
             gridTransferencias.AllowUserToResizeColumns = false;
             gridTransferencias.AllowUserToResizeRows = false;
 
-            if (sessionRol == "1")
+            if (sessionRol != "2")
             {
                 lblCuentaTercero.Visible = true;
                 txtCuentaTercero.Visible = true;

@@ -47,15 +47,15 @@ namespace PagoElectronico
         private void frmMain_Load(object sender, EventArgs e)
         {
            //MessageBox.Show("Usuario: " + sessionUsername + ", Rol: " + sessionRol);          
-            if (sessionRol == "1")
-            {
-                menuAdmin.Visible = true;
-                menuCliente.Visible = true;
-            }
-            else
+            if (sessionRol == "2")
             {
                 menuCliente.Visible = true;
                 menuAdmin.Visible = false;
+            }
+            else
+            {
+                menuAdmin.Visible = true;
+                menuCliente.Visible = true;
             }
         }
 
@@ -76,7 +76,7 @@ namespace PagoElectronico
 
         private void aBMRolToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            (new AgregarRolForm()).Show();
+            (new frmABMRol()).Show();
         }
 
         private void facturaciónDeCostosToolStripMenuItem1_Click(object sender, EventArgs e)
