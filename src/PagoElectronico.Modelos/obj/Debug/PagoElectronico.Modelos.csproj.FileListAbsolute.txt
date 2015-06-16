@@ -1,0 +1,5 @@
+C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\PagoElectronico.Modelos\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\PagoElectronico.Modelos\bin\Debug\PagoElectronico.Modelos.dll
+C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\PagoElectronico.Modelos\bin\Debug\PagoElectronico.Modelos.pdb
+C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\PagoElectronico.Modelos\obj\Debug\PagoElectronico.Modelos.dll
+C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\PagoElectronico.Modelos\obj\Debug\PagoElectronico.Modelos.pdb

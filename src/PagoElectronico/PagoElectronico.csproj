@@ -233,17 +233,17 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WindowsFormsApplication2\PagoElectronico.Data.csproj">
-      <Project>{E783D721-F950-4485-B77D-60DA41EEE9A1}</Project>
-      <Name>PagoElectronico.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WindowsFormsApplication3\PagoElectronico.Modelos.csproj">
-      <Project>{4B08CD03-3B88-438F-8FEA-8C1837DD0123}</Project>
-      <Name>PagoElectronico.Modelos</Name>
-    </ProjectReference>
+    <None Include="Resources\NLRlogo.PNG" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\NLRlogo.PNG" />
+    <ProjectReference Include="..\PagoElectronico.Data\PagoElectronico.Data.csproj">
+      <Project>{FF8D97BF-5BF8-43AE-B58C-CB0563E88D2A}</Project>
+      <Name>PagoElectronico.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PagoElectronico.Modelos\PagoElectronico.Modelos.csproj">
+      <Project>{4CC1FDD1-3325-4ADC-AC98-855CE60D6183}</Project>
+      <Name>PagoElectronico.Modelos</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

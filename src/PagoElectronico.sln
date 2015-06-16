@@ -2,10 +2,14 @@
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual C# Express 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PagoElectronico", "PagoElectronico\PagoElectronico.csproj", "{1A425235-25E0-4A09-B3C4-84F19D9A2184}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FF8D97BF-5BF8-43AE-B58C-CB0563E88D2A} = {FF8D97BF-5BF8-43AE-B58C-CB0563E88D2A}
+		{4CC1FDD1-3325-4ADC-AC98-855CE60D6183} = {4CC1FDD1-3325-4ADC-AC98-855CE60D6183}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PagoElectronico.Data", "WindowsFormsApplication2\PagoElectronico.Data.csproj", "{E783D721-F950-4485-B77D-60DA41EEE9A1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PagoElectronico.Data", "PagoElectronico.Data\PagoElectronico.Data.csproj", "{FF8D97BF-5BF8-43AE-B58C-CB0563E88D2A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PagoElectronico.Modelos", "WindowsFormsApplication3\PagoElectronico.Modelos.csproj", "{4B08CD03-3B88-438F-8FEA-8C1837DD0123}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PagoElectronico.Modelos", "PagoElectronico.Modelos\PagoElectronico.Modelos.csproj", "{4CC1FDD1-3325-4ADC-AC98-855CE60D6183}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,14 +21,14 @@ Global
 		{1A425235-25E0-4A09-B3C4-84F19D9A2184}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A425235-25E0-4A09-B3C4-84F19D9A2184}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A425235-25E0-4A09-B3C4-84F19D9A2184}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E783D721-F950-4485-B77D-60DA41EEE9A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E783D721-F950-4485-B77D-60DA41EEE9A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E783D721-F950-4485-B77D-60DA41EEE9A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E783D721-F950-4485-B77D-60DA41EEE9A1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4B08CD03-3B88-438F-8FEA-8C1837DD0123}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4B08CD03-3B88-438F-8FEA-8C1837DD0123}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4B08CD03-3B88-438F-8FEA-8C1837DD0123}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4B08CD03-3B88-438F-8FEA-8C1837DD0123}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF8D97BF-5BF8-43AE-B58C-CB0563E88D2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF8D97BF-5BF8-43AE-B58C-CB0563E88D2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF8D97BF-5BF8-43AE-B58C-CB0563E88D2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF8D97BF-5BF8-43AE-B58C-CB0563E88D2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CC1FDD1-3325-4ADC-AC98-855CE60D6183}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CC1FDD1-3325-4ADC-AC98-855CE60D6183}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CC1FDD1-3325-4ADC-AC98-855CE60D6183}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CC1FDD1-3325-4ADC-AC98-855CE60D6183}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

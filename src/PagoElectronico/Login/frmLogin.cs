@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using PagoElectronico.Login;
 using PagoElectronico.DB;
 using System.Security.Cryptography;
-using PagoElectronico.Comun;
+using PagoElectronico.Modelos;
 using System.Configuration;
 
 namespace PagoElectronico.Login

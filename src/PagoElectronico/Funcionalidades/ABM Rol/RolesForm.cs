@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using PagoElectronico.Comun;
+using PagoElectronico.Modelos;
 using PagoElectronico.Core;
 using System.Collections;
 

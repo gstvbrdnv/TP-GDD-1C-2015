@@ -19,7 +19,7 @@ using PagoElectronico.Listados;
 using PagoElectronico.Login;
 using PagoElectronico.Retiros;
 using PagoElectronico.Transferencias;
-using PagoElectronico.Comun;
+using PagoElectronico.Modelos;
 using PagoElectronico.Tarjetas;
 
 namespace PagoElectronico
