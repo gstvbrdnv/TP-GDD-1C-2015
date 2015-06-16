@@ -1,7 +1,0 @@
-C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\WindowsFormsApplication3\bin\Debug\PagoElectronico.Modelos.dll
-C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\WindowsFormsApplication3\bin\Debug\PagoElectronico.Modelos.pdb
-C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\WindowsFormsApplication3\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\WindowsFormsApplication3\obj\Debug\PagoElectronico.Modelos.Properties.Resources.resources
-C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\WindowsFormsApplication3\obj\Debug\PagoElectronico.Modelos.csproj.GenerateResource.Cache
-C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\WindowsFormsApplication3\obj\Debug\PagoElectronico.Modelos.dll
-C:\Users\Gustavo\Desktop\UTN\3er año\Gestion de Datos\TP\TP-GDD-1C-2015\src\WindowsFormsApplication3\obj\Debug\PagoElectronico.Modelos.pdb
