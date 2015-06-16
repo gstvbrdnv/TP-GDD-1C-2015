@@ -77,8 +77,9 @@
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 11;
-            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.Text = "Filtrar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click_1);
             // 
             // btnLimpiar
             // 
@@ -144,7 +145,6 @@
             this.lblApellido.Size = new System.Drawing.Size(44, 13);
             this.lblApellido.TabIndex = 1;
             this.lblApellido.Text = "Apellido";
-            this.lblApellido.Click += new System.EventHandler(this.txtApellido_Click);
             // 
             // lblNombre
             // 
@@ -165,9 +165,8 @@
             this.colSeleccionar});
             this.gridCliente.Location = new System.Drawing.Point(12, 189);
             this.gridCliente.Name = "gridCliente";
-            this.gridCliente.Size = new System.Drawing.Size(518, 259);
+            this.gridCliente.Size = new System.Drawing.Size(518, 337);
             this.gridCliente.TabIndex = 1;
-            this.gridCliente.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridCliente_CellContentClick);
             // 
             // btnNuevo
             // 
@@ -191,6 +190,7 @@
             this.btnModificar.TabStop = false;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnEliminar
             // 
@@ -202,6 +202,7 @@
             this.btnEliminar.TabStop = false;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnVolver
             // 
@@ -219,28 +220,37 @@
             // 
             this.numCliente.HeaderText = "Número de cliente";
             this.numCliente.Name = "numCliente";
-            this.numCliente.Width = 150;
+            this.numCliente.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.numCliente.Width = 120;
             // 
             // colNombre
             // 
             this.colNombre.HeaderText = "Nombre";
             this.colNombre.Name = "colNombre";
+            this.colNombre.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colNombre.Width = 120;
             // 
             // colApellido
             // 
             this.colApellido.HeaderText = "Apellido";
             this.colApellido.Name = "colApellido";
+            this.colApellido.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colApellido.Width = 120;
             // 
             // colSeleccionar
             // 
             this.colSeleccionar.HeaderText = "Seleccionar";
             this.colSeleccionar.Name = "colSeleccionar";
+            this.colSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colSeleccionar.Text = "Seleccionar";
+            this.colSeleccionar.ToolTipText = "Seleccionar";
+            this.colSeleccionar.Width = 90;
             // 
             // frmABMCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(541, 460);
+            this.ClientSize = new System.Drawing.Size(541, 538);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);

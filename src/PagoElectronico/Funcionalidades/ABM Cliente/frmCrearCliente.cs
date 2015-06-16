@@ -23,6 +23,7 @@ namespace PagoElectronico.Funcionalidades.ABM_Cliente
         Validador validador = Validador.Instance;
         public static Pais pais;
         public static TipoDocumento tipoDoc;
+        public static char operacion;
 
         public frmCrearCliente()
         {
