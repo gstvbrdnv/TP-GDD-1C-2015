@@ -40,18 +40,25 @@ namespace PagoElectronico.Consulta_Saldos
 
         private void cargarCuentasPropias()
         {
-            //Obtener cuentas
-            idCliente = DataBase.ExecuteCardinal("Select id_cli from NOLARECURSO.Usuario where username = '" + sessionUsername + "'");
-            //MessageBox.Show(idCliente.ToString());
-            var cuentasUsuario = DataBase.ExecuteReader("Select nro_cuenta from NOLARECURSO.Cuenta " +
-                "WHERE id_cli = '" + idCliente + "'");
-
-            // Carga todas las cuentas del cliente
-            foreach (DataRow dataRow in cuentasUsuario.Rows)
+            if (sessionRol != "3")
             {
-                cuenta = new Cuenta();
-                cuenta.nro_cuenta = dataRow["nro_cuenta"].ToString();
-                comboCuenta.Items.Add(cuenta.nro_cuenta.ToString());
+                idCliente = DataBase.ExecuteCardinal("Select id_cli from NOLARECURSO.Usuario where username = '" + sessionUsername + "'");
+                //MessageBox.Show(idCliente.ToString());
+                var cuentasUsuario = DataBase.ExecuteReader("Select nro_cuenta from NOLARECURSO.Cuenta " +
+                    "WHERE id_cli = '" + idCliente + "'");
+
+                // Carga todas las cuentas del cliente
+                foreach (DataRow dataRow in cuentasUsuario.Rows)
+                {
+                    cuenta = new Cuenta();
+                    cuenta.nro_cuenta = dataRow["nro_cuenta"].ToString();
+                    comboCuenta.Items.Add(cuenta.nro_cuenta.ToString());
+                }
+            }
+            else
+            {
+                comboCuenta.Enabled = false;
+                btnConsultarPropia.Enabled = false;
             }
         }
 
