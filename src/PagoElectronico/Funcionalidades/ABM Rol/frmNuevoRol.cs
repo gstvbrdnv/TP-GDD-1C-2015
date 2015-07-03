@@ -20,6 +20,7 @@ namespace PagoElectronico.ABM_Rol
     public partial class frmCrearRol : Form
     {
         public static Funcionalidad funcionalidad;
+        Validador validador = Validador.Instance;
 
         public static char operacion;
 
@@ -32,6 +33,12 @@ namespace PagoElectronico.ABM_Rol
         {
             comboEstado.Items.Add("Activado");
             comboEstado.Items.Add("Descativado");
+        }
+
+        private void validarDatosTercero()
+        {
+            validador.estaVacioOEsNulo(txtNombre);
+            validador.esAlfabetico(txtNombre);
         }
 
         private void cargarFuncionalidades()
