@@ -17,8 +17,6 @@ namespace PagoElectronico.Modelos
         public string descripcion { get; set; }
         public string estado { get; set; }
 
-        public List<Functionalities> Functionalities { get; set; }
-
         public Rol()
         { }
 
@@ -35,7 +33,7 @@ namespace PagoElectronico.Modelos
 
         public override string ToString()
         {
-            return descripcion + " (Perfil: " + estado + ")";
+            return descripcion + " (Estado: " + estado + ")";
         }
     }
 }

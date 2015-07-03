@@ -53,9 +53,11 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(295, 314);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // listaFuncionalidades
             // 
+            this.listaFuncionalidades.CheckOnClick = true;
             this.listaFuncionalidades.FormattingEnabled = true;
             this.listaFuncionalidades.Location = new System.Drawing.Point(100, 70);
             this.listaFuncionalidades.Name = "listaFuncionalidades";
@@ -92,6 +94,7 @@
             // 
             // comboEstado
             // 
+            this.comboEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboEstado.FormattingEnabled = true;
             this.comboEstado.Location = new System.Drawing.Point(100, 43);
             this.comboEstado.Name = "comboEstado";
@@ -123,6 +126,7 @@
             this.btnCrear.TabIndex = 2;
             this.btnCrear.Text = "Aceptar";
             this.btnCrear.UseVisualStyleBackColor = true;
+            this.btnCrear.Click += new System.EventHandler(this.btnCrear_Click);
             // 
             // btnVolver
             // 

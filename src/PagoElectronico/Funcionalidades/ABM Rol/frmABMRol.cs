@@ -6,9 +6,14 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using PagoElectronico.Login;
+using PagoElectronico.DB;
+using System.Security.Cryptography;
 using PagoElectronico.Modelos;
 using PagoElectronico.Core;
-using System.Collections;
+using System.Globalization;
+using System.Threading;
+using System.Configuration;
 
 namespace PagoElectronico.ABM_Rol
 {
@@ -29,6 +34,23 @@ namespace PagoElectronico.ABM_Rol
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(526, 407);
             this.MinimumSize = new System.Drawing.Size(526, 407);
+        }
+
+        private void cargarRoles()
+        {
+            dGrid_Roles.Rows.Clear();
+            DataTable listadoRoles = DataBase.ExecuteReader("Select * From NOLARECURSO.Rol");
+
+            Object[] columnas = new Object[4];
+
+            foreach (DataRow dr in listadoRoles.Rows)
+            {
+                columnas[0] = dr["id_rol"].ToString();
+                columnas[1] = dr["descripcion"].ToString();
+                columnas[2] = dr["estado"].ToString();// == "True") ? true : false;
+
+                dGrid_Roles.Rows.Add(columnas[0], columnas[1], columnas[2]);
+            }
         }
 
         private void RolesForm_Load(object sender, EventArgs e)
@@ -59,7 +81,7 @@ namespace PagoElectronico.ABM_Rol
 
         private void RolesForm_Load_1(object sender, EventArgs e)
         {
-
+            cargarRoles();
         }
 
         private void btnVolver_Click(object sender, EventArgs e)

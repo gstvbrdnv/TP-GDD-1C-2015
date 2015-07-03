@@ -11,8 +11,6 @@ namespace PagoElectronico.Modelos
         public string id_tipo_cta { get; set; }
         public string estado { get; set; }
 
-        public List<Functionalities> Functionalities { get; set; }
-
         public Cuenta()
         { }
 

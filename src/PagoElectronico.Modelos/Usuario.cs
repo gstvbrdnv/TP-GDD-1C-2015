@@ -13,7 +13,6 @@ namespace PagoElectronico.Modelos
 {
     public class Usuario
     {
-        public List<Functionalities> Permissions { get; private set; }
         public string username;
         public string rol;
         public BindingList<Rol> Roles { get; set; }
