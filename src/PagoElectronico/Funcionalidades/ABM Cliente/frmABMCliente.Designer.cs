@@ -40,14 +40,14 @@
             this.lblApellido = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.gridCliente = new System.Windows.Forms.DataGridView();
-            this.btnNuevo = new System.Windows.Forms.Button();
-            this.btnModificar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnVolver = new System.Windows.Forms.Button();
             this.numCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btnNuevo = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnVolver = new System.Windows.Forms.Button();
             this.groupBoxFiltros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridCliente)).BeginInit();
             this.SuspendLayout();
@@ -164,9 +164,40 @@
             this.colApellido,
             this.colSeleccionar});
             this.gridCliente.Location = new System.Drawing.Point(12, 189);
+            this.gridCliente.MultiSelect = false;
             this.gridCliente.Name = "gridCliente";
             this.gridCliente.Size = new System.Drawing.Size(518, 337);
             this.gridCliente.TabIndex = 1;
+            // 
+            // numCliente
+            // 
+            this.numCliente.HeaderText = "Número de cliente";
+            this.numCliente.Name = "numCliente";
+            this.numCliente.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.numCliente.Width = 120;
+            // 
+            // colNombre
+            // 
+            this.colNombre.HeaderText = "Nombre";
+            this.colNombre.Name = "colNombre";
+            this.colNombre.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colNombre.Width = 120;
+            // 
+            // colApellido
+            // 
+            this.colApellido.HeaderText = "Apellido";
+            this.colApellido.Name = "colApellido";
+            this.colApellido.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colApellido.Width = 120;
+            // 
+            // colSeleccionar
+            // 
+            this.colSeleccionar.HeaderText = "Seleccionar";
+            this.colSeleccionar.Name = "colSeleccionar";
+            this.colSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colSeleccionar.Text = "Seleccionar";
+            this.colSeleccionar.ToolTipText = "Seleccionar";
+            this.colSeleccionar.Width = 90;
             // 
             // btnNuevo
             // 
@@ -215,36 +246,6 @@
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = true;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
-            // 
-            // numCliente
-            // 
-            this.numCliente.HeaderText = "Número de cliente";
-            this.numCliente.Name = "numCliente";
-            this.numCliente.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.numCliente.Width = 120;
-            // 
-            // colNombre
-            // 
-            this.colNombre.HeaderText = "Nombre";
-            this.colNombre.Name = "colNombre";
-            this.colNombre.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colNombre.Width = 120;
-            // 
-            // colApellido
-            // 
-            this.colApellido.HeaderText = "Apellido";
-            this.colApellido.Name = "colApellido";
-            this.colApellido.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colApellido.Width = 120;
-            // 
-            // colSeleccionar
-            // 
-            this.colSeleccionar.HeaderText = "Seleccionar";
-            this.colSeleccionar.Name = "colSeleccionar";
-            this.colSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colSeleccionar.Text = "Seleccionar";
-            this.colSeleccionar.ToolTipText = "Seleccionar";
-            this.colSeleccionar.Width = 90;
             // 
             // frmABMCliente
             // 

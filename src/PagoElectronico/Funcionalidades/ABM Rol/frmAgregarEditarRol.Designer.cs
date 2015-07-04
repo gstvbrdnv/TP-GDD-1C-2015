@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnSelectAll = new System.Windows.Forms.Button();
             this.listaFuncionalidades = new System.Windows.Forms.CheckedListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -43,6 +44,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnSelectAll);
             this.panel1.Controls.Add(this.listaFuncionalidades);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
@@ -51,9 +53,19 @@
             this.panel1.Controls.Add(this.txtNombre);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(295, 314);
+            this.panel1.Size = new System.Drawing.Size(295, 370);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // btnSelectAll
+            // 
+            this.btnSelectAll.Location = new System.Drawing.Point(155, 320);
+            this.btnSelectAll.Name = "btnSelectAll";
+            this.btnSelectAll.Size = new System.Drawing.Size(124, 27);
+            this.btnSelectAll.TabIndex = 6;
+            this.btnSelectAll.Text = "Seleccionar todas";
+            this.btnSelectAll.UseVisualStyleBackColor = true;
+            this.btnSelectAll.Click += new System.EventHandler(this.btnSelectAll_Click);
             // 
             // listaFuncionalidades
             // 
@@ -61,8 +73,9 @@
             this.listaFuncionalidades.FormattingEnabled = true;
             this.listaFuncionalidades.Location = new System.Drawing.Point(100, 70);
             this.listaFuncionalidades.Name = "listaFuncionalidades";
-            this.listaFuncionalidades.Size = new System.Drawing.Size(153, 229);
+            this.listaFuncionalidades.Size = new System.Drawing.Size(179, 244);
             this.listaFuncionalidades.TabIndex = 5;
+            this.listaFuncionalidades.Tag = "Funcionalidades";
             // 
             // label3
             // 
@@ -98,19 +111,21 @@
             this.comboEstado.FormattingEnabled = true;
             this.comboEstado.Location = new System.Drawing.Point(100, 43);
             this.comboEstado.Name = "comboEstado";
-            this.comboEstado.Size = new System.Drawing.Size(153, 21);
+            this.comboEstado.Size = new System.Drawing.Size(179, 21);
             this.comboEstado.TabIndex = 1;
+            this.comboEstado.Tag = "Estado";
             // 
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(100, 17);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(153, 20);
+            this.txtNombre.Size = new System.Drawing.Size(179, 20);
             this.txtNombre.TabIndex = 0;
+            this.txtNombre.Tag = "Nombre";
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(232, 332);
+            this.btnLimpiar.Location = new System.Drawing.Point(232, 388);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
             this.btnLimpiar.TabIndex = 1;
@@ -120,7 +135,7 @@
             // 
             // btnCrear
             // 
-            this.btnCrear.Location = new System.Drawing.Point(12, 359);
+            this.btnCrear.Location = new System.Drawing.Point(12, 415);
             this.btnCrear.Name = "btnCrear";
             this.btnCrear.Size = new System.Drawing.Size(75, 23);
             this.btnCrear.TabIndex = 2;
@@ -130,7 +145,7 @@
             // 
             // btnVolver
             // 
-            this.btnVolver.Location = new System.Drawing.Point(231, 359);
+            this.btnVolver.Location = new System.Drawing.Point(231, 415);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(75, 23);
             this.btnVolver.TabIndex = 3;
@@ -142,7 +157,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(318, 394);
+            this.ClientSize = new System.Drawing.Size(318, 450);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnCrear);
             this.Controls.Add(this.btnLimpiar);
@@ -169,5 +184,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnVolver;
+        private System.Windows.Forms.Button btnSelectAll;
     }
 }

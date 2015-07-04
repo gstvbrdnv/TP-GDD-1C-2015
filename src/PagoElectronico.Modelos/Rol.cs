@@ -17,6 +17,8 @@ namespace PagoElectronico.Modelos
         public string descripcion { get; set; }
         public string estado { get; set; }
 
+        public List<String> Funcionalidades { get; set; }
+
         public Rol()
         { }
 

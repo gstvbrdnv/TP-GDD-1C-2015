@@ -371,5 +371,15 @@ namespace PagoElectronico.Core
             }
             else return true;
         }
+
+        public bool hayCheckBoxSeleccionado(string nombreCampo, CheckedListBox checkBox)
+        {
+            if (checkBox.CheckedItems.Count < 1)
+            {
+                errores.Add("No se seleccionó ninguna opción para el campo <" + nombreCampo + ">.");
+                return false;
+            }
+            else return true;
+        }
     }
 }

@@ -47,7 +47,11 @@ namespace PagoElectronico.ABM_Rol
             {
                 columnas[0] = dr["id_rol"].ToString();
                 columnas[1] = dr["descripcion"].ToString();
-                columnas[2] = dr["estado"].ToString();// == "True") ? true : false;
+                if (dr["estado"].ToString() == "True")
+                {
+                    columnas[2] = "Activado";
+                }
+                else columnas[2] = "Desactivado";
 
                 dGrid_Roles.Rows.Add(columnas[0], columnas[1], columnas[2]);
             }
@@ -95,6 +99,22 @@ namespace PagoElectronico.ABM_Rol
             this.Hide();
             frmCrearRol newRol = new frmCrearRol();
             newRol.Show();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            if (dGrid_Roles.SelectedRows.Count != 0)
+            {
+                frmCrearRol.operacion = 'B';
+                DataGridViewRow row = this.dGrid_Roles.SelectedRows[0];
+                frmCrearRol.rol_Id_u = row.Cells["id_rol"].Value.ToString();
+                frmCrearRol.rol_desc = row.Cells["ColNombre"].Value.ToString();
+                frmCrearRol.rol_estado = row.Cells["ColEstado"].Value.ToString();
+                this.Hide();
+                frmCrearRol newRol = new frmCrearRol();
+                newRol.Show();
+            }
+            else MessageBox.Show("No seleccionó ningun rol a modificar.");
         }
     }
 }

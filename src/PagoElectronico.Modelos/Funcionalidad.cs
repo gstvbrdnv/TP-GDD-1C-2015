@@ -26,7 +26,7 @@ namespace PagoElectronico.Modelos
             this.descripcion = descripcion;
         }
 
-        public string IDBanco
+        public string IDFunc
         {
             get
             {

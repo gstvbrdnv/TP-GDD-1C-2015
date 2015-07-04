@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.dGrid_Roles = new System.Windows.Forms.DataGridView();
+            this.id_rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Filtros = new System.Windows.Forms.GroupBox();
             this.cBox_Funcionalidad = new System.Windows.Forms.ComboBox();
             this.lbl_Funcionalidad = new System.Windows.Forms.Label();
@@ -42,10 +46,6 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnVolver = new System.Windows.Forms.Button();
-            this.id_rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dGrid_Roles)).BeginInit();
             this.Filtros.SuspendLayout();
             this.SuspendLayout();
@@ -60,10 +60,44 @@
             this.ColEstado,
             this.ColumSeleccionar});
             this.dGrid_Roles.Location = new System.Drawing.Point(12, 135);
+            this.dGrid_Roles.MultiSelect = false;
             this.dGrid_Roles.Name = "dGrid_Roles";
+            this.dGrid_Roles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dGrid_Roles.Size = new System.Drawing.Size(481, 217);
             this.dGrid_Roles.TabIndex = 0;
             this.dGrid_Roles.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // id_rol
+            // 
+            this.id_rol.Frozen = true;
+            this.id_rol.HeaderText = "Código rol";
+            this.id_rol.Name = "id_rol";
+            this.id_rol.ReadOnly = true;
+            this.id_rol.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.id_rol.Width = 90;
+            // 
+            // ColNombre
+            // 
+            this.ColNombre.Frozen = true;
+            this.ColNombre.HeaderText = "Nombre";
+            this.ColNombre.Name = "ColNombre";
+            this.ColNombre.ReadOnly = true;
+            this.ColNombre.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.ColNombre.Width = 150;
+            // 
+            // ColEstado
+            // 
+            this.ColEstado.HeaderText = "Estado";
+            this.ColEstado.Name = "ColEstado";
+            this.ColEstado.ReadOnly = true;
+            this.ColEstado.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.ColEstado.Width = 70;
+            // 
+            // ColumSeleccionar
+            // 
+            this.ColumSeleccionar.HeaderText = "Seleccionar";
+            this.ColumSeleccionar.Name = "ColumSeleccionar";
+            this.ColumSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // Filtros
             // 
@@ -172,6 +206,7 @@
             this.btnModificar.TabIndex = 3;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnEliminar
             // 
@@ -193,38 +228,6 @@
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = true;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
-            // 
-            // id_rol
-            // 
-            this.id_rol.Frozen = true;
-            this.id_rol.HeaderText = "Código rol";
-            this.id_rol.Name = "id_rol";
-            this.id_rol.ReadOnly = true;
-            this.id_rol.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.id_rol.Width = 90;
-            // 
-            // ColNombre
-            // 
-            this.ColNombre.Frozen = true;
-            this.ColNombre.HeaderText = "Nombre";
-            this.ColNombre.Name = "ColNombre";
-            this.ColNombre.ReadOnly = true;
-            this.ColNombre.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.ColNombre.Width = 150;
-            // 
-            // ColEstado
-            // 
-            this.ColEstado.HeaderText = "Estado";
-            this.ColEstado.Name = "ColEstado";
-            this.ColEstado.ReadOnly = true;
-            this.ColEstado.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.ColEstado.Width = 70;
-            // 
-            // ColumSeleccionar
-            // 
-            this.ColumSeleccionar.HeaderText = "Seleccionar";
-            this.ColumSeleccionar.Name = "ColumSeleccionar";
-            this.ColumSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // frmABMRol
             // 
