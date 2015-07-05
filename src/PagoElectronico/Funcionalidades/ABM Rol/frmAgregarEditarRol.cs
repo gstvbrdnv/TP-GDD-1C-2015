@@ -37,7 +37,7 @@ namespace PagoElectronico.ABM_Rol
         private void cargarEstado()
         {
             comboEstado.Items.Add("Activado");
-            comboEstado.Items.Add("Descativado");
+            comboEstado.Items.Add("Desactivado");
         }
 
         private void validarDatos()
@@ -101,7 +101,7 @@ namespace PagoElectronico.ABM_Rol
                 if (comboEstado.SelectedItem.ToString() == "Activado")
                 { _rol.estado = "1"; } else { _rol.estado = "0"; }
 
-                SqlDataAccess.ExecuteScalarQuery<int>(ConfigurationManager.ConnectionStrings["StringConexion"].ToString(),
+                SqlDataAccess.ExecuteNonQuery(ConfigurationManager.ConnectionStrings["StringConexion"].ToString(),
                     "NOLARECURSO.ActualizarRol", SqlDataAccessArgs
                     .CreateWith("@ID_Rol", rol_Id_u)
                            .And("@Descripcion", _rol.descripcion)
@@ -119,7 +119,7 @@ namespace PagoElectronico.ABM_Rol
                         "NOLARECURSO.InsertarRolFuncionalidad", SqlDataAccessArgs
                         .CreateWith("@Rol_ID", rol_Id_u)
                                .And("@Funcionalidad_ID", item)
-                .Arguments);
+                    .Arguments);
                 }
 
                 MessageBox.Show("Rol actualizado correctamente.");
@@ -154,10 +154,37 @@ namespace PagoElectronico.ABM_Rol
             this.MinimumSize = new System.Drawing.Size(334, 488);
             cargarFuncionalidades();
             cargarEstado();
-            if (operacion == 'B')
+            if (operacion == 'M')
             {
                 txtNombre.Text = rol_desc;
                 comboEstado.SelectedItem = rol_estado;
+                if (rol_estado == "Activado")
+                { comboEstado.SelectedIndex = 0; }
+                else { comboEstado.SelectedIndex = 1; }
+
+                var resultado = SqlDataAccess.ExecuteDataTableQuery(ConfigurationManager.ConnectionStrings["StringConexion"].ToString(),
+                    "NOLARECURSO.GetRolFuncionalidades", SqlDataAccessArgs
+                    .CreateWith("@ID_Rol", rol_Id_u).Arguments);
+
+                //Devuelve todos los roles que estan activos
+                List<int> funcionalidades = new List<int>();
+
+                if (resultado != null && resultado.Rows != null)
+                {
+                    foreach (DataRow row in resultado.Rows)
+                    {
+                        //MessageBox.Show(row["id_func"].ToString());
+                        int funcionalidad = Convert.ToInt32(row["id_func"].ToString());
+                        //MessageBox.Show(funcionalidad.ToString());
+                        funcionalidades.Add(funcionalidad);
+                    }
+                }
+                
+                for (int i = 0; i < listaFuncionalidades.Items.Count; i++)
+                {   
+                    if (funcionalidades.Contains(i+1))
+                        listaFuncionalidades.SetItemChecked(i, true);
+                }
             }
         }
 

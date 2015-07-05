@@ -164,7 +164,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "frmCrearRol";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Rol";
+            this.Text = "Crear / Editar Rol";
             this.Load += new System.EventHandler(this.frmCrearRol_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

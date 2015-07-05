@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using PagoElectronico.Login;
 using PagoElectronico.DB;
+using PagoElectronico.Data;
 using System.Security.Cryptography;
 using PagoElectronico.Modelos;
 using PagoElectronico.Core;
@@ -105,14 +106,47 @@ namespace PagoElectronico.ABM_Rol
         {
             if (dGrid_Roles.SelectedRows.Count != 0)
             {
-                frmCrearRol.operacion = 'B';
+                frmCrearRol.operacion = 'M';
                 DataGridViewRow row = this.dGrid_Roles.SelectedRows[0];
+                if (row.Cells["ColNombre"].Value.ToString() == "Administrador general")
+                {
+                    MessageBox.Show("No se puede editar el rol Administrador general debido a una regla de negocio",
+                        "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 frmCrearRol.rol_Id_u = row.Cells["id_rol"].Value.ToString();
                 frmCrearRol.rol_desc = row.Cells["ColNombre"].Value.ToString();
                 frmCrearRol.rol_estado = row.Cells["ColEstado"].Value.ToString();
                 this.Hide();
                 frmCrearRol newRol = new frmCrearRol();
                 newRol.Show();
+            }
+            else MessageBox.Show("No seleccionó ningun rol a modificar.");
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (dGrid_Roles.SelectedRows.Count != 0)
+            {
+                DataGridViewRow row = this.dGrid_Roles.SelectedRows[0];
+                if (MessageBox.Show(string.Format("Confirma que desea eliminar el rol {0}?", row.Cells["ColNombre"].Value.ToString()),
+                "Eliminar rol", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                {                    
+                    if (row.Cells["ColNombre"].Value.ToString() == "Administrador general")
+                    {
+                        MessageBox.Show("No se puede editar el rol Administrador general debido a una regla de negocio",
+                            "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    SqlDataAccess.ExecuteNonQuery(ConfigurationManager.ConnectionStrings["StringConexion"].ToString(),
+                        "NOLARECURSO.BorrarRol", SqlDataAccessArgs
+                        .CreateWith("@Rol_ID", row.Cells["id_rol"].Value.ToString())
+                    .Arguments);
+
+                    cargarRoles();
+                    MessageBox.Show("El rol fue dado de baja correctamente.");
+                }
             }
             else MessageBox.Show("No seleccionó ningun rol a modificar.");
         }
