@@ -243,7 +243,7 @@
             this.Controls.Add(this.dGrid_Roles);
             this.Name = "frmABMRol";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Administrar Roles";
+            this.Text = "Administrar roles";
             this.Load += new System.EventHandler(this.RolesForm_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dGrid_Roles)).EndInit();
             this.Filtros.ResumeLayout(false);

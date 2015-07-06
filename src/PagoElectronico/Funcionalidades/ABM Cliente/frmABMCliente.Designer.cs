@@ -40,14 +40,15 @@
             this.lblApellido = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.gridCliente = new System.Windows.Forms.DataGridView();
-            this.numCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnVolver = new System.Windows.Forms.Button();
+            this.numCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSelect = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBoxFiltros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridCliente)).BeginInit();
             this.SuspendLayout();
@@ -66,14 +67,14 @@
             this.groupBoxFiltros.Controls.Add(this.lblNombre);
             this.groupBoxFiltros.Location = new System.Drawing.Point(12, 60);
             this.groupBoxFiltros.Name = "groupBoxFiltros";
-            this.groupBoxFiltros.Size = new System.Drawing.Size(513, 110);
+            this.groupBoxFiltros.Size = new System.Drawing.Size(618, 93);
             this.groupBoxFiltros.TabIndex = 0;
             this.groupBoxFiltros.TabStop = false;
             this.groupBoxFiltros.Text = "Filtros";
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(419, 81);
+            this.btnBuscar.Location = new System.Drawing.Point(529, 56);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 11;
@@ -83,7 +84,7 @@
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(338, 81);
+            this.btnLimpiar.Location = new System.Drawing.Point(529, 25);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
             this.btnLimpiar.TabIndex = 10;
@@ -93,7 +94,7 @@
             // 
             // txtNroId
             // 
-            this.txtNroId.Location = new System.Drawing.Point(338, 22);
+            this.txtNroId.Location = new System.Drawing.Point(315, 19);
             this.txtNroId.Name = "txtNroId";
             this.txtNroId.Size = new System.Drawing.Size(150, 20);
             this.txtNroId.TabIndex = 9;
@@ -101,7 +102,7 @@
             // lblNroId
             // 
             this.lblNroId.AutoSize = true;
-            this.lblNroId.Location = new System.Drawing.Point(239, 25);
+            this.lblNroId.Location = new System.Drawing.Point(216, 22);
             this.lblNroId.Name = "lblNroId";
             this.lblNroId.Size = new System.Drawing.Size(93, 13);
             this.lblNroId.TabIndex = 8;
@@ -109,7 +110,7 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(338, 52);
+            this.txtEmail.Location = new System.Drawing.Point(315, 49);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(150, 20);
             this.txtEmail.TabIndex = 5;
@@ -131,7 +132,7 @@
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(300, 59);
+            this.lblEmail.Location = new System.Drawing.Point(277, 56);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(32, 13);
             this.lblEmail.TabIndex = 2;
@@ -162,42 +163,14 @@
             this.numCliente,
             this.colNombre,
             this.colApellido,
-            this.colSeleccionar});
-            this.gridCliente.Location = new System.Drawing.Point(12, 189);
+            this.colEstado,
+            this.colSelect});
+            this.gridCliente.Location = new System.Drawing.Point(12, 159);
             this.gridCliente.MultiSelect = false;
             this.gridCliente.Name = "gridCliente";
-            this.gridCliente.Size = new System.Drawing.Size(518, 337);
+            this.gridCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridCliente.Size = new System.Drawing.Size(618, 367);
             this.gridCliente.TabIndex = 1;
-            // 
-            // numCliente
-            // 
-            this.numCliente.HeaderText = "Número de cliente";
-            this.numCliente.Name = "numCliente";
-            this.numCliente.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.numCliente.Width = 120;
-            // 
-            // colNombre
-            // 
-            this.colNombre.HeaderText = "Nombre";
-            this.colNombre.Name = "colNombre";
-            this.colNombre.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colNombre.Width = 120;
-            // 
-            // colApellido
-            // 
-            this.colApellido.HeaderText = "Apellido";
-            this.colApellido.Name = "colApellido";
-            this.colApellido.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colApellido.Width = 120;
-            // 
-            // colSeleccionar
-            // 
-            this.colSeleccionar.HeaderText = "Seleccionar";
-            this.colSeleccionar.Name = "colSeleccionar";
-            this.colSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colSeleccionar.Text = "Seleccionar";
-            this.colSeleccionar.ToolTipText = "Seleccionar";
-            this.colSeleccionar.Width = 90;
             // 
             // btnNuevo
             // 
@@ -238,7 +211,7 @@
             // btnVolver
             // 
             this.btnVolver.ForeColor = System.Drawing.Color.Black;
-            this.btnVolver.Location = new System.Drawing.Point(470, 11);
+            this.btnVolver.Location = new System.Drawing.Point(570, 11);
             this.btnVolver.Margin = new System.Windows.Forms.Padding(2);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(60, 22);
@@ -247,11 +220,44 @@
             this.btnVolver.UseVisualStyleBackColor = true;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
+            // numCliente
+            // 
+            this.numCliente.HeaderText = "Número de cliente";
+            this.numCliente.Name = "numCliente";
+            this.numCliente.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.numCliente.Width = 120;
+            // 
+            // colNombre
+            // 
+            this.colNombre.HeaderText = "Nombre";
+            this.colNombre.Name = "colNombre";
+            this.colNombre.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colNombre.Width = 120;
+            // 
+            // colApellido
+            // 
+            this.colApellido.HeaderText = "Apellido";
+            this.colApellido.Name = "colApellido";
+            this.colApellido.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colApellido.Width = 120;
+            // 
+            // colEstado
+            // 
+            this.colEstado.HeaderText = "Estado";
+            this.colEstado.Name = "colEstado";
+            // 
+            // colSelect
+            // 
+            this.colSelect.HeaderText = "Seleccionar";
+            this.colSelect.Name = "colSelect";
+            this.colSelect.ReadOnly = true;
+            this.colSelect.Width = 90;
+            // 
             // frmABMCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(541, 538);
+            this.ClientSize = new System.Drawing.Size(642, 538);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
@@ -260,7 +266,7 @@
             this.Controls.Add(this.groupBoxFiltros);
             this.Name = "frmABMCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Clientes";
+            this.Text = "Administrar clientes";
             this.Load += new System.EventHandler(this.frmABMCliente_Load);
             this.groupBoxFiltros.ResumeLayout(false);
             this.groupBoxFiltros.PerformLayout();
@@ -290,6 +296,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn numCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn colApellido;
-        private System.Windows.Forms.DataGridViewButtonColumn colSeleccionar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colEstado;
+        private System.Windows.Forms.DataGridViewButtonColumn colSelect;
     }
 }

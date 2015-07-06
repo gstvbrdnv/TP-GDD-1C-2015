@@ -58,6 +58,8 @@
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnVolver = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
+            this.comboEstado = new System.Windows.Forms.ComboBox();
+            this.lblEstado = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // comboTipoDocumento
@@ -338,11 +340,31 @@
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
+            // comboEstado
+            // 
+            this.comboEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboEstado.FormattingEnabled = true;
+            this.comboEstado.Location = new System.Drawing.Point(113, 298);
+            this.comboEstado.Name = "comboEstado";
+            this.comboEstado.Size = new System.Drawing.Size(128, 21);
+            this.comboEstado.TabIndex = 119;
+            // 
+            // lblEstado
+            // 
+            this.lblEstado.AutoSize = true;
+            this.lblEstado.Location = new System.Drawing.Point(62, 301);
+            this.lblEstado.Name = "lblEstado";
+            this.lblEstado.Size = new System.Drawing.Size(40, 13);
+            this.lblEstado.TabIndex = 120;
+            this.lblEstado.Text = "Estado";
+            // 
             // frmCrearCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(342, 371);
+            this.Controls.Add(this.lblEstado);
+            this.Controls.Add(this.comboEstado);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnLimpiar);
@@ -414,5 +436,7 @@
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.ComboBox comboEstado;
+        private System.Windows.Forms.Label lblEstado;
     }
 }

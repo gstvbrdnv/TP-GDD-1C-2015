@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using PagoElectronico.Login;
 using PagoElectronico.DB;
+using PagoElectronico.Data;
 using System.Security.Cryptography;
 using PagoElectronico.Modelos;
 using PagoElectronico.Core;
@@ -143,24 +144,33 @@ namespace PagoElectronico.Depositos
             string monto = txtMonto.Text;
             monto = monto.Replace(",", ".");
             decimal montoDecimal = decimal.Parse(monto, CultureInfo.InvariantCulture);
-            int acreditarMonto = DataBase.ExecuteNonQuery("UPDATE NOLARECURSO.Cuenta SET saldo = saldo + " + montoDecimal.ToString() +
-                "WHERE nro_cuenta = '" + comboCuenta.SelectedItem.ToString() + "'");
-            // 2. Crear deposito
-            string fecha = Convert.ToDateTime(ConfigurationManager.AppSettings["FechaSistema"]).ToString();
-            Int64 idDeposito = DataBase.ExecuteCardinal64("SELECT * from NOLARECURSO.Deposito order BY 1 DESC") + 1;
 
-            DataTable insertDeposito = DataBase.ExecuteReader("INSERT INTO NOLARECURSO.Deposito " +
-                "(id_deposito, importe, tipo_moneda, fec_deposito, nro_cuenta, nro_tarjeta) VALUES ('" +
-                idDeposito + "', '" + txtMonto.Text + "', '1', '" + fecha + "', '" + comboCuenta.SelectedItem.ToString() +
-                "', '" + comboTarjeta.SelectedItem.ToString() + "')");
+            // 1. Acreditar importe
+            SqlDataAccess.ExecuteNonQuery(ConfigurationManager.ConnectionStrings["StringConexion"].ToString(),
+                "NOLARECURSO.IncrementarSaldoCuenta", SqlDataAccessArgs
+                .CreateWith("@Cuenta", comboCuenta.SelectedItem)
+                .And("@Importe", montoDecimal)
+            .Arguments);
+
+            // 2. Insertar deposito
+            DateTime fechaDeposito = Convert.ToDateTime(ConfigurationManager.AppSettings["FechaSistema"]);
+
+            SqlDataAccess.ExecuteNonQuery(ConfigurationManager.ConnectionStrings["StringConexion"].ToString(),
+                "NOLARECURSO.InsertarDeposito", SqlDataAccessArgs
+                .CreateWith("@Importe", montoDecimal)
+                .And("@Tipo_Moneda", 1)
+                .And("@Fec_Deposito", fechaDeposito)
+                .And("@Nro_Cuenta", comboCuenta.SelectedItem.ToString())
+                .And("@Nro_Tarjeta", comboTarjeta.SelectedItem.ToString())
+            .Arguments);
+
+            //DataTable insertDeposito = DataBase.ExecuteReader("INSERT INTO NOLARECURSO.Deposito " +
+            //    "(id_deposito, importe, tipo_moneda, fec_deposito, nro_cuenta, nro_tarjeta) VALUES ('" +
+            //    idDeposito + "', '" + txtMonto.Text + "', '1', '" + fecha + "', '" + comboCuenta.SelectedItem.ToString() +
+            //    "', '" + comboTarjeta.SelectedItem.ToString() + "')");
 
             // 3. Imprimir mensaje
-            MessageBox.Show("El depósito ha sido realizado satisfactoriamente.\n\n" +
-                "Cuenta: " + comboCuenta.SelectedItem.ToString() + "\n" +
-                "Tarjeta: " + comboTarjeta.SelectedItem.ToString() + "\n" +
-                "Número de depósito: " + idDeposito + "\n" +
-                "Importe: U$S" + txtMonto.Text + "\n\n" +
-                "Fecha: " + fecha, "", MessageBoxButtons.OK);
+            MessageBox.Show("El depósito ha sido realizado satisfactoriamente.\n", "", MessageBoxButtons.OK);
             this.Close();
         }
     }

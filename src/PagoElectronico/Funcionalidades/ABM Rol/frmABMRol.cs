@@ -131,10 +131,10 @@ namespace PagoElectronico.ABM_Rol
                 DataGridViewRow row = this.dGrid_Roles.SelectedRows[0];
                 if (MessageBox.Show(string.Format("Confirma que desea eliminar el rol {0}?", row.Cells["ColNombre"].Value.ToString()),
                 "Eliminar rol", MessageBoxButtons.OKCancel) == DialogResult.OK)
-                {                    
+                {
                     if (row.Cells["ColNombre"].Value.ToString() == "Administrador general")
                     {
-                        MessageBox.Show("No se puede editar el rol Administrador general debido a una regla de negocio",
+                        MessageBox.Show("No se puede borrar el rol Administrador general debido a una regla de negocio",
                             "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }

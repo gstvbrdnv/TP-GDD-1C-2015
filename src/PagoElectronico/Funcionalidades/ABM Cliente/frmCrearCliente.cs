@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using PagoElectronico.Login;
 using PagoElectronico.DB;
+using PagoElectronico.Data;
 using System.Security.Cryptography;
 using PagoElectronico.Modelos;
 using PagoElectronico.Core;
@@ -24,6 +25,8 @@ namespace PagoElectronico.Funcionalidades.ABM_Cliente
         public static Pais pais;
         public static TipoDocumento tipoDoc;
         public static char operacion;
+        public static string cli_id;
+        public static string estado;
 
         public frmCrearCliente()
         {
@@ -38,6 +41,39 @@ namespace PagoElectronico.Funcionalidades.ABM_Cliente
             this.ControlBox = false;
             cargarPaises();
             cargarTiposDocumento();
+            cargarEstados();
+            if (operacion == 'M')
+            {
+                var resultado = SqlDataAccess.ExecuteDataTableQuery(ConfigurationManager.ConnectionStrings["StringConexion"].ToString(),
+                    "NOLARECURSO.GetClienteInfo", SqlDataAccessArgs
+                    .CreateWith("@ID_Cliente", cli_id).Arguments);
+
+                if (resultado != null && resultado.Rows != null)
+                {
+                    foreach (DataRow row in resultado.Rows)
+                    {
+                        txtNombre.Text = row["nombre"].ToString();
+                        txtApellido.Text = row["apellido"].ToString();
+                        txtDocumento.Text = row["nro_documento"].ToString();
+                        txtMail.Text = row["mail"].ToString()+"m";
+                        txtTelefono.Text = row["telefono"].ToString();
+                        txtDomicilio.Text = row["direccion"].ToString();
+                        txtNumCalle.Text = row["dir_numero"].ToString();
+                        txtPiso.Text = row["dir_piso"].ToString();
+                        txtDepto.Text = row["dir_dpto"].ToString();
+                        txtLocalidad.Text = row["localidad"].ToString();
+                        txtTelefono.Text = row["telefono"].ToString();
+                        //dtFechaNacimiento.Value.Year = getyear(row["fec_nacimiento"].ToString());
+
+                    }
+                }
+            }
+        }
+
+        private void cargarEstados()
+        {
+            comboEstado.Items.Add("Activado");
+            comboEstado.Items.Add("Desactivado");
         }
 
         private void cargarTiposDocumento()
@@ -102,7 +138,8 @@ namespace PagoElectronico.Funcionalidades.ABM_Cliente
             validador.esNumerico(txtTelefono);
             validador.hayUnoSeleccionado("Nacionalidad", comboNacionalidad);
             validador.hayUnaFechaSeleccionada(dtFechaNacimiento);
-            validador.yaExisteMail(txtMail);            
+            validador.yaExisteMail(txtMail);
+            validador.hayUnoSeleccionado("Estado", comboEstado);
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -115,25 +152,72 @@ namespace PagoElectronico.Funcionalidades.ABM_Cliente
             }
 
             // Crear cliente
-            int idCliente = DataBase.ExecuteCardinal("SELECT * FROM NOLARECURSO.Cliente ORDER BY 1 DESC") + 1;
-            string idPais = ((Pais)comboPais.SelectedItem).IDPais;
-            string idTipoDoc = ((TipoDocumento)comboTipoDocumento.SelectedItem).IDTipoDoc;
+            if (operacion == 'A')
+            {
+                int newCliID = DataBase.ExecuteCardinal("SELECT * FROM NOLARECURSO.Cliente ORDER BY 1 DESC") + 1;
+                string idPais = ((Pais)comboPais.SelectedItem).IDPais;
+                string idTipoDoc = ((TipoDocumento)comboTipoDocumento.SelectedItem).IDTipoDoc;
+                DateTime fechaNac = dtFechaNacimiento.Value;
 
-            DataTable insertCliente = DataBase.ExecuteReader("INSERT INTO NOLARECURSO.Cliente " +
-                "(nombre, apellido, id_tipo_doc, nro_documento, mail, telefono, " +
-                "direccion, dir_numero, dir_piso, dir_dpto, localidad, id_pais, fec_nacimiento) VALUES ('" +
-                /*idCliente + "', '" + */txtNombre.Text + "', '" + txtApellido.Text + "', '" +
-                idTipoDoc + "', '" + txtDocumento.Text + "', '" +
-                txtMail.Text +  "', '" + txtTelefono.Text + "', '" + txtDomicilio.Text + "', '" +
-                txtNumCalle.Text + "', '" + txtPiso.Text + "', '" + txtDepto.Text + "', '" +
-                txtLocalidad.Text + "', '" + idPais + "', '" +
-                dtFechaNacimiento.Value.ToString() + "')");
+                if (comboEstado.SelectedItem.ToString() == "Activado")
+                { estado = "1"; }
+                else { estado = "0"; }
 
-            // Imprimir mensaje
-            MessageBox.Show("El cliente ha sido creado satisfactoriamente.\n\n" +
-                "Número de cliente: " + idCliente.ToString() + "\n" +
-                "Nombre: " + txtNombre.Text + "\n" +
-                "Apellido: " + txtApellido.Text, "", MessageBoxButtons.OK);
+                SqlDataAccess.ExecuteNonQuery(ConfigurationManager.ConnectionStrings["StringConexion"].ToString(),
+                    "NOLARECURSO.CrearCliente", SqlDataAccessArgs
+                    .CreateWith("@Nombre", txtNombre.Text)
+                                .And("@Apellido", txtApellido.Text)
+                                .And("@ID_Tipo_Doc", idTipoDoc)
+                                .And("@Nro_Documento", txtDocumento.Text)
+                                .And("@Mail", txtMail.Text)
+                                .And("@Telefono", txtTelefono.Text)
+                                .And("@Direccion", txtDomicilio.Text)
+                                .And("@Dir_Numero", txtNumCalle.Text)
+                                .And("@Dir_Piso", txtPiso.Text)
+                                .And("@Dir_Depto", txtDepto.Text)
+                                .And("@Estado", estado)
+                                .And("@Localidad", txtLocalidad.Text)
+                                .And("@ID_Pais", idPais)
+                                .And("@Fec_Nacimiento", fechaNac)
+                .Arguments);
+
+                // Imprimir mensaje
+                MessageBox.Show("El cliente ha sido creado satisfactoriamente.\n\n" +
+                    "Número de cliente: " + newCliID.ToString() + "\n" +
+                    "Nombre: " + txtNombre.Text + "\n" +
+                    "Apellido: " + txtApellido.Text, "", MessageBoxButtons.OK);
+            }
+            else // Modificar cliente
+            {
+                string idPais = ((Pais)comboPais.SelectedItem).IDPais;
+                string idTipoDoc = ((TipoDocumento)comboTipoDocumento.SelectedItem).IDTipoDoc;
+                DateTime fechaNac = dtFechaNacimiento.Value;
+
+                if (comboEstado.SelectedItem.ToString() == "Activado")
+                { estado = "1"; }
+                else { estado = "0"; }
+
+                SqlDataAccess.ExecuteNonQuery(ConfigurationManager.ConnectionStrings["StringConexion"].ToString(),
+                    "NOLARECURSO.ActualizarCliente", SqlDataAccessArgs
+                    .CreateWith("@ID_Cli", cli_id)
+                                .And("@Nombre", txtNombre.Text)
+                                .And("@Apellido", txtApellido.Text)
+                                .And("@ID_Tipo_Doc", idTipoDoc)
+                                .And("@Nro_Documento", txtDocumento.Text)
+                                .And("@Mail", txtMail.Text)
+                                .And("@Telefono", txtTelefono.Text)
+                                .And("@Direccion", txtDomicilio.Text)
+                                .And("@Dir_Numero", txtNumCalle.Text)
+                                .And("@Dir_Piso", txtPiso.Text)
+                                .And("@Dir_Depto", txtDepto.Text)
+                                .And("@Estado", estado)
+                                .And("@Localidad", txtLocalidad.Text)
+                                .And("@ID_Pais", idPais)
+                                .And("@Fec_Nacimiento", fechaNac)
+                .Arguments);
+
+                MessageBox.Show("El cliente ha sido modificado satisfactoriamente.\n", "", MessageBoxButtons.OK);
+            }
 
             // Cerrar formulario
             this.Close();
