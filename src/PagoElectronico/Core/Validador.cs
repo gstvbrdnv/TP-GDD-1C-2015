@@ -29,6 +29,17 @@ namespace PagoElectronico.Core
             }
         }
 
+        public void esAnioValido(TextBox textBox)
+        {
+            string anio = textBox.Text;
+
+            if (anio.Length != 4)
+            {
+                errores.Add("El campo <" + textBox.Tag + "> no posee el formato correcto (4 dígitos).");
+                return;
+            }
+        }
+
         public void esCodigoSeguridadCorrecto(TextBox textBox)
         {
             if (textBox.Text.Length != 3)

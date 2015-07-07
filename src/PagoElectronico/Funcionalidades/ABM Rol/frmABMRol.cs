@@ -71,7 +71,7 @@ namespace PagoElectronico.ABM_Rol
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            dGrid_Roles.Rows.Clear();
         }
 
         private void label3_Click(object sender, EventArgs e)
