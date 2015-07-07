@@ -36,9 +36,15 @@
             this.comboReporte = new System.Windows.Forms.ComboBox();
             this.btnVolver = new System.Windows.Forms.Button();
             this.btnMostrar = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.datagridTOP5 = new System.Windows.Forms.DataGridView();
+            this.columna1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columna2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columna3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columna4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columna5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnLimpiar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.label1 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.datagridTOP5)).BeginInit();
             this.SuspendLayout();
             // 
             // comboTrimestre
@@ -111,7 +117,7 @@
             // 
             // btnMostrar
             // 
-            this.btnMostrar.Location = new System.Drawing.Point(409, 63);
+            this.btnMostrar.Location = new System.Drawing.Point(409, 76);
             this.btnMostrar.Name = "btnMostrar";
             this.btnMostrar.Size = new System.Drawing.Size(99, 23);
             this.btnMostrar.TabIndex = 7;
@@ -119,16 +125,57 @@
             this.btnMostrar.UseVisualStyleBackColor = true;
             this.btnMostrar.Click += new System.EventHandler(this.btnMostrar_Click);
             // 
-            // dataGridView1
+            // datagridTOP5
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 105);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(591, 207);
-            this.dataGridView1.TabIndex = 8;
+            this.datagridTOP5.AllowUserToAddRows = false;
+            this.datagridTOP5.AllowUserToDeleteRows = false;
+            this.datagridTOP5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datagridTOP5.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.columna1,
+            this.columna2,
+            this.columna3,
+            this.columna4,
+            this.columna5});
+            this.datagridTOP5.Location = new System.Drawing.Point(12, 105);
+            this.datagridTOP5.Name = "datagridTOP5";
+            this.datagridTOP5.ReadOnly = true;
+            this.datagridTOP5.Size = new System.Drawing.Size(591, 207);
+            this.datagridTOP5.TabIndex = 8;
+            // 
+            // columna1
+            // 
+            this.columna1.Frozen = true;
+            this.columna1.HeaderText = "Columna1";
+            this.columna1.Name = "columna1";
+            this.columna1.ReadOnly = true;
+            // 
+            // columna2
+            // 
+            this.columna2.Frozen = true;
+            this.columna2.HeaderText = "Columna1";
+            this.columna2.Name = "columna2";
+            this.columna2.ReadOnly = true;
+            // 
+            // columna3
+            // 
+            this.columna3.Frozen = true;
+            this.columna3.HeaderText = "Columna3";
+            this.columna3.Name = "columna3";
+            this.columna3.ReadOnly = true;
+            // 
+            // columna4
+            // 
+            this.columna4.Frozen = true;
+            this.columna4.HeaderText = "Columna4";
+            this.columna4.Name = "columna4";
+            this.columna4.ReadOnly = true;
+            // 
+            // columna5
+            // 
+            this.columna5.Frozen = true;
+            this.columna5.HeaderText = "Columna5";
+            this.columna5.Name = "columna5";
+            this.columna5.ReadOnly = true;
             // 
             // btnLimpiar
             // 
@@ -138,14 +185,26 @@
             this.btnLimpiar.TabIndex = 9;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 78);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 24);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "TOP5";
             // 
             // frmEstadisticas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(615, 325);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnLimpiar);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.datagridTOP5);
             this.Controls.Add(this.btnMostrar);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.comboReporte);
@@ -155,9 +214,10 @@
             this.Controls.Add(this.lblTrimestre);
             this.Controls.Add(this.comboTrimestre);
             this.Name = "frmEstadisticas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Estadísticas";
             this.Load += new System.EventHandler(this.frmEstadisticas_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datagridTOP5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -173,7 +233,13 @@
         private System.Windows.Forms.ComboBox comboReporte;
         private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.Button btnMostrar;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView datagridTOP5;
         private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columna1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columna2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columna3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columna4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columna5;
+        private System.Windows.Forms.Label label1;
     }
 }

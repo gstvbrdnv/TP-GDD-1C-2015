@@ -110,12 +110,13 @@ namespace PagoElectronico.Tarjetas
             // Encriptar código de seguridad con SHA1
             string encrypterSecurityCode = Hash(txtCodigoSeguridad.Text);
             //MessageBox.Show(encrypterSecurityCode);
-
+            DateTime fecha = fechaEmision.Value;
+            DateTime fechaV = fechaVencimiento.Value;
             // Crear registro en la tabla Tarjeta
             DataTable insertDeposito = DataBase.ExecuteReader("INSERT INTO NOLARECURSO.Tarjeta " +
                 "(nro_tarjeta, id_emisor, fec_emision, fec_vto, cod_seguridad, id_cli, estado) VALUES ('" +
-                txtNumTarjeta.Text.ToString() + "', '" + idEmisor + "', '" + fechaEmision.Value.ToString() + "', '" +
-                fechaVencimiento.Value.ToString() + "', '" + encrypterSecurityCode +
+                txtNumTarjeta.Text.ToString() + "', '" + idEmisor + "', '" + fecha + "', '" +
+                fechaV + "', '" + encrypterSecurityCode +
                 "', '" + idCliente + "', '1')");
 
             // Imprimir mensaje
@@ -164,12 +165,14 @@ namespace PagoElectronico.Tarjetas
             // Encriptar código de seguridad con SHA1
             string encrypterSecurityCode = Hash(txtCodigoSeguridad.Text);
             //MessageBox.Show(encrypterSecurityCode);
+            DateTime fechaE = fechaEmision.Value;
+            DateTime fechaV = fechaVencimiento.Value;
 
             // Crear registro en la tabla Tarjeta
             DataTable insertDeposito = DataBase.ExecuteReader("INSERT INTO NOLARECURSO.Tarjeta " +
                 "(nro_tarjeta, id_emisor, fec_emision, fec_vto, cod_seguridad, id_cli, estado) VALUES ('" +
-                txtNumTarjeta.Text.ToString() + "', '" + idEmisor + "', '" + fechaEmision.Value.ToString() + "', '" +
-                fechaVencimiento.Value.ToString() + "', '" + encrypterSecurityCode +
+                txtNumTarjeta.Text.ToString() + "', '" + idEmisor + "', '" + fechaE + "', '" +
+                fechaV + "', '" + encrypterSecurityCode +
                 "', '" + idCliente + "', '1')");
 
             // Imprimir mensaje

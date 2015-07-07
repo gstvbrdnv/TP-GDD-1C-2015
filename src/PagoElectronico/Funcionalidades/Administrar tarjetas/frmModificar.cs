@@ -119,8 +119,9 @@ namespace PagoElectronico.Tarjetas
         private void btnModificar_Click(object sender, EventArgs e)
         {
             // Cambiar fecha vencimiento tarjeta
+            DateTime fechaNueva = dateTimePicker1.Value;
             int darDeBajaTarjeta = DataBase.ExecuteNonQuery("update NOLARECURSO.Tarjeta set fec_vto = '"
-                + dateTimePicker1.Value.ToString() + "' where nro_tarjeta = '" + comboTarjeta.SelectedItem.ToString() + "'");
+                + fechaNueva + "' where nro_tarjeta = '" + comboTarjeta.SelectedItem.ToString() + "'");
 
             // Imprimir mensaje
             MessageBox.Show("La tarjeta ha sido modificada satisfactoriamente.\n\n" +
