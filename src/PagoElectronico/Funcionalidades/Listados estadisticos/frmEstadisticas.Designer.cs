@@ -117,7 +117,7 @@
             // 
             // btnMostrar
             // 
-            this.btnMostrar.Location = new System.Drawing.Point(409, 76);
+            this.btnMostrar.Location = new System.Drawing.Point(409, 72);
             this.btnMostrar.Name = "btnMostrar";
             this.btnMostrar.Size = new System.Drawing.Size(99, 23);
             this.btnMostrar.TabIndex = 7;

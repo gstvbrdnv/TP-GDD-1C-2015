@@ -82,9 +82,9 @@
             this.lblRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRol.Location = new System.Drawing.Point(9, 164);
             this.lblRol.Name = "lblRol";
-            this.lblRol.Size = new System.Drawing.Size(176, 16);
+            this.lblRol.Size = new System.Drawing.Size(162, 16);
             this.lblRol.TabIndex = 4;
-            this.lblRol.Text = "Seleccione el perfil a utilizar:";
+            this.lblRol.Text = "Seleccione el rol a utilizar:";
             // 
             // btnIngresar
             // 

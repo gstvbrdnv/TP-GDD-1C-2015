@@ -103,12 +103,84 @@ namespace PagoElectronico.Listados
             // Reporte
             if (comboReporte.SelectedItem.ToString() == "Clientes con cuenta inhabilitada")
             {
-               // falta probar el SP
+                datagridTOP5.Rows.Clear();
+
+                var resultado = SqlDataAccess.ExecuteDataTableQuery(ConfigurationManager.ConnectionStrings["StringConexion"].ToString(),
+                    "NOLARECURSO.GetTopClientesMorosos", SqlDataAccessArgs
+                    .CreateWith("@nroTrimestre", numTrimestre)
+                    .And("@anioTrimestre", numAnio)
+                .Arguments);
+
+                datagridTOP5.Columns[0].HeaderText = "Ranking";
+                datagridTOP5.Columns[0].Width = 75;
+                datagridTOP5.Columns[1].HeaderText = "Cliente";
+                datagridTOP5.Columns[1].Width = 150;
+                datagridTOP5.Columns[2].HeaderText = "Cant. inhabilitaciones";
+                datagridTOP5.Columns[2].Width = 200;
+                datagridTOP5.Columns[0].Visible = true;
+                datagridTOP5.Columns[1].Visible = true;
+                datagridTOP5.Columns[2].Visible = true;
+                datagridTOP5.Columns[3].Visible = false;
+                datagridTOP5.Columns[4].Visible = false;
+
+
+                if (resultado != null && resultado.Rows != null)
+                {
+                    Object[] columnas = new Object[3];
+                    int ranking = 1;
+
+                    foreach (DataRow dr in resultado.Rows)
+                    {
+
+                        columnas[0] = ranking.ToString();
+                        columnas[1] = dr["cliente"].ToString();
+                        columnas[2] = dr["cantidad"].ToString();
+
+                        datagridTOP5.Rows.Add(columnas[0], columnas[1], columnas[2]);
+                        ranking = ranking + 1;
+                    }
+                }
             }
 
             if (comboReporte.SelectedItem.ToString() == "Clientes más facturadores")
             {
-                // falta migracion item transaccion 
+                datagridTOP5.Rows.Clear();
+
+                var resultado = SqlDataAccess.ExecuteDataTableQuery(ConfigurationManager.ConnectionStrings["StringConexion"].ToString(),
+                    "NOLARECURSO.GetTopClientesMayorFacturacion", SqlDataAccessArgs
+                    .CreateWith("@nroTrimestre", numTrimestre)
+                    .And("@anioTrimestre", numAnio)
+                .Arguments);
+
+                datagridTOP5.Columns[0].HeaderText = "Ranking";
+                datagridTOP5.Columns[0].Width = 75;
+                datagridTOP5.Columns[1].HeaderText = "Cliente";
+                datagridTOP5.Columns[1].Width = 150;
+                datagridTOP5.Columns[2].HeaderText = "Cant. comisiones facturadas";
+                datagridTOP5.Columns[2].Width = 250;
+                datagridTOP5.Columns[0].Visible = true;
+                datagridTOP5.Columns[1].Visible = true;
+                datagridTOP5.Columns[2].Visible = true;
+                datagridTOP5.Columns[3].Visible = false;
+                datagridTOP5.Columns[4].Visible = false;
+
+
+                if (resultado != null && resultado.Rows != null)
+                {
+                    Object[] columnas = new Object[3];
+                    int ranking = 1;
+
+                    foreach (DataRow dr in resultado.Rows)
+                    {
+
+                        columnas[0] = ranking.ToString();
+                        columnas[1] = dr["cliente"].ToString();
+                        columnas[2] = dr["cant_comisiones"].ToString();
+
+                        datagridTOP5.Rows.Add(columnas[0], columnas[1], columnas[2]);
+                        ranking = ranking + 1;
+                    }
+                }
             }
 
             if (comboReporte.SelectedItem.ToString() == "Clientes transferencias propias")
@@ -121,27 +193,33 @@ namespace PagoElectronico.Listados
                     .And("@anioTrimestre", numAnio)
                 .Arguments);
 
-                datagridTOP5.Columns[0].HeaderText = "Nombre cliente";
-                datagridTOP5.Columns[0].Width = 150;
-                datagridTOP5.Columns[1].HeaderText = "Cant. transf. propias";
+                datagridTOP5.Columns[0].HeaderText = "Ranking";
+                datagridTOP5.Columns[0].Width = 75;
+                datagridTOP5.Columns[1].HeaderText = "Cliente";
                 datagridTOP5.Columns[1].Width = 150;
+                datagridTOP5.Columns[2].HeaderText = "Cant. transf. propias";
+                datagridTOP5.Columns[2].Width = 250;
                 datagridTOP5.Columns[0].Visible = true;
                 datagridTOP5.Columns[1].Visible = true;
-                datagridTOP5.Columns[2].Visible = false;
+                datagridTOP5.Columns[2].Visible = true;
                 datagridTOP5.Columns[3].Visible = false;
                 datagridTOP5.Columns[4].Visible = false;
 
 
                 if (resultado != null && resultado.Rows != null)
                 {
-                    Object[] columnas = new Object[2];
+                    Object[] columnas = new Object[3];
+                    int ranking = 1;
 
                     foreach (DataRow dr in resultado.Rows)
                     {
-                        columnas[0] = dr["cliente"].ToString();
-                        columnas[1] = dr["cantidad"].ToString();
 
-                        datagridTOP5.Rows.Add(columnas[0], columnas[1]);
+                        columnas[0] = ranking.ToString();
+                        columnas[1] = dr["cliente"].ToString();
+                        columnas[2] = dr["cantidad"].ToString();
+
+                        datagridTOP5.Rows.Add(columnas[0], columnas[1], columnas[2]);
+                        ranking = ranking + 1;
                     }
                 }
             }
@@ -156,38 +234,77 @@ namespace PagoElectronico.Listados
                     .And("@anioTrimestre", numAnio)
                 .Arguments);
 
-                datagridTOP5.Columns[0].HeaderText = "País";
-                datagridTOP5.Columns[0].Width = 150;
-                datagridTOP5.Columns[1].HeaderText = "Cant. movimientos";
-                datagridTOP5.Columns[1].Width = 150;
+                datagridTOP5.Columns[0].HeaderText = "Ranking";
+                datagridTOP5.Columns[0].Width = 75;
+                datagridTOP5.Columns[1].HeaderText = "Pais";
+                datagridTOP5.Columns[1].Width = 100;
+                datagridTOP5.Columns[2].HeaderText = "Cant. movimientos";
+                datagridTOP5.Columns[2].Width = 200;
                 datagridTOP5.Columns[0].Visible = true;
                 datagridTOP5.Columns[1].Visible = true;
-                datagridTOP5.Columns[2].Visible = false;
+                datagridTOP5.Columns[2].Visible = true;
                 datagridTOP5.Columns[3].Visible = false;
                 datagridTOP5.Columns[4].Visible = false;
 
 
                 if (resultado != null && resultado.Rows != null)
                 {
-                    Object[] columnas = new Object[2];
+                    Object[] columnas = new Object[3];
+                    int ranking = 1;
 
                     foreach (DataRow dr in resultado.Rows)
                     {
-                        columnas[0] = dr["descripcion"].ToString();
-                        columnas[1] = dr["cant_movimientos"].ToString();
 
-                        datagridTOP5.Rows.Add(columnas[0], columnas[1]);
+                        columnas[0] = ranking.ToString();
+                        columnas[1] = dr["descripcion"].ToString();
+                        columnas[2] = dr["cant_movimientos"].ToString();
+
+                        datagridTOP5.Rows.Add(columnas[0], columnas[1], columnas[2]);
+                        ranking = ranking + 1;
                     }
                 }
-
-
             }
 
             if (comboReporte.SelectedItem.ToString() == "Facturación por tipo de cuenta")
             {
-                // falta migra item trans
-            }
+                datagridTOP5.Rows.Clear();
 
+                var resultado = SqlDataAccess.ExecuteDataTableQuery(ConfigurationManager.ConnectionStrings["StringConexion"].ToString(),
+                    "NOLARECURSO.GetTopFacturacionTipoCuentas", SqlDataAccessArgs
+                    .CreateWith("@nroTrimestre", numTrimestre)
+                    .And("@anioTrimestre", numAnio)
+                .Arguments);
+
+                datagridTOP5.Columns[0].HeaderText = "Ranking";
+                datagridTOP5.Columns[0].Width = 75;
+                datagridTOP5.Columns[1].HeaderText = "Tipo de cuenta";
+                datagridTOP5.Columns[1].Width = 150;
+                datagridTOP5.Columns[2].HeaderText = "Total facturado";
+                datagridTOP5.Columns[2].Width = 250;
+                datagridTOP5.Columns[0].Visible = true;
+                datagridTOP5.Columns[1].Visible = true;
+                datagridTOP5.Columns[2].Visible = true;
+                datagridTOP5.Columns[3].Visible = false;
+                datagridTOP5.Columns[4].Visible = false;
+
+
+                if (resultado != null && resultado.Rows != null)
+                {
+                    Object[] columnas = new Object[3];
+                    int ranking = 1;
+
+                    foreach (DataRow dr in resultado.Rows)
+                    {
+
+                        columnas[0] = ranking.ToString();
+                        columnas[1] = dr["tipo_cuenta"].ToString();
+                        columnas[2] = dr["total_facturado"].ToString();
+
+                        datagridTOP5.Rows.Add(columnas[0], columnas[1], columnas[2]);
+                        ranking = ranking + 1;
+                    }
+                }
+            }
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
