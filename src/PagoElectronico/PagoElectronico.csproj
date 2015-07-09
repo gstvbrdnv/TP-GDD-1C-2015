@@ -68,6 +68,12 @@
     <Compile Include="Funcionalidades\ABM Cuenta\frmABMCuenta.Designer.cs">
       <DependentUpon>frmABMCuenta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Funcionalidades\ABM Cuenta\frmAltaEditCuenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Funcionalidades\ABM Cuenta\frmAltaEditCuenta.Designer.cs">
+      <DependentUpon>frmAltaEditCuenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Funcionalidades\ABM Usuario\frmABMUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Funcionalidades\ABM Cuenta\frmABMCuenta.resx">
       <DependentUpon>frmABMCuenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Funcionalidades\ABM Cuenta\frmAltaEditCuenta.resx">
+      <DependentUpon>frmAltaEditCuenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Funcionalidades\ABM Usuario\frmABMUsuario.resx">
       <DependentUpon>frmABMUsuario.cs</DependentUpon>

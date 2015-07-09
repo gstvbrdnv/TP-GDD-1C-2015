@@ -67,8 +67,8 @@ namespace PagoElectronico.ABM_Cliente
                 DataGridViewRow row = this.gridCliente.SelectedRows[0];
                 frmCrearCliente.cli_id = row.Cells["numCliente"].Value.ToString();
                 this.Hide();
-                frmCrearCliente newRol = new frmCrearCliente();
-                newRol.Show();
+                frmCrearCliente newCliente = new frmCrearCliente();
+                newCliente.Show();
             }
             else MessageBox.Show("No seleccionó ningun rol a modificar.");
 
