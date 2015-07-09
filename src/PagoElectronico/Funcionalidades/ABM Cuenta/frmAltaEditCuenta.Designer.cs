@@ -40,6 +40,8 @@
             this.comboPais = new System.Windows.Forms.ComboBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnVolver = new System.Windows.Forms.Button();
+            this.lblUsuario = new System.Windows.Forms.Label();
+            this.comboUsuario = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lbPais
@@ -53,21 +55,21 @@
             // 
             // txtNumCuenta
             // 
-            this.txtNumCuenta.Location = new System.Drawing.Point(109, 12);
+            this.txtNumCuenta.Location = new System.Drawing.Point(145, 12);
             this.txtNumCuenta.MaxLength = 50;
             this.txtNumCuenta.Name = "txtNumCuenta";
-            this.txtNumCuenta.Size = new System.Drawing.Size(200, 20);
+            this.txtNumCuenta.Size = new System.Drawing.Size(164, 20);
             this.txtNumCuenta.TabIndex = 59;
             this.txtNumCuenta.Tag = "Nombre";
             // 
             // lblNumCuenta
             // 
             this.lblNumCuenta.AutoSize = true;
-            this.lblNumCuenta.Location = new System.Drawing.Point(8, 12);
+            this.lblNumCuenta.Location = new System.Drawing.Point(9, 15);
             this.lblNumCuenta.Name = "lblNumCuenta";
-            this.lblNumCuenta.Size = new System.Drawing.Size(95, 13);
+            this.lblNumCuenta.Size = new System.Drawing.Size(131, 13);
             this.lblNumCuenta.TabIndex = 58;
-            this.lblNumCuenta.Text = "Número de cuenta";
+            this.lblNumCuenta.Text = "Número de cuenta a crear";
             // 
             // lblTipoCuenta
             // 
@@ -128,7 +130,6 @@
             // comboPais
             // 
             this.comboPais.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboPais.Enabled = false;
             this.comboPais.FormattingEnabled = true;
             this.comboPais.Location = new System.Drawing.Point(109, 34);
             this.comboPais.Name = "comboPais";
@@ -159,11 +160,33 @@
             this.btnVolver.UseVisualStyleBackColor = true;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
+            // lblUsuario
+            // 
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Location = new System.Drawing.Point(24, 141);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(127, 13);
+            this.lblUsuario.TabIndex = 131;
+            this.lblUsuario.Text = "Asignar cuenta a usuario:";
+            this.lblUsuario.Visible = false;
+            // 
+            // comboUsuario
+            // 
+            this.comboUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboUsuario.FormattingEnabled = true;
+            this.comboUsuario.Location = new System.Drawing.Point(152, 138);
+            this.comboUsuario.Name = "comboUsuario";
+            this.comboUsuario.Size = new System.Drawing.Size(157, 21);
+            this.comboUsuario.TabIndex = 132;
+            this.comboUsuario.Visible = false;
+            // 
             // frmAltaEditCuenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(322, 220);
+            this.Controls.Add(this.comboUsuario);
+            this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.comboPais);
@@ -199,5 +222,7 @@
         private System.Windows.Forms.ComboBox comboPais;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnVolver;
+        private System.Windows.Forms.Label lblUsuario;
+        private System.Windows.Forms.ComboBox comboUsuario;
     }
 }

@@ -40,7 +40,7 @@ namespace PagoElectronico.ABM_Cliente
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             frmCrearCliente.operacion = 'A';
-            this.Hide();
+            this.Close();
             frmCrearCliente newCliente = new frmCrearCliente();
             newCliente.Show();
         }
@@ -66,7 +66,7 @@ namespace PagoElectronico.ABM_Cliente
                 frmCrearCliente.operacion = 'M';
                 DataGridViewRow row = this.gridCliente.SelectedRows[0];
                 frmCrearCliente.cli_id = row.Cells["numCliente"].Value.ToString();
-                this.Hide();
+                this.Close();
                 frmCrearCliente newCliente = new frmCrearCliente();
                 newCliente.Show();
             }

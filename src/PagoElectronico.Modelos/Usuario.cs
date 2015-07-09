@@ -20,10 +20,23 @@ namespace PagoElectronico.Modelos
 
         public Usuario() { }
 
+        public Usuario(string username)
+        {
+            this.username = username;
+        }
+
         public Usuario(string username, string rol)
         {
             this.username = username;
             this.rol = rol;
+        }
+
+        public string IDUsername
+        {
+            get
+            {
+                return username;
+            }
         }
 
         public override bool Equals(object obj)

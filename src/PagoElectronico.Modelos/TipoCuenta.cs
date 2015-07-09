@@ -23,7 +23,7 @@ namespace PagoElectronico.Modelos
             this.descripcion = descripcion;
         }
 
-        public string IDPais
+        public string IDTipoCuenta
         {
             get
             {
