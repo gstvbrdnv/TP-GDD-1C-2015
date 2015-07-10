@@ -174,8 +174,15 @@ namespace PagoElectronico.ABM_Cuenta
         {
             if (gridCuentas.SelectedRows.Count != 0)
             {
-                frmAltaEditCuenta.operacion = 'M';
                 DataGridViewRow row = this.gridCuentas.SelectedRows[0];
+                if (row.Cells["colEstado"].Value.ToString() == "Cerrada")
+                {
+                    MessageBox.Show("No se puede modificar una cuenta cerrada.",
+                        "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                frmAltaEditCuenta.operacion = 'M';
                 frmAltaEditCuenta.id_cuenta = row.Cells["numCuenta"].Value.ToString();
                 this.Close();
                 frmAltaEditCuenta newCuenta = new frmAltaEditCuenta();

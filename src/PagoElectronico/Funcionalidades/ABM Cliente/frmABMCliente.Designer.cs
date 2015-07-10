@@ -40,15 +40,15 @@
             this.lblApellido = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.gridCliente = new System.Windows.Forms.DataGridView();
-            this.btnNuevo = new System.Windows.Forms.Button();
-            this.btnModificar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnVolver = new System.Windows.Forms.Button();
             this.numCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSelect = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btnNuevo = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnVolver = new System.Windows.Forms.Button();
             this.groupBoxFiltros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridCliente)).BeginInit();
             this.SuspendLayout();
@@ -172,6 +172,39 @@
             this.gridCliente.Size = new System.Drawing.Size(618, 367);
             this.gridCliente.TabIndex = 1;
             // 
+            // numCliente
+            // 
+            this.numCliente.HeaderText = "Número de cliente";
+            this.numCliente.Name = "numCliente";
+            this.numCliente.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.numCliente.Width = 120;
+            // 
+            // colNombre
+            // 
+            this.colNombre.HeaderText = "Nombre";
+            this.colNombre.Name = "colNombre";
+            this.colNombre.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colNombre.Width = 120;
+            // 
+            // colApellido
+            // 
+            this.colApellido.HeaderText = "Apellido";
+            this.colApellido.Name = "colApellido";
+            this.colApellido.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colApellido.Width = 120;
+            // 
+            // colEstado
+            // 
+            this.colEstado.HeaderText = "Estado";
+            this.colEstado.Name = "colEstado";
+            // 
+            // colSelect
+            // 
+            this.colSelect.HeaderText = "Seleccionar";
+            this.colSelect.Name = "colSelect";
+            this.colSelect.ReadOnly = true;
+            this.colSelect.Width = 90;
+            // 
             // btnNuevo
             // 
             this.btnNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -219,39 +252,6 @@
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = true;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
-            // 
-            // numCliente
-            // 
-            this.numCliente.HeaderText = "Número de cliente";
-            this.numCliente.Name = "numCliente";
-            this.numCliente.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.numCliente.Width = 120;
-            // 
-            // colNombre
-            // 
-            this.colNombre.HeaderText = "Nombre";
-            this.colNombre.Name = "colNombre";
-            this.colNombre.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colNombre.Width = 120;
-            // 
-            // colApellido
-            // 
-            this.colApellido.HeaderText = "Apellido";
-            this.colApellido.Name = "colApellido";
-            this.colApellido.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.colApellido.Width = 120;
-            // 
-            // colEstado
-            // 
-            this.colEstado.HeaderText = "Estado";
-            this.colEstado.Name = "colEstado";
-            // 
-            // colSelect
-            // 
-            this.colSelect.HeaderText = "Seleccionar";
-            this.colSelect.Name = "colSelect";
-            this.colSelect.ReadOnly = true;
-            this.colSelect.Width = 90;
             // 
             // frmABMCliente
             // 

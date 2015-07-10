@@ -83,7 +83,7 @@ namespace PagoElectronico.Depositos
         private void cargarTarjetas()
         {
             //Obtener tarjetas sin vencer
-            string fecha = DateTime.Now.ToString();
+            DateTime fecha = DateTime.Now;
             var tarjetasCliente = DataBase.ExecuteReader("SELECT nro_tarjeta from NOLARECURSO.Tarjeta WHERE " +
                 "id_cli = '" + idCliente + "' AND fec_vto > '" + fecha + "' " +
                 "AND estado = 1");

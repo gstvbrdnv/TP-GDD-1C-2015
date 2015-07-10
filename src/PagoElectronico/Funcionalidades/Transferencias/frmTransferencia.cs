@@ -14,6 +14,7 @@ using PagoElectronico.Core;
 using System.Globalization;
 using System.Threading;
 using System.Configuration;
+using PagoElectronico.Data;
 
 namespace PagoElectronico.Transferencias
 {
@@ -133,18 +134,19 @@ namespace PagoElectronico.Transferencias
                 else
                 {
                     // Realizar transferencia
-                    // Descontar monto a la cuenta origen
-                    int debitarMonto = DataBase.ExecuteNonQuery("UPDATE NOLARECURSO.Cuenta SET saldo = saldo - " + montoDecimal.ToString() +
-                        "WHERE nro_cuenta = '" + comboOrigen.SelectedItem.ToString() + "'");
-                    // Acreditar monto a la cuenta destino
-                    int acreditarMonto = DataBase.ExecuteNonQuery("UPDATE NOLARECURSO.Cuenta SET saldo = saldo + " + montoDecimal.ToString() +
-                        "WHERE nro_cuenta = '" + txtDestino.Text.ToString() + "'");
-                    // Generar transferencia
-                    string fecha = Convert.ToDateTime(ConfigurationManager.AppSettings["FechaSistema"]).ToString();
-                    DataTable insertTransferencia = DataBase.ExecuteReader("INSERT INTO NOLARECURSO.Transferencia " +
-                        "(cta_origen, cta_destino, importe, fecha, costo) VALUES " +
-                        "('" + comboOrigen.SelectedItem.ToString() + "', '" + txtDestino.Text.ToString() + "', '" +
-                        montoDecimal.ToString() + "', '" + fecha + "', 0.00)");
+                    
+                    // Actualizar saldos / Generar pre-factura, comisión y transferencia
+                    DateTime fecha = Convert.ToDateTime(ConfigurationManager.AppSettings["FechaSistema"]);
+
+                    SqlDataAccess.ExecuteNonQuery(ConfigurationManager.ConnectionStrings["StringConexion"].ToString(),
+                    "NOLARECURSO.GenerarTransferencia", SqlDataAccessArgs
+                    .CreateWith("@ID_Cuenta_Origen", comboOrigen.SelectedItem.ToString())
+                           .And("@ID_Cuenta_Destino", txtDestino.Text)
+                           .And("@Fecha", fecha)
+                           .And("@Importe", montoDecimal)
+                           .And("@Costo", 0)
+                    .Arguments);
+
                     // Imprimir mensaje
                     MessageBox.Show("La transferencia ha sido realizada satisfactoriamente.\n\n" +
                         "Importe: U$S" + montoDecimal.ToString() + "\n" +
@@ -185,19 +187,19 @@ namespace PagoElectronico.Transferencias
                 else
                 {
                     // Realizar transferencia
-                    // Descontar monto a la cuenta origen
-                    decimal montoFinal = montoDecimal + costoFijo;
-                    int debitarMonto = DataBase.ExecuteNonQuery("UPDATE NOLARECURSO.Cuenta SET saldo = saldo - " + montoFinal.ToString() +
-                        "WHERE nro_cuenta = '" + comboOrigen.SelectedItem.ToString() + "'");
-                    // Acreditar monto a la cuenta destino
-                    int acreditarMonto = DataBase.ExecuteNonQuery("UPDATE NOLARECURSO.Cuenta SET saldo = saldo + " + montoDecimal.ToString() +
-                        "WHERE nro_cuenta = '" + txtDestino.Text.ToString() + "'");
-                    // Generar transferencia
-                    string fecha = Convert.ToDateTime(ConfigurationManager.AppSettings["FechaSistema"]).ToString();
-                    DataTable insertTransferencia = DataBase.ExecuteReader("INSERT INTO NOLARECURSO.Transferencia " +
-                        "(cta_origen, cta_destino, importe, fecha, costo) VALUES " +
-                        "('" + comboOrigen.SelectedItem.ToString() + "', '" + txtDestino.Text.ToString() + "', '" +
-                        montoDecimal.ToString() + "', '" + fecha + "', '" + costoFijo + "')");
+
+                    // Actualizar saldos / Generar pre-factura, comisión y transferencia
+                    DateTime fecha = Convert.ToDateTime(ConfigurationManager.AppSettings["FechaSistema"]);
+
+                    SqlDataAccess.ExecuteNonQuery(ConfigurationManager.ConnectionStrings["StringConexion"].ToString(),
+                    "NOLARECURSO.GenerarTransferencia", SqlDataAccessArgs
+                    .CreateWith("@ID_Cuenta_Origen", comboOrigen.SelectedItem.ToString())
+                           .And("@ID_Cuenta_Destino", txtDestino.Text)
+                           .And("@Fecha", fecha)
+                           .And("@Importe", montoDecimal)
+                           .And("@Costo", costoFijo)
+                    .Arguments);
+
                     // Imprimir mensaje
                     MessageBox.Show("La transferencia ha sido realizada satisfactoriamente.\n\n" +
                         "Importe: U$S" + montoDecimal.ToString() + "\n" +

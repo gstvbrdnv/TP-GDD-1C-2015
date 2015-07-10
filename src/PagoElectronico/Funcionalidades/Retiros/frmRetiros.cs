@@ -133,7 +133,7 @@ namespace PagoElectronico.Retiros
                 int debitarMonto = DataBase.ExecuteNonQuery("UPDATE NOLARECURSO.Cuenta SET saldo = saldo - " + montoDecimal.ToString() +
                     "WHERE nro_cuenta = '" + comboCuenta.SelectedItem.ToString() + "'");
 
-                string fecha = Convert.ToDateTime(ConfigurationManager.AppSettings["FechaSistema"]).ToString();
+                DateTime fecha = Convert.ToDateTime(ConfigurationManager.AppSettings["FechaSistema"]);
                 string idBanco = ((Banco)comboBanco.SelectedItem).IDBanco;
                 //MessageBox.Show(idBanco);
                 

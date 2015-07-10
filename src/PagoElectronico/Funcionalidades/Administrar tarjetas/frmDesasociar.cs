@@ -42,7 +42,7 @@ namespace PagoElectronico.Tarjetas
             //Obtener cliente
             int idCliente = DataBase.ExecuteCardinal("Select id_cli from NOLARECURSO.Usuario where username = '" + sessionUsername + "'");
             //Obtener tarjetas sin vencer
-            string fecha = DateTime.Now.ToString();
+            DateTime fecha = DateTime.Now;
             var tarjetasCliente = DataBase.ExecuteReader("SELECT nro_tarjeta from NOLARECURSO.Tarjeta WHERE " +
                 "id_cli = '" + idCliente + "' AND fec_vto > '" + fecha + "' " +
                 "AND estado = 1");
