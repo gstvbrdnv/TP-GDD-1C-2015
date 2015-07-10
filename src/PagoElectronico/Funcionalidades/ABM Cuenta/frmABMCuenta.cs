@@ -42,16 +42,31 @@ namespace PagoElectronico.ABM_Cuenta
             if (gridCuentas.SelectedRows.Count != 0)
             {
                 DataGridViewRow row = this.gridCuentas.SelectedRows[0];
-                if (MessageBox.Show(string.Format("Confirma que desea cerrar la cuenta {0}?", row.Cells["numCuenta"].Value.ToString()),
-                "Cerrar cuenta", MessageBoxButtons.OKCancel) == DialogResult.OK)
-                {
-                    SqlDataAccess.ExecuteNonQuery(ConfigurationManager.ConnectionStrings["StringConexion"].ToString(),
-                        "NOLARECURSO.CerrarCuenta", SqlDataAccessArgs
-                        .CreateWith("@ID_Cuenta", row.Cells["numCuenta"].Value.ToString())
-                    .Arguments);
+                var transacciones = SqlDataAccess.ExecuteDataTableQuery(ConfigurationManager.ConnectionStrings["StringConexion"].ToString(),
+                "NOLARECURSO.GetComisionesCuenta", SqlDataAccessArgs
+                        .CreateWith("@ID_CUENTA", row.Cells["numCuenta"].Value.ToString())
+                .Arguments);
 
-                    cargarCuentas();
-                    MessageBox.Show("La cuenta fue cerrada correctamente");
+                if (transacciones != null && transacciones.Rows != null)
+                {
+                    MessageBox.Show("Esta cuenta posee transacciones sin facturar, por favor procéselas para poder cerrar la cuenta.",
+                        "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+
+                }
+                else
+                {
+                    if (MessageBox.Show(string.Format("Confirma que desea cerrar la cuenta {0}?", row.Cells["numCuenta"].Value.ToString()),
+                    "Cerrar cuenta", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                    {
+                        SqlDataAccess.ExecuteNonQuery(ConfigurationManager.ConnectionStrings["StringConexion"].ToString(),
+                            "NOLARECURSO.CerrarCuenta", SqlDataAccessArgs
+                            .CreateWith("@ID_Cuenta", row.Cells["numCuenta"].Value.ToString())
+                        .Arguments);
+
+                        cargarCuentas();
+                        MessageBox.Show("La cuenta fue cerrada correctamente.");
+                    }
                 }
             }
             else MessageBox.Show("No seleccionó ninguna cuenta.");

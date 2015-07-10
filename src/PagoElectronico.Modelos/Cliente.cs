@@ -11,6 +11,7 @@ namespace PagoElectronico.Modelos
         public string email;
         public string nombre;
         public string apellido;
+        public string desc;
 
         public Cliente() { }
 
@@ -18,6 +19,18 @@ namespace PagoElectronico.Modelos
         {
             this.idCliente = idCliente;
             this.email = email;
+            this.nombre = nombre;
+            this.apellido = apellido;
+        }
+
+        public Cliente(string IDCliente)
+        {
+            this.idCliente = IDCliente;
+        }
+
+        public Cliente(string idCliente, string nombre, string apellido)
+        {
+            this.idCliente = idCliente;
             this.nombre = nombre;
             this.apellido = apellido;
         }
@@ -32,7 +45,7 @@ namespace PagoElectronico.Modelos
 
         public override string ToString()
         {
-            return apellido + ", " + nombre;
+            return apellido + ", " + nombre + " (" + idCliente + ")";
         }
 
         public override bool Equals(object obj)
