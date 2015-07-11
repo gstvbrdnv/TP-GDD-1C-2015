@@ -15,6 +15,7 @@ using PagoElectronico.Core;
 using System.Globalization;
 using System.Threading;
 using System.Configuration;
+using PagoElectronico.Funcionalidades.Facturacion;
 
 namespace PagoElectronico.Facturacion
 {
@@ -23,6 +24,7 @@ namespace PagoElectronico.Facturacion
         public static string sessionUsername;
         public static string sessionRol;
         Validador validador = Validador.Instance;
+        Validador validadorAbono = Validador.Instance;
 
         public frmFacturacion()
         {
@@ -30,8 +32,8 @@ namespace PagoElectronico.Facturacion
             sessionUsername = frmMain.sessionUsername;
             sessionRol = frmMain.sessionRol;
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(819, 708);
-            this.MinimumSize = new System.Drawing.Size(819, 708);
+            this.MaximumSize = new System.Drawing.Size(819, 442);
+            this.MinimumSize = new System.Drawing.Size(819, 442);
             this.ControlBox = false;
         }
 
@@ -54,7 +56,7 @@ namespace PagoElectronico.Facturacion
             validador.hayUnoSeleccionado("Cliente", comboCliente);
         }
 
-        private void btnCargar_Click(object sender, EventArgs e)
+        private void cargarTransCliente()
         {
             this.validarDatos();
             if (Validador.Instance.hayErrores())
@@ -81,8 +83,8 @@ namespace PagoElectronico.Facturacion
                 {
                     columnas[0] = row["id_cliente"];
                     columnas[1] = row["cliente"];
-                    columnas[2] = row["id_transaccion"];
-                    columnas[3] = row["id_cuenta"];
+                    columnas[2] = row["id_cuenta"];
+                    columnas[3] = row["id_transaccion"];
                     columnas[4] = row["descripcion"];
                     columnas[5] = row["importe"];
 
@@ -94,10 +96,16 @@ namespace PagoElectronico.Facturacion
             }
             else
             {
+                gridTransacciones.Rows.Clear();
                 MessageBox.Show("No hay transacciones pendientes de facturar para el cliente.",
                     "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+        }
+
+        private void btnCargar_Click(object sender, EventArgs e)
+        {
+            cargarTransCliente();
         }
 
         private void frmFacturacion_Load(object sender, EventArgs e)
@@ -120,7 +128,20 @@ namespace PagoElectronico.Facturacion
 
         private void btnFacturar_Click(object sender, EventArgs e)
         {
+            if (gridTransacciones.SelectedRows.Count != 0)
+            {
+                DataGridViewRow row = this.gridTransacciones.SelectedRows[0];
+                string idCliente = row.Cells["numCliente"].Value.ToString();
 
+                SqlDataAccess.ExecuteNonQuery(ConfigurationManager.ConnectionStrings["StringConexion"].ToString(),
+                    "NOLARECURSO.FacturarTransacciones", SqlDataAccessArgs
+                    .CreateWith("@ID_CLIENTE", idCliente)
+                .Arguments);
+
+                MessageBox.Show("Todas las transacciones han sido facturadas correctamente.");
+                gridTransacciones.Rows.Clear();
+            }
+            else MessageBox.Show("No hay transacciones para facturar.");
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -138,7 +159,7 @@ namespace PagoElectronico.Facturacion
 
         }
 
-        private void btnCargarMias_Click(object sender, EventArgs e)
+        private void cargarMias()
         {
             var Id_Cliente = SqlDataAccess.ExecuteScalarQuery<int>(ConfigurationManager.ConnectionStrings["StringConexion"].ToString(),
                 "NOLARECURSO.GetClienteUsuario", SqlDataAccessArgs
@@ -161,8 +182,8 @@ namespace PagoElectronico.Facturacion
                 {
                     columnas[0] = row["id_cliente"];
                     columnas[1] = row["cliente"];
-                    columnas[2] = row["id_transaccion"];
-                    columnas[3] = row["id_cuenta"];
+                    columnas[2] = row["id_cuenta"];
+                    columnas[3] = row["id_transaccion"];
                     columnas[4] = row["descripcion"];
                     columnas[5] = row["importe"];
 
@@ -174,16 +195,77 @@ namespace PagoElectronico.Facturacion
             }
             else
             {
+                gridTransacciones.Rows.Clear();
                 MessageBox.Show("No hay transacciones pendientes de facturar para el cliente.",
                     "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }
 
+        private void btnCargarMias_Click(object sender, EventArgs e)
+        {
+            cargarMias();
+        }
+
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            gridFacturas.Rows.Clear();
             gridTransacciones.Rows.Clear();
+        }
+
+        private void validarDatosAbono()
+        {
+            validadorAbono.estaVacioOEsNulo(txtCantSuscr);
+            validadorAbono.esNumerico(txtCantSuscr);
+        }
+
+        private void btnAbonar_Click(object sender, EventArgs e)
+        {
+            this.validarDatosAbono();
+            if (Validador.Instance.hayErrores())
+            {
+                Validador.Instance.mostrarErrores();
+                return;
+            }
+
+            if (gridTransacciones.SelectedRows.Count != 0)
+            {
+                DataGridViewRow row = this.gridTransacciones.SelectedRows[0];
+
+                var tipoCuenta = DataBase.ExecuteCardinal("SELECT id_tipo_cta from NOLARECURSO.Cuenta WHERE nro_cuenta = '" +
+                    row.Cells["numCuenta"].Value.ToString() + "'");
+
+                if (tipoCuenta == 4)
+                {
+                    MessageBox.Show("La cuenta seleccionada es de tipo gratuita.",
+                        "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else
+                {
+                    SqlDataAccess.ExecuteNonQuery(ConfigurationManager.ConnectionStrings["StringConexion"].ToString(),
+                    "NOLARECURSO.FacturarTransaccion", SqlDataAccessArgs
+                            .CreateWith("@ID_TRANSACCION", row.Cells["colTransaccion"].Value.ToString())
+                    .Arguments);
+
+                    SqlDataAccess.ExecuteNonQuery(ConfigurationManager.ConnectionStrings["StringConexion"].ToString(),
+                    "NOLARECURSO.AbonarSuscripcion", SqlDataAccessArgs
+                            .CreateWith("@ID_CUENTA", row.Cells["numCuenta"].Value.ToString())
+                            .And("@CANTIDAD_ABONOS", txtCantSuscr.Text)
+                    .Arguments);
+
+                    MessageBox.Show("Las suscripciones fueron abonadas correctamente.");
+
+                    if ((sessionRol == "1") || (sessionRol == "3"))
+                    {
+                        cargarTransCliente();
+                    }
+                    else
+                    {
+                        cargarMias();
+                    }
+                }
+            }
+            else MessageBox.Show("No se seleccionó ninguna cuenta.");
         }
     }
 }

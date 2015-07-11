@@ -104,6 +104,7 @@
             this.txtCliente.Name = "txtCliente";
             this.txtCliente.Size = new System.Drawing.Size(64, 20);
             this.txtCliente.TabIndex = 21;
+            this.txtCliente.Tag = "Cliente";
             // 
             // btnBuscar
             // 

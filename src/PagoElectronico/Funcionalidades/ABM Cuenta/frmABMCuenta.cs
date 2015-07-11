@@ -24,6 +24,7 @@ namespace PagoElectronico.ABM_Cuenta
     {
         public static string sessionUsername;
         public static string sessionRol;
+        Validador validador = Validador.Instance;
 
         public frmABMCuenta()
         {
@@ -86,7 +87,7 @@ namespace PagoElectronico.ABM_Cuenta
             txtNombre.Text = "";
             txtApellido.Text = "";
             txtEmail.Text = "";
-            txtIdCuenta.Text = "";
+            txtIdCliente.Text = "";
             gridCuentas.Rows.Clear();
         }
 
@@ -105,32 +106,33 @@ namespace PagoElectronico.ABM_Cuenta
 
                 foreach (DataRow row in cuentas.Rows)
                 {
-                        columnas[0] = row["nro_cuenta"];
-                        columnas[1] = row["cliente"];
-                        columnas[2] = row["estado"];
+                    columnas[0] = row["nro_cuenta"];
+                    columnas[1] = row["cliente"];
+                    columnas[2] = row["estado"];
 
-                        if (row["estado"].ToString() == "1")
-                        {
-                            columnas[2] = "Habilitada";
-                        }
-                        if (row["estado"].ToString() == "2")
-                        {
-                            columnas[2] = "Inhabilitada";
-                        }
-                        if (row["estado"].ToString() == "3")
-                        {
-                            columnas[2] = "Cerrada";
-                        }
-                        if (row["estado"].ToString() == "4")
-                        {
-                            columnas[2] = "Pendiente de activación";
-                        }
+                    if (row["estado"].ToString() == "1")
+                    {
+                        columnas[2] = "Habilitada";
+                    }
+                    if (row["estado"].ToString() == "2")
+                    {
+                        columnas[2] = "Inhabilitada";
+                    }
+                    if (row["estado"].ToString() == "3")
+                    {
+                        columnas[2] = "Cerrada";
+                    }
+                    if (row["estado"].ToString() == "4")
+                    {
+                        columnas[2] = "Pendiente de activación";
+                    }
 
-                        filas.Add(new DataGridViewRow());
-                        filas[filas.Count - 1].CreateCells(gridCuentas, columnas);
+                    filas.Add(new DataGridViewRow());
+                    filas[filas.Count - 1].CreateCells(gridCuentas, columnas);
                 }
 
                 gridCuentas.Rows.AddRange(filas.ToArray());
+                lblResultado.Text = (gridCuentas.Rows.Count - 1).ToString() + " resultados.";
             }
             else
             {
@@ -152,32 +154,33 @@ namespace PagoElectronico.ABM_Cuenta
 
                 foreach (DataRow row in cuentas.Rows)
                 {
-                        columnas[0] = row["nro_cuenta"];
-                        columnas[1] = row["cliente"];
-                        columnas[2] = row["estado"];
+                    columnas[0] = row["nro_cuenta"];
+                    columnas[1] = row["cliente"];
+                    columnas[2] = row["estado"];
 
-                        if (row["estado"].ToString() == "1")
-                        {
-                            columnas[2] = "Habilitada";
-                        }
-                        if (row["estado"].ToString() == "2")
-                        {
-                            columnas[2] = "Inhabilitada";
-                        }
-                        if (row["estado"].ToString() == "3")
-                        {
-                            columnas[2] = "Cerrada";
-                        }
-                        if (row["estado"].ToString() == "4")
-                        {
-                            columnas[2] = "Pendiente de activación";
-                        }
+                    if (row["estado"].ToString() == "1")
+                    {
+                        columnas[2] = "Habilitada";
+                    }
+                    if (row["estado"].ToString() == "2")
+                    {
+                        columnas[2] = "Inhabilitada";
+                    }
+                    if (row["estado"].ToString() == "3")
+                    {
+                        columnas[2] = "Cerrada";
+                    }
+                    if (row["estado"].ToString() == "4")
+                    {
+                        columnas[2] = "Pendiente de activación";
+                    }
 
-                        filas.Add(new DataGridViewRow());
-                        filas[filas.Count - 1].CreateCells(gridCuentas, columnas);
+                    filas.Add(new DataGridViewRow());
+                    filas[filas.Count - 1].CreateCells(gridCuentas, columnas);
                 }
 
                 gridCuentas.Rows.AddRange(filas.ToArray());
+                lblResultado.Text = (gridCuentas.Rows.Count - 1).ToString() + " resultados.";
             }
         }
 
@@ -208,6 +211,142 @@ namespace PagoElectronico.ABM_Cuenta
                 newCuenta.Show();
             }
             else MessageBox.Show("No seleccionó ninguna cuenta a modificar.");
+        }
+
+
+        private void validarDatos()
+        {
+            validador.esAlfabetico(txtNombre);
+            validador.esAlfabetico(txtApellido);
+            validador.esNumerico(txtIdCliente);
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            this.validarDatos();
+            if (Validador.Instance.hayErrores())
+            {
+                Validador.Instance.mostrarErrores();
+                return;
+            }
+
+            if ((sessionRol == "1") || (sessionRol == "3"))
+            {
+                string nombre = txtNombre.Text;
+                string apellido = txtApellido.Text;
+                string email = txtEmail.Text;
+                string numeroCliente = txtIdCliente.Text;
+
+                var cuentas = SqlDataAccess.ExecuteDataTableQuery(ConfigurationManager.ConnectionStrings["StringConexion"].ToString(),
+                "NOLARECURSO.FiltroCuentas", SqlDataAccessArgs
+                .CreateWith("@nombre", string.IsNullOrEmpty(txtNombre.Text) ? null : txtNombre.Text)
+                    .And("@apellido", string.IsNullOrEmpty(txtApellido.Text) ? null : txtApellido.Text)
+                    .And("@num_cli", string.IsNullOrEmpty(txtIdCliente.Text) ? null : txtIdCliente.Text)
+                    .And("@mail", string.IsNullOrEmpty(txtEmail.Text) ? null : txtEmail.Text)
+                .Arguments);
+
+                if (cuentas != null && cuentas.Rows != null)
+                {
+                    // Cargar las cuentas a la grilla
+                    gridCuentas.Rows.Clear();
+                    List<DataGridViewRow> filas = new List<DataGridViewRow>();
+                    //Object[] columnas = new Object[4];
+                    Object[] columnas = new Object[3];
+
+                    foreach (DataRow row in cuentas.Rows)
+                    {
+                        columnas[0] = row["nro_cuenta"];
+                        columnas[1] = row["cliente"];
+                        columnas[2] = row["descripcion"];
+                        /*
+                        if (row["estado"].ToString() == "1")
+                        {
+                            columnas[2] = "Habilitada";
+                        }
+                        if (row["estado"].ToString() == "2")
+                        {
+                            columnas[2] = "Inhabilitada";
+                        }
+                        if (row["estado"].ToString() == "3")
+                        {
+                            columnas[2] = "Cerrada";
+                        }
+                        if (row["estado"].ToString() == "4")
+                        {
+                            columnas[2] = "Pendiente de activación";
+                        }
+                        */
+                        filas.Add(new DataGridViewRow());
+                        filas[filas.Count - 1].CreateCells(gridCuentas, columnas);
+                    }
+
+                    gridCuentas.Rows.AddRange(filas.ToArray());
+                    lblResultado.Text = (gridCuentas.Rows.Count - 1).ToString() + " resultados.";
+                }
+                else
+                {
+                    MessageBox.Show("No se encontraron cuentas.",
+                        "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            else
+            {
+                var cuentas = SqlDataAccess.ExecuteDataTableQuery(ConfigurationManager.ConnectionStrings["StringConexion"].ToString(),
+                "NOLARECURSO.FiltroCuentasUsuario", SqlDataAccessArgs
+                .CreateWith("@nombre", string.IsNullOrEmpty(txtNombre.Text) ? null : txtNombre.Text)
+                    .And("@apellido", string.IsNullOrEmpty(txtApellido.Text) ? null : txtApellido.Text)
+                    .And("@num_cli", string.IsNullOrEmpty(txtIdCliente.Text) ? null : txtIdCliente.Text)
+                    .And("@mail", string.IsNullOrEmpty(txtEmail.Text) ? null : txtEmail.Text)
+                    .And("@username", sessionUsername)
+                .Arguments);
+
+                if (cuentas != null && cuentas.Rows != null)
+                {
+                    // Cargar las cuentas a la grilla
+                    gridCuentas.Rows.Clear();
+                    List<DataGridViewRow> filas = new List<DataGridViewRow>();
+                    //Object[] columnas = new Object[4];
+                    Object[] columnas = new Object[3];
+
+                    foreach (DataRow row in cuentas.Rows)
+                    {
+                        columnas[0] = row["nro_cuenta"];
+                        columnas[1] = row["cliente"];
+                        columnas[2] = row["descripcion"];
+                        /*
+                        if (row["estado"].ToString() == "1")
+                        {
+                            columnas[2] = "Habilitada";
+                        }
+                        if (row["estado"].ToString() == "2")
+                        {
+                            columnas[2] = "Inhabilitada";
+                        }
+                        if (row["estado"].ToString() == "3")
+                        {
+                            columnas[2] = "Cerrada";
+                        }
+                        if (row["estado"].ToString() == "4")
+                        {
+                            columnas[2] = "Pendiente de activación";
+                        }
+                        */
+                        filas.Add(new DataGridViewRow());
+                        filas[filas.Count - 1].CreateCells(gridCuentas, columnas);
+                    }
+
+                    gridCuentas.Rows.AddRange(filas.ToArray());
+                    lblResultado.Text = (gridCuentas.Rows.Count - 1).ToString() + " resultados.";
+                }
+                else
+                {
+                        MessageBox.Show("No se encontraron cuentas.",
+                            "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                }
+            }
+
         }
     }
 }

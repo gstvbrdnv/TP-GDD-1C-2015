@@ -23,8 +23,10 @@ namespace PagoElectronico.Tarjetas
         public static string sessionRol;
         Validador validador1 = Validador.Instance;
         Validador validador2 = Validador.Instance;
+        Validador validador3 = Validador.Instance;
         public static Cuenta cuenta;
         public static Tarjeta tarjeta;
+        int idCliente;
 
         public frmModificar()
         {
@@ -40,27 +42,53 @@ namespace PagoElectronico.Tarjetas
 
         private void cargarTarjetas()
         {
-            //Obtener cliente
-            int idCliente = DataBase.ExecuteCardinal("Select id_cli from NOLARECURSO.Usuario where username = '" + sessionUsername + "'");
-            
-            //Obtener tarjetas sin vencer
-            DateTime fecha = DateTime.Now;
-            var tarjetasCliente = DataBase.ExecuteReader("SELECT nro_tarjeta from NOLARECURSO.Tarjeta WHERE " +
-                "id_cli = '" + idCliente + "' AND fec_vto > '" + fecha + "' " +
-                "AND estado = 1");
-
-            foreach (DataRow dataRow in tarjetasCliente.Rows)
+            if (sessionRol == "2")
             {
-                tarjeta = new Tarjeta();
-                tarjeta.nro_tarjeta = dataRow["nro_tarjeta"].ToString();
-                comboTarjeta.Items.Add(tarjeta.nro_tarjeta);
-            }
+                //Obtener cliente
+                int idCliente = DataBase.ExecuteCardinal("Select id_cli from NOLARECURSO.Usuario where username = '" + sessionUsername + "'");
 
-            if (comboTarjeta.Items.Count == 0)
-            {
-                comboTarjeta.Enabled = false;
-                lblDisponible.Text = "(No hay tarjetas)";
+                //Obtener tarjetas sin vencer
+                DateTime fecha = DateTime.Now;
+                var tarjetasCliente = DataBase.ExecuteReader("SELECT nro_tarjeta from NOLARECURSO.Tarjeta WHERE " +
+                    "id_cli = '" + idCliente + "' AND fec_vto > '" + fecha + "' " +
+                    "AND estado = 1");
+
+                foreach (DataRow dataRow in tarjetasCliente.Rows)
+                {
+                    tarjeta = new Tarjeta();
+                    tarjeta.nro_tarjeta = dataRow["nro_tarjeta"].ToString();
+                    comboTarjeta.Items.Add(tarjeta.nro_tarjeta);
+                }
+
+                if (comboTarjeta.Items.Count == 0)
+                {
+                    comboTarjeta.Enabled = false;
+                    lblDisponible.Text = "(No hay tarjetas)";
+                }
             }
+        }
+
+        private void cargarTarjetas2()
+        {
+
+                //Obtener tarjetas sin vencer
+                DateTime fecha = DateTime.Now;
+                var tarjetasCliente = DataBase.ExecuteReader("SELECT nro_tarjeta from NOLARECURSO.Tarjeta WHERE " +
+                    "id_cli = '" + idCliente + "' AND fec_vto > '" + fecha + "' " +
+                    "AND estado = 1");
+
+                foreach (DataRow dataRow in tarjetasCliente.Rows)
+                {
+                    tarjeta = new Tarjeta();
+                    tarjeta.nro_tarjeta = dataRow["nro_tarjeta"].ToString();
+                    comboTarjeta.Items.Add(tarjeta.nro_tarjeta);
+                }
+
+                if (comboTarjeta.Items.Count == 0)
+                {
+                    comboTarjeta.Enabled = false;
+                    lblDisponible.Text = "(No hay tarjetas)";
+                }
         }
 
         private void frmDesasociar_Load(object sender, EventArgs e)
@@ -82,12 +110,12 @@ namespace PagoElectronico.Tarjetas
             validador1.hayUnoSeleccionado("Tarjeta", comboTarjeta);
         }
 
-        private void btnSeleccionar_Click(object sender, EventArgs e)
+        private void validarDatos2()
         {
+            foreach (Control control in Controls)
+            { if (control is TextBox) validador1.estaVacioOEsNulo((TextBox)control); }
 
-
-
-
+            validador2.esNumerico(txtCliente);
         }
 
         private void frmModificar_Load(object sender, EventArgs e)
@@ -99,6 +127,23 @@ namespace PagoElectronico.Tarjetas
         {
             cargarTarjetas();
             comboTarjeta.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            if (sessionRol == "1" || sessionRol == "3")
+            {
+                lblCliente.Visible = true;
+                txtCliente.Visible = true;
+                btnBuscar.Enabled = true;
+                btnBuscar.Visible = true;
+            }
+            else
+            {
+                lblCliente.Visible = false;
+                txtCliente.Enabled = false;
+                txtCliente.Visible = false;
+                btnBuscar.Enabled = false;
+                btnBuscar.Visible = false;
+                txtCliente.Text = idCliente.ToString();
+            }
         }
 
         private void btnSeleccionar_Click_1(object sender, EventArgs e)
@@ -111,8 +156,6 @@ namespace PagoElectronico.Tarjetas
             }
 
             dateTimePicker1.Enabled = true;
-            comboTarjeta.Enabled = false;
-            btnSeleccionar.Enabled = false;
             btnModificar.Enabled = true;
         }
 
@@ -140,6 +183,22 @@ namespace PagoElectronico.Tarjetas
             this.Hide();
             frmTarjetas nuevo = new frmTarjetas();
             nuevo.Show();
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            this.validarDatos2();
+            if (Validador.Instance.hayErrores())
+            {
+                Validador.Instance.mostrarErrores();
+                return;
+            }
+
+            comboTarjeta.Items.Clear();
+            comboTarjeta.ResetText();
+
+            idCliente = int.Parse(txtCliente.Text);
+            cargarTarjetas2();
         }
     }
 }

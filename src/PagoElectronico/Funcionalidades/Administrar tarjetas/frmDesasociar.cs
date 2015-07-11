@@ -42,25 +42,49 @@ namespace PagoElectronico.Tarjetas
         private void cargarTarjetas()
         {
             //Obtener cliente
-            int idCliente = DataBase.ExecuteCardinal("Select id_cli from NOLARECURSO.Usuario where username = '" + sessionUsername + "'");
-            //Obtener tarjetas sin vencer
-            DateTime fecha = DateTime.Now;
-            var tarjetasCliente = DataBase.ExecuteReader("SELECT nro_tarjeta from NOLARECURSO.Tarjeta WHERE " +
-                "id_cli = '" + idCliente + "' AND fec_vto > '" + fecha + "' " +
-                "AND estado = 1");
-
-            foreach (DataRow dataRow in tarjetasCliente.Rows)
+            if (sessionRol == "2")
             {
-                tarjeta = new Tarjeta();
-                tarjeta.nro_tarjeta = dataRow["nro_tarjeta"].ToString();
-                comboTarjeta.Items.Add(tarjeta.nro_tarjeta);
-            }
+                idCliente = DataBase.ExecuteCardinal("Select id_cli from NOLARECURSO.Usuario where username = '" + sessionUsername + "'");
+                //Obtener tarjetas sin vencer
+                DateTime fecha = DateTime.Now;
+                var tarjetasCliente = DataBase.ExecuteReader("SELECT nro_tarjeta from NOLARECURSO.Tarjeta WHERE " +
+                    "id_cli = '" + idCliente + "' AND fec_vto > '" + fecha + "' " +
+                    "AND estado = 1");
 
-            if (comboTarjeta.Items.Count == 0)
-            {
-                comboTarjeta.Enabled = false;
-                lblDisponible.Text = "(No hay tarjetas disponibles)";
+                foreach (DataRow dataRow in tarjetasCliente.Rows)
+                {
+                    tarjeta = new Tarjeta();
+                    tarjeta.nro_tarjeta = dataRow["nro_tarjeta"].ToString();
+                    comboTarjeta.Items.Add(tarjeta.nro_tarjeta);
+                }
+
+                if (comboTarjeta.Items.Count == 0)
+                {
+                    comboTarjeta.Enabled = false;
+                    lblDisponible.Text = "(No hay tarjetas disponibles)";
+                }
             }
+        }
+
+        private void cargarTarjetas2()
+        {
+                DateTime fecha = DateTime.Now;
+                var tarjetasCliente = DataBase.ExecuteReader("SELECT nro_tarjeta from NOLARECURSO.Tarjeta WHERE " +
+                    "id_cli = '" + idCliente + "' AND fec_vto > '" + fecha + "' " +
+                    "AND estado = 1");
+
+                foreach (DataRow dataRow in tarjetasCliente.Rows)
+                {
+                    tarjeta = new Tarjeta();
+                    tarjeta.nro_tarjeta = dataRow["nro_tarjeta"].ToString();
+                    comboTarjeta.Items.Add(tarjeta.nro_tarjeta);
+                }
+
+                if (comboTarjeta.Items.Count == 0)
+                {
+                    comboTarjeta.Enabled = false;
+                    lblDisponible.Text = "(No hay tarjetas disponibles)";
+                }
         }
 
         private void frmDesasociar_Load(object sender, EventArgs e)
@@ -152,8 +176,11 @@ namespace PagoElectronico.Tarjetas
                 return;
             }
 
+            comboTarjeta.Items.Clear();
+            comboTarjeta.ResetText();
+
             idCliente = int.Parse(txtCliente.Text);
-            cargarTarjetas();
+            cargarTarjetas2();
         }
     }
 }

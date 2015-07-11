@@ -42,19 +42,13 @@
             this.colImporte = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.btnFacturar = new System.Windows.Forms.Button();
-            this.gridFacturas = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.btnCargarMias = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnAbonar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.txtCantSuscr = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.gridTransacciones)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridFacturas)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -183,72 +177,13 @@
             // btnFacturar
             // 
             this.btnFacturar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFacturar.Location = new System.Drawing.Point(646, 347);
+            this.btnFacturar.Location = new System.Drawing.Point(646, 361);
             this.btnFacturar.Name = "btnFacturar";
             this.btnFacturar.Size = new System.Drawing.Size(145, 28);
             this.btnFacturar.TabIndex = 22;
             this.btnFacturar.Text = "Facturar todas";
             this.btnFacturar.UseVisualStyleBackColor = true;
             this.btnFacturar.Click += new System.EventHandler(this.btnFacturar_Click);
-            // 
-            // gridFacturas
-            // 
-            this.gridFacturas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridFacturas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6});
-            this.gridFacturas.Location = new System.Drawing.Point(19, 381);
-            this.gridFacturas.MultiSelect = false;
-            this.gridFacturas.Name = "gridFacturas";
-            this.gridFacturas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridFacturas.Size = new System.Drawing.Size(772, 277);
-            this.gridFacturas.TabIndex = 23;
-            this.gridFacturas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridFacturas_CellContentClick);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Cliente";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewTextBoxColumn1.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Nombre";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Cuenta";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 120;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Transaccion";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 120;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "Descripcion";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 220;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "Importe";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Width = 60;
             // 
             // label3
             // 
@@ -281,26 +216,45 @@
             this.label4.TabIndex = 26;
             this.label4.Text = "Cliente";
             // 
+            // btnAbonar
+            // 
+            this.btnAbonar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAbonar.Location = new System.Drawing.Point(453, 361);
+            this.btnAbonar.Name = "btnAbonar";
+            this.btnAbonar.Size = new System.Drawing.Size(145, 28);
+            this.btnAbonar.TabIndex = 28;
+            this.btnAbonar.Text = "Abonar suscripcion";
+            this.btnAbonar.UseVisualStyleBackColor = true;
+            this.btnAbonar.Click += new System.EventHandler(this.btnAbonar_Click);
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(17, 358);
+            this.label5.Location = new System.Drawing.Point(331, 353);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(221, 20);
-            this.label5.TabIndex = 27;
-            this.label5.Text = "FACTURAS GENERADAS";
+            this.label5.Size = new System.Drawing.Size(116, 13);
+            this.label5.TabIndex = 29;
+            this.label5.Text = "Cantidad suscripciones";
+            // 
+            // txtCantSuscr
+            // 
+            this.txtCantSuscr.Location = new System.Drawing.Point(334, 372);
+            this.txtCantSuscr.Name = "txtCantSuscr";
+            this.txtCantSuscr.Size = new System.Drawing.Size(113, 20);
+            this.txtCantSuscr.TabIndex = 30;
+            this.txtCantSuscr.Tag = "Cantidad suscripciones";
             // 
             // frmFacturacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(803, 670);
+            this.ClientSize = new System.Drawing.Size(803, 404);
+            this.Controls.Add(this.txtCantSuscr);
             this.Controls.Add(this.label5);
+            this.Controls.Add(this.btnAbonar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnCargarMias);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.gridFacturas);
             this.Controls.Add(this.btnFacturar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.gridTransacciones);
@@ -314,7 +268,6 @@
             this.Text = "Facturación";
             this.Load += new System.EventHandler(this.frmFacturacion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridTransacciones)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridFacturas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -336,16 +289,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colDesc;
         private System.Windows.Forms.DataGridViewTextBoxColumn colImporte;
         private System.Windows.Forms.Button btnFacturar;
-        private System.Windows.Forms.DataGridView gridFacturas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnCargarMias;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnAbonar;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtCantSuscr;
     }
 }

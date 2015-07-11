@@ -36,13 +36,16 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.lblDisponible = new System.Windows.Forms.Label();
             this.btnVolver = new System.Windows.Forms.Button();
+            this.lblCliente = new System.Windows.Forms.Label();
+            this.txtCliente = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblElegir
             // 
             this.lblElegir.AutoSize = true;
             this.lblElegir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblElegir.Location = new System.Drawing.Point(12, 9);
+            this.lblElegir.Location = new System.Drawing.Point(9, 51);
             this.lblElegir.Name = "lblElegir";
             this.lblElegir.Size = new System.Drawing.Size(152, 16);
             this.lblElegir.TabIndex = 0;
@@ -51,7 +54,7 @@
             // comboTarjeta
             // 
             this.comboTarjeta.FormattingEnabled = true;
-            this.comboTarjeta.Location = new System.Drawing.Point(12, 28);
+            this.comboTarjeta.Location = new System.Drawing.Point(12, 70);
             this.comboTarjeta.Name = "comboTarjeta";
             this.comboTarjeta.Size = new System.Drawing.Size(233, 21);
             this.comboTarjeta.TabIndex = 1;
@@ -60,7 +63,7 @@
             // btnSeleccionar
             // 
             this.btnSeleccionar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSeleccionar.Location = new System.Drawing.Point(148, 61);
+            this.btnSeleccionar.Location = new System.Drawing.Point(151, 97);
             this.btnSeleccionar.Name = "btnSeleccionar";
             this.btnSeleccionar.Size = new System.Drawing.Size(111, 36);
             this.btnSeleccionar.TabIndex = 2;
@@ -72,7 +75,7 @@
             // 
             this.lblElegirFecha.AutoSize = true;
             this.lblElegirFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblElegirFecha.Location = new System.Drawing.Point(12, 114);
+            this.lblElegirFecha.Location = new System.Drawing.Point(12, 136);
             this.lblElegirFecha.Name = "lblElegirFecha";
             this.lblElegirFecha.Size = new System.Drawing.Size(250, 16);
             this.lblElegirFecha.TabIndex = 3;
@@ -81,7 +84,7 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Enabled = false;
-            this.dateTimePicker1.Location = new System.Drawing.Point(15, 143);
+            this.dateTimePicker1.Location = new System.Drawing.Point(15, 155);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(244, 20);
             this.dateTimePicker1.TabIndex = 4;
@@ -119,11 +122,42 @@
             this.btnVolver.UseVisualStyleBackColor = true;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click_1);
             // 
+            // lblCliente
+            // 
+            this.lblCliente.AutoSize = true;
+            this.lblCliente.Location = new System.Drawing.Point(12, 20);
+            this.lblCliente.Name = "lblCliente";
+            this.lblCliente.Size = new System.Drawing.Size(39, 13);
+            this.lblCliente.TabIndex = 20;
+            this.lblCliente.Text = "Cliente";
+            // 
+            // txtCliente
+            // 
+            this.txtCliente.Location = new System.Drawing.Point(58, 17);
+            this.txtCliente.MaxLength = 8;
+            this.txtCliente.Name = "txtCliente";
+            this.txtCliente.Size = new System.Drawing.Size(67, 20);
+            this.txtCliente.TabIndex = 21;
+            this.txtCliente.Tag = "Cliente";
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(147, 12);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(88, 24);
+            this.btnBuscar.TabIndex = 22;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
             // frmModificar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(271, 229);
+            this.Controls.Add(this.btnBuscar);
+            this.Controls.Add(this.txtCliente);
+            this.Controls.Add(this.lblCliente);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.lblDisponible);
             this.Controls.Add(this.btnModificar);
@@ -151,5 +185,8 @@
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Label lblDisponible;
         private System.Windows.Forms.Button btnVolver;
+        private System.Windows.Forms.Label lblCliente;
+        private System.Windows.Forms.TextBox txtCliente;
+        private System.Windows.Forms.Button btnBuscar;
     }
 }

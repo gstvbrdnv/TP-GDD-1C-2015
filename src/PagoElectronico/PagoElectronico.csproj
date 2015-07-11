@@ -106,6 +106,12 @@
     <Compile Include="Funcionalidades\Depositos\frmDeposito.Designer.cs">
       <DependentUpon>frmDeposito.cs</DependentUpon>
     </Compile>
+    <Compile Include="Funcionalidades\Facturacion\frmAbonoSuscripcion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Funcionalidades\Facturacion\frmAbonoSuscripcion.Designer.cs">
+      <DependentUpon>frmAbonoSuscripcion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Funcionalidades\Facturacion\frmFacturacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Funcionalidades\Depositos\frmDeposito.resx">
       <DependentUpon>frmDeposito.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Funcionalidades\Facturacion\frmAbonoSuscripcion.resx">
+      <DependentUpon>frmAbonoSuscripcion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Funcionalidades\Facturacion\frmFacturacion.resx">
       <DependentUpon>frmFacturacion.cs</DependentUpon>

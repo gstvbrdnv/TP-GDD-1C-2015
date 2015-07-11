@@ -34,7 +34,7 @@
             this.groupBoxFiltros = new System.Windows.Forms.GroupBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
-            this.txtIdCuenta = new System.Windows.Forms.TextBox();
+            this.txtIdCliente = new System.Windows.Forms.TextBox();
             this.lblNroId = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtApellido = new System.Windows.Forms.TextBox();
@@ -48,6 +48,7 @@
             this.colEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSelect = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnVolver = new System.Windows.Forms.Button();
+            this.lblResultado = new System.Windows.Forms.Label();
             this.groupBoxFiltros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridCuentas)).BeginInit();
             this.SuspendLayout();
@@ -92,7 +93,7 @@
             // 
             this.groupBoxFiltros.Controls.Add(this.btnBuscar);
             this.groupBoxFiltros.Controls.Add(this.btnLimpiar);
-            this.groupBoxFiltros.Controls.Add(this.txtIdCuenta);
+            this.groupBoxFiltros.Controls.Add(this.txtIdCliente);
             this.groupBoxFiltros.Controls.Add(this.lblNroId);
             this.groupBoxFiltros.Controls.Add(this.txtEmail);
             this.groupBoxFiltros.Controls.Add(this.txtApellido);
@@ -115,6 +116,7 @@
             this.btnBuscar.TabIndex = 11;
             this.btnBuscar.Text = "Filtrar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnLimpiar
             // 
@@ -126,12 +128,12 @@
             this.btnLimpiar.UseVisualStyleBackColor = true;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
-            // txtIdCuenta
+            // txtIdCliente
             // 
-            this.txtIdCuenta.Location = new System.Drawing.Point(315, 19);
-            this.txtIdCuenta.Name = "txtIdCuenta";
-            this.txtIdCuenta.Size = new System.Drawing.Size(150, 20);
-            this.txtIdCuenta.TabIndex = 9;
+            this.txtIdCliente.Location = new System.Drawing.Point(315, 19);
+            this.txtIdCliente.Name = "txtIdCliente";
+            this.txtIdCliente.Size = new System.Drawing.Size(150, 20);
+            this.txtIdCliente.TabIndex = 9;
             // 
             // lblNroId
             // 
@@ -202,7 +204,7 @@
             this.gridCuentas.MultiSelect = false;
             this.gridCuentas.Name = "gridCuentas";
             this.gridCuentas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridCuentas.Size = new System.Drawing.Size(618, 367);
+            this.gridCuentas.Size = new System.Drawing.Size(618, 363);
             this.gridCuentas.TabIndex = 9;
             // 
             // numCuenta
@@ -244,11 +246,21 @@
             this.btnVolver.UseVisualStyleBackColor = true;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
+            // lblResultado
+            // 
+            this.lblResultado.AutoSize = true;
+            this.lblResultado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblResultado.Location = new System.Drawing.Point(19, 524);
+            this.lblResultado.Name = "lblResultado";
+            this.lblResultado.Size = new System.Drawing.Size(0, 16);
+            this.lblResultado.TabIndex = 120;
+            // 
             // frmABMCuenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(643, 550);
+            this.Controls.Add(this.lblResultado);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.gridCuentas);
             this.Controls.Add(this.groupBoxFiltros);
@@ -263,6 +275,7 @@
             this.groupBoxFiltros.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridCuentas)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -274,7 +287,7 @@
         private System.Windows.Forms.GroupBox groupBoxFiltros;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnLimpiar;
-        private System.Windows.Forms.TextBox txtIdCuenta;
+        private System.Windows.Forms.TextBox txtIdCliente;
         private System.Windows.Forms.Label lblNroId;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtApellido;
@@ -288,5 +301,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEstado;
         private System.Windows.Forms.DataGridViewButtonColumn colSelect;
+        private System.Windows.Forms.Label lblResultado;
     }
 }
