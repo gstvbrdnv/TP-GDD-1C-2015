@@ -48,14 +48,10 @@ namespace PagoElectronico.Facturacion
                 comboCliente.Items.Add(new Cliente(idCliente, nombre, apellido));
             }
         }
+
         private void validarDatos()
         {
             validador.hayUnoSeleccionado("Cliente", comboCliente);
-        }
-
-        private void cargarTransacciones()
-        {
-
         }
 
         private void btnCargar_Click(object sender, EventArgs e)

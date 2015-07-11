@@ -31,7 +31,7 @@
             this.groupBoxFiltros = new System.Windows.Forms.GroupBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
-            this.txtNroId = new System.Windows.Forms.TextBox();
+            this.txtIdCliente = new System.Windows.Forms.TextBox();
             this.lblNroId = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtApellido = new System.Windows.Forms.TextBox();
@@ -49,6 +49,8 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnVolver = new System.Windows.Forms.Button();
+            this.btnTarjetas = new System.Windows.Forms.Button();
+            this.lblResultados = new System.Windows.Forms.Label();
             this.groupBoxFiltros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridCliente)).BeginInit();
             this.SuspendLayout();
@@ -57,7 +59,7 @@
             // 
             this.groupBoxFiltros.Controls.Add(this.btnBuscar);
             this.groupBoxFiltros.Controls.Add(this.btnLimpiar);
-            this.groupBoxFiltros.Controls.Add(this.txtNroId);
+            this.groupBoxFiltros.Controls.Add(this.txtIdCliente);
             this.groupBoxFiltros.Controls.Add(this.lblNroId);
             this.groupBoxFiltros.Controls.Add(this.txtEmail);
             this.groupBoxFiltros.Controls.Add(this.txtApellido);
@@ -92,17 +94,18 @@
             this.btnLimpiar.UseVisualStyleBackColor = true;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click_1);
             // 
-            // txtNroId
+            // txtIdCliente
             // 
-            this.txtNroId.Location = new System.Drawing.Point(315, 19);
-            this.txtNroId.Name = "txtNroId";
-            this.txtNroId.Size = new System.Drawing.Size(150, 20);
-            this.txtNroId.TabIndex = 9;
+            this.txtIdCliente.Location = new System.Drawing.Point(315, 19);
+            this.txtIdCliente.Name = "txtIdCliente";
+            this.txtIdCliente.Size = new System.Drawing.Size(64, 20);
+            this.txtIdCliente.TabIndex = 9;
+            this.txtIdCliente.Tag = "ID Cliente";
             // 
             // lblNroId
             // 
             this.lblNroId.AutoSize = true;
-            this.lblNroId.Location = new System.Drawing.Point(216, 22);
+            this.lblNroId.Location = new System.Drawing.Point(216, 23);
             this.lblNroId.Name = "lblNroId";
             this.lblNroId.Size = new System.Drawing.Size(93, 13);
             this.lblNroId.TabIndex = 8;
@@ -112,8 +115,9 @@
             // 
             this.txtEmail.Location = new System.Drawing.Point(315, 49);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(150, 20);
+            this.txtEmail.Size = new System.Drawing.Size(188, 20);
             this.txtEmail.TabIndex = 5;
+            this.txtEmail.Tag = "Email";
             // 
             // txtApellido
             // 
@@ -121,6 +125,7 @@
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(150, 20);
             this.txtApellido.TabIndex = 4;
+            this.txtApellido.Tag = "Apellido";
             // 
             // txtNombre
             // 
@@ -128,6 +133,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(150, 20);
             this.txtNombre.TabIndex = 3;
+            this.txtNombre.Tag = "Cliente";
             // 
             // lblEmail
             // 
@@ -253,11 +259,33 @@
             this.btnVolver.UseVisualStyleBackColor = true;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
+            // btnTarjetas
+            // 
+            this.btnTarjetas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTarjetas.Location = new System.Drawing.Point(378, 12);
+            this.btnTarjetas.Name = "btnTarjetas";
+            this.btnTarjetas.Size = new System.Drawing.Size(137, 31);
+            this.btnTarjetas.TabIndex = 119;
+            this.btnTarjetas.Text = "Administrar tarjetas";
+            this.btnTarjetas.UseVisualStyleBackColor = true;
+            this.btnTarjetas.Click += new System.EventHandler(this.btnTarjetas_Click);
+            // 
+            // lblResultados
+            // 
+            this.lblResultados.AutoSize = true;
+            this.lblResultados.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblResultados.Location = new System.Drawing.Point(12, 538);
+            this.lblResultados.Name = "lblResultados";
+            this.lblResultados.Size = new System.Drawing.Size(0, 16);
+            this.lblResultados.TabIndex = 120;
+            // 
             // frmABMCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(642, 538);
+            this.ClientSize = new System.Drawing.Size(642, 563);
+            this.Controls.Add(this.lblResultados);
+            this.Controls.Add(this.btnTarjetas);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
@@ -272,6 +300,7 @@
             this.groupBoxFiltros.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridCliente)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -285,7 +314,7 @@
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblApellido;
         private System.Windows.Forms.Label lblNombre;
-        private System.Windows.Forms.TextBox txtNroId;
+        private System.Windows.Forms.TextBox txtIdCliente;
         private System.Windows.Forms.Label lblNroId;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnLimpiar;
@@ -298,5 +327,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colApellido;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEstado;
         private System.Windows.Forms.DataGridViewButtonColumn colSelect;
+        private System.Windows.Forms.Button btnTarjetas;
+        private System.Windows.Forms.Label lblResultados;
     }
 }

@@ -30,6 +30,10 @@ namespace PagoElectronico.ABM_Cuenta
             InitializeComponent();
             sessionUsername = frmMain.sessionUsername;
             sessionRol = frmMain.sessionRol;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(659, 588);
+            this.MinimumSize = new System.Drawing.Size(659, 588);
+            this.ControlBox = false;
         }
 
         private void frmABMCuenta_Load(object sender, EventArgs e)

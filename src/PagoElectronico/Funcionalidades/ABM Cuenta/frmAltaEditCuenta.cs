@@ -246,5 +246,12 @@ namespace PagoElectronico.Funcionalidades.ABM_Cuenta
             newABM.Show();
         }
 
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            comboPais.SelectedIndex = -1;
+            comboTipoCuenta.SelectedIndex = -1;
+            comboUsuario.SelectedIndex = -1;
+        }
+
     }
 }

@@ -148,7 +148,7 @@ namespace PagoElectronico.ABM_Rol
                     MessageBox.Show("El rol fue dado de baja correctamente.");
                 }
             }
-            else MessageBox.Show("No seleccionó ningun rol a modificar.");
+            else MessageBox.Show("No seleccionó ningun rol.");
         }
     }
 }

@@ -43,11 +43,11 @@
             this.lblApellido = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.gridCuentas = new System.Windows.Forms.DataGridView();
-            this.btnVolver = new System.Windows.Forms.Button();
             this.numCuenta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSelect = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btnVolver = new System.Windows.Forms.Button();
             this.groupBoxFiltros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridCuentas)).BeginInit();
             this.SuspendLayout();
@@ -205,18 +205,6 @@
             this.gridCuentas.Size = new System.Drawing.Size(618, 367);
             this.gridCuentas.TabIndex = 9;
             // 
-            // btnVolver
-            // 
-            this.btnVolver.ForeColor = System.Drawing.Color.Black;
-            this.btnVolver.Location = new System.Drawing.Point(570, 11);
-            this.btnVolver.Margin = new System.Windows.Forms.Padding(2);
-            this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(60, 22);
-            this.btnVolver.TabIndex = 119;
-            this.btnVolver.Text = "Volver";
-            this.btnVolver.UseVisualStyleBackColor = true;
-            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
-            // 
             // numCuenta
             // 
             this.numCuenta.HeaderText = "Número de cuenta";
@@ -244,11 +232,23 @@
             this.colSelect.ReadOnly = true;
             this.colSelect.Width = 90;
             // 
+            // btnVolver
+            // 
+            this.btnVolver.ForeColor = System.Drawing.Color.Black;
+            this.btnVolver.Location = new System.Drawing.Point(570, 11);
+            this.btnVolver.Margin = new System.Windows.Forms.Padding(2);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(60, 22);
+            this.btnVolver.TabIndex = 119;
+            this.btnVolver.Text = "Volver";
+            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            // 
             // frmABMCuenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(643, 528);
+            this.ClientSize = new System.Drawing.Size(643, 550);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.gridCuentas);
             this.Controls.Add(this.groupBoxFiltros);

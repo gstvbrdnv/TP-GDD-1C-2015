@@ -54,7 +54,7 @@ namespace PagoElectronico.Tarjetas
             validador.esNumeroTarjetaCorrecta(txtNumTarjeta);
             validador.yaExisteLaTarjeta(txtNumTarjeta);
             validador.esFechaMenor(fechaEmision, fechaVencimiento);
-
+            validador.esNumerico(txtCliente);
         }
 
         private void cargarEmisorTarjeta()
@@ -112,21 +112,43 @@ namespace PagoElectronico.Tarjetas
             //MessageBox.Show(encrypterSecurityCode);
             DateTime fecha = fechaEmision.Value;
             DateTime fechaV = fechaVencimiento.Value;
-            // Crear registro en la tabla Tarjeta
-            DataTable insertDeposito = DataBase.ExecuteReader("INSERT INTO NOLARECURSO.Tarjeta " +
-                "(nro_tarjeta, id_emisor, fec_emision, fec_vto, cod_seguridad, id_cli, estado) VALUES ('" +
-                txtNumTarjeta.Text.ToString() + "', '" + idEmisor + "', '" + fecha + "', '" +
-                fechaV + "', '" + encrypterSecurityCode +
-                "', '" + idCliente + "', '1')");
 
-            // Imprimir mensaje
-            MessageBox.Show("La tarjeta ha sido asociada satisfactoriamente.\n\n" +
-                "Número de tarjeta: " + txtNumTarjeta.Text + "\n" +
-                "Emisor: " + idEmisor.ToString() + "\n" +
-                "Fecha de emisión: " + fechaEmision.Value.ToString() + "\n" +
-                "Fecha de vencimiento : " + fechaVencimiento.Value.ToString() + "\n" +
-                "Código de seguridad: " + txtCodigoSeguridad.Text + "\n\n",
-                "", MessageBoxButtons.OK);
+            if (sessionRol == "1" || sessionRol == "3")
+            {
+                // Crear registro en la tabla Tarjeta para cliente que especifica admin
+                DataTable insertTarjeta = DataBase.ExecuteReader("INSERT INTO NOLARECURSO.Tarjeta " +
+                    "(nro_tarjeta, id_emisor, fec_emision, fec_vto, cod_seguridad, id_cli, estado) VALUES ('" +
+                    txtNumTarjeta.Text.ToString() + "', '" + idEmisor + "', '" + fecha + "', '" +
+                    fechaV + "', '" + encrypterSecurityCode +
+                    "', '" + txtCliente.Text + "', '1')");
+
+                // Imprimir mensaje
+                MessageBox.Show("La tarjeta ha sido asociada satisfactoriamente.\n\n" +
+                    "Número de tarjeta: " + txtNumTarjeta.Text + "\n" +
+                    "Emisor: " + idEmisor.ToString() + "\n" +
+                    "Fecha de emisión: " + fechaEmision.Value.ToString() + "\n" +
+                    "Fecha de vencimiento : " + fechaVencimiento.Value.ToString() + "\n" +
+                    "Código de seguridad: " + txtCodigoSeguridad.Text + "\n\n",
+                    "", MessageBoxButtons.OK);
+            }
+            else
+            {
+                // Crear registro en la tabla Tarjeta para cliente
+                DataTable insertTarjeta = DataBase.ExecuteReader("INSERT INTO NOLARECURSO.Tarjeta " +
+                    "(nro_tarjeta, id_emisor, fec_emision, fec_vto, cod_seguridad, id_cli, estado) VALUES ('" +
+                    txtNumTarjeta.Text.ToString() + "', '" + idEmisor + "', '" + fecha + "', '" +
+                    fechaV + "', '" + encrypterSecurityCode +
+                    "', '" + idCliente + "', '1')");
+
+                // Imprimir mensaje
+                MessageBox.Show("La tarjeta ha sido asociada satisfactoriamente.\n\n" +
+                    "Número de tarjeta: " + txtNumTarjeta.Text + "\n" +
+                    "Emisor: " + idEmisor.ToString() + "\n" +
+                    "Fecha de emisión: " + fechaEmision.Value.ToString() + "\n" +
+                    "Fecha de vencimiento : " + fechaVencimiento.Value.ToString() + "\n" +
+                    "Código de seguridad: " + txtCodigoSeguridad.Text + "\n\n",
+                    "", MessageBoxButtons.OK);
+            }
             this.Close();
             frmTarjetas newOpcion = new frmTarjetas();
             newOpcion.Show();
@@ -149,6 +171,19 @@ namespace PagoElectronico.Tarjetas
         {
             cargarEmisorTarjeta();
             comboEmisor.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            if (sessionRol == "1" || sessionRol == "3")
+            {
+                lblCliente.Visible = true;
+                txtCliente.Visible = true;
+            }
+            else
+            {
+                lblCliente.Visible = false;
+                txtCliente.Enabled = false;
+                txtCliente.Visible = false;
+                txtCliente.Text = idCliente.ToString();
+            }
         }
 
         private void btnAceptar_Click_1(object sender, EventArgs e)

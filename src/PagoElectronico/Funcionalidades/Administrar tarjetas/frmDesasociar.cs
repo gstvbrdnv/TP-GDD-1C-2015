@@ -21,9 +21,11 @@ namespace PagoElectronico.Tarjetas
     {
         public static string sessionUsername;
         public static string sessionRol;
-        Validador validador = Validador.Instance;
+        Validador validador1 = Validador.Instance;
+        Validador validador2 = Validador.Instance;
         public static Cuenta cuenta;
         public static Tarjeta tarjeta;
+        int idCliente;
 
         public frmDesasociar()
         {
@@ -65,6 +67,26 @@ namespace PagoElectronico.Tarjetas
         {
             comboTarjeta.DropDownStyle = ComboBoxStyle.DropDownList;
             cargarTarjetas();
+
+            idCliente = DataBase.ExecuteCardinal("Select id_cli from NOLARECURSO.Usuario where username = '" +
+            sessionUsername + "'");
+
+            if (sessionRol == "1" || sessionRol == "3")
+            {
+                lblCliente.Visible = true;
+                txtCliente.Visible = true;
+                btnBuscar.Enabled = true;
+                btnBuscar.Visible = true;
+            }
+            else
+            {
+                lblCliente.Visible = false;
+                txtCliente.Enabled = false;
+                txtCliente.Visible = false;
+                btnBuscar.Enabled = false;
+                btnBuscar.Visible = false;
+                txtCliente.Text = idCliente.ToString();
+            }
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -77,9 +99,18 @@ namespace PagoElectronico.Tarjetas
         private void validarDatos()
         {
             foreach (Control control in Controls)
-            { if (control is TextBox) validador.estaVacioOEsNulo((TextBox)control); }
+            { if (control is TextBox) validador1.estaVacioOEsNulo((TextBox)control); }
 
-            validador.hayUnoSeleccionado("Tarjeta", comboTarjeta);
+            validador1.hayUnoSeleccionado("Tarjeta", comboTarjeta);
+            validador1.esNumerico(txtCliente);
+        }
+
+        private void validarDatos2()
+        {
+            foreach (Control control in Controls)
+            { if (control is TextBox) validador2.estaVacioOEsNulo((TextBox)control); }
+
+            validador2.esNumerico(txtCliente);
         }
 
         private void btnDesasociar_Click(object sender, EventArgs e)
@@ -110,6 +141,19 @@ namespace PagoElectronico.Tarjetas
                 newOpcionesTarjetas.Show();
 
             }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            this.validarDatos2();
+            if (Validador.Instance.hayErrores())
+            {
+                Validador.Instance.mostrarErrores();
+                return;
+            }
+
+            idCliente = int.Parse(txtCliente.Text);
+            cargarTarjetas();
         }
     }
 }

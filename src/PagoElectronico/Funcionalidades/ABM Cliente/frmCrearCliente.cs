@@ -27,6 +27,9 @@ namespace PagoElectronico.Funcionalidades.ABM_Cliente
         public static char operacion;
         public static string cli_id;
         public static string estado;
+        public static string paisID;
+        public static string tipoDocID;
+        public static string estadoID;
 
         public frmCrearCliente()
         {
@@ -63,10 +66,33 @@ namespace PagoElectronico.Funcionalidades.ABM_Cliente
                         txtDepto.Text = row["dir_dpto"].ToString();
                         txtLocalidad.Text = row["localidad"].ToString();
                         txtTelefono.Text = row["telefono"].ToString();
+                        paisID = row["id_pais"].ToString();
+                        estadoID = row["estado"].ToString();
+                        tipoDocID = row["id_tipo_doc"].ToString();
                         //dtFechaNacimiento.Value.Year = getyear(row["fec_nacimiento"].ToString());
-
                     }
                 }
+
+                var paisDESC = SqlDataAccess.ExecuteScalarQuery<string>(ConfigurationManager.ConnectionStrings["StringConexion"].ToString(),
+                            "NOLARECURSO.GetDescripcionPais", SqlDataAccessArgs
+                            .CreateWith("@ID_PAIS", paisID).Arguments);
+
+                var tipodocDESC = SqlDataAccess.ExecuteScalarQuery<string>(ConfigurationManager.ConnectionStrings["StringConexion"].ToString(),
+                                    "NOLARECURSO.GetTipoDocDescripcion", SqlDataAccessArgs
+                                    .CreateWith("@ID_TIPO_DOC", tipoDocID).Arguments);
+
+                if (estadoID == "1")
+                {
+                    comboEstado.SelectedIndex = 0;
+                }
+                else
+                {
+                    comboEstado.SelectedIndex = 1;
+                }
+
+                comboPais.SelectedIndex = comboPais.FindString(paisDESC);
+                comboNacionalidad.SelectedIndex = comboNacionalidad.FindStringExact(paisDESC);
+                comboTipoDocumento.SelectedIndex = comboTipoDocumento.FindStringExact(tipodocDESC);
             }
         }
 
@@ -119,6 +145,10 @@ namespace PagoElectronico.Funcionalidades.ABM_Cliente
             this.txtPiso.Text = "";
             this.txtDepto.Text = "";
             this.txtTelefono.Text = "";
+            comboPais.SelectedIndex = -1;
+            comboNacionalidad.SelectedIndex = -1;
+            comboEstado.SelectedIndex = -1;
+            comboTipoDocumento.SelectedIndex = -1;
         }
 
         private void validarDatos()

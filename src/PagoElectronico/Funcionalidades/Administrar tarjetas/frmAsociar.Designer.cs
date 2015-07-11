@@ -41,6 +41,8 @@
             this.lblCod = new System.Windows.Forms.Label();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnVolver = new System.Windows.Forms.Button();
+            this.lblCliente = new System.Windows.Forms.Label();
+            this.txtCliente = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // comboEmisor
@@ -149,18 +151,18 @@
             // btnAceptar
             // 
             this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAceptar.Location = new System.Drawing.Point(17, 209);
+            this.btnAceptar.Location = new System.Drawing.Point(15, 221);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(110, 32);
             this.btnAceptar.TabIndex = 6;
             this.btnAceptar.Text = "Asociar";
             this.btnAceptar.UseVisualStyleBackColor = true;
-            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click_1);
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // btnVolver
             // 
             this.btnVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVolver.Location = new System.Drawing.Point(316, 217);
+            this.btnVolver.Location = new System.Drawing.Point(316, 229);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(86, 24);
             this.btnVolver.TabIndex = 17;
@@ -169,11 +171,32 @@
             this.btnVolver.UseVisualStyleBackColor = true;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click_1);
             // 
+            // lblCliente
+            // 
+            this.lblCliente.AutoSize = true;
+            this.lblCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCliente.Location = new System.Drawing.Point(12, 183);
+            this.lblCliente.Name = "lblCliente";
+            this.lblCliente.Size = new System.Drawing.Size(117, 16);
+            this.lblCliente.TabIndex = 18;
+            this.lblCliente.Text = "Número de cliente";
+            // 
+            // txtCliente
+            // 
+            this.txtCliente.Location = new System.Drawing.Point(186, 181);
+            this.txtCliente.MaxLength = 8;
+            this.txtCliente.Name = "txtCliente";
+            this.txtCliente.Size = new System.Drawing.Size(72, 20);
+            this.txtCliente.TabIndex = 19;
+            this.txtCliente.Tag = "Cliente";
+            // 
             // frmAsociar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(419, 265);
+            this.Controls.Add(this.txtCliente);
+            this.Controls.Add(this.lblCliente);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.lblCod);
@@ -211,5 +234,7 @@
         private System.Windows.Forms.Label lblCod;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnVolver;
+        private System.Windows.Forms.Label lblCliente;
+        private System.Windows.Forms.TextBox txtCliente;
     }
 }

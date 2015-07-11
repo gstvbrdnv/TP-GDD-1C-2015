@@ -42,6 +42,7 @@
             this.btnVolver = new System.Windows.Forms.Button();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.comboUsuario = new System.Windows.Forms.ComboBox();
+            this.btnLimpiar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbPais
@@ -180,11 +181,24 @@
             this.comboUsuario.TabIndex = 132;
             this.comboUsuario.Visible = false;
             // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.ForeColor = System.Drawing.Color.Black;
+            this.btnLimpiar.Location = new System.Drawing.Point(176, 185);
+            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(60, 22);
+            this.btnLimpiar.TabIndex = 133;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
             // frmAltaEditCuenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(322, 220);
+            this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.comboUsuario);
             this.Controls.Add(this.lblUsuario);
             this.Controls.Add(this.btnVolver);
@@ -224,5 +238,6 @@
         private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.ComboBox comboUsuario;
+        private System.Windows.Forms.Button btnLimpiar;
     }
 }
